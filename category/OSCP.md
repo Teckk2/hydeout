@@ -5,21 +5,4 @@ title: OSCP
 
 This page is to offere my review on OSCP Certification
 
-```md
----
-layout: category
-title: My Category
----
-```
-
-Or ...
-
-```md
----
-layout: category
-title: Fancy Title
-category: My Category
----
-```
-
-Posts get listed below here.
+Chek my review on [OSCP from Noob to pro](https://teckk2.github.io/2017/12/12/OSCP.html)
