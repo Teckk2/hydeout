@@ -4,8 +4,8 @@ highlighter:      rouge
 
 # Setup
 title:            Teck_k2
-tagline:          'A Jekyll theme'
-description:      'The <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, refreshed.'
+tagline:          'Teck_k2'
+#description:      'The <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, refreshed.'
 url:              https://teckk2.github.io/
 baseurl:          # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
@@ -27,11 +27,11 @@ plugins:
   - jekyll-paginate
 
 # Custom vars
-version:            3.4.1
+#version:            3.4.1
 sidebar_home_link:  true
 # sidebar_blog_link:  '/blog'   # By default, your home page is your blog
                                 # page. If you change your paginate_path,
                                 # set this to the root of the paginate_path
                                 # to enable a separate blog link.
-github:
-  repo:             https://github.com/fongandrew/hydeout
+#github:
+ # repo:             https://github.com/fongandrew/hydeout
