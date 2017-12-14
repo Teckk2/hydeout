@@ -4,7 +4,7 @@ title: OSCP
 ---
 
 <h1 Class="message">
-  My OSCP journey from Noob to Pro
+  My OSCP Journey from Noob to Pro
 </h1>
 
 So it all starts when I graduated last year in 2016 and finding my way to get a job in Infosec domain, before graduation I already have a CEH certification,But as you know it's so hard to get a job as a fresher in this domain especially in India until you have some skills or have a reference. After getting rejected by almost 15 companies I decided to start increasing my skill, and there is no better way then OSCP. So on the 31st Dec night I talked to my father that I want to spend 1 year on OSCP and give me time to prove myself and I can't do the job for now, after some discussion he eventually agreed. but the condition was I have to complete everything within the time limit.
