@@ -17,4 +17,5 @@ After completing all the machines in **HTB** I started my OSCP lab on 1st oct an
 
 **Overview on OSCP lab**
 * In the lab always try to restrict yourself using MSFconsole because it's good to learn the manual way, but there are few machine on which you have to use msf and there is no public eploit availabe and this is because PWK want you to learn not only the manuall way but also the msf way.
-* Don't think too much, or above the ground, try the simple default loggin first before you start some bruteforcing, you need to _**Try Smater**_ before you _**Try Harder**_.
+* Don't think too much, or above the ground, try the simple default things first before you start some bruteforcing, you need to _**Try Smater**_ before you _**Try Harder**_.
+* You need to focus on one more thing which usually many people don't talk about which is post exploit enumeration, which comes after rooted a target machine, this is the end part of any pnetetsting and really important, in this phase you can find some password or some hint to some other machine which you have not rooted yet and it can give you a direct shell, so always post enumerate the system files and logs after rooting it.
