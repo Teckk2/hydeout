@@ -5,9 +5,7 @@ sidebar_link: true
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it
-  for your own use upon downloading. Carry on!
+  Hey there! Welcome to TECK world
 </p>
 
-To make pages show up in the sidebar, add `sidebar_link: true` to the front
-matter.
+Something about me So, I did my CEH in late 2015 and I graduated in 3rd quter of 2016
