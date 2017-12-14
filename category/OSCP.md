@@ -7,6 +7,8 @@ title: OSCP
   My OSCP Journey from Noob to Pro
 </h1>
 
+![OSCP-logo](https://teckk2.github.io/assets/images/offsec-logo.png)
+
 So it all starts when I graduated last year in 2016 and finding my way to get a job in Infosec domain, before graduation I already have a CEH certification,But as you know it's so hard to get a job as a fresher in this domain especially in India until you have some skills or have a reference. After getting rejected by almost 15 companies I decided to start increasing my skill, and there is no better way then OSCP. So on the 31st Dec night I talked to my father that I want to spend 1 year on OSCP and give me time to prove myself and I can't do the job for now, after some discussion he eventually agreed. but the condition was I have to complete everything within the time limit.
 
 So on the 1st Jan, my journey start, as I was total noob at that time I only knew how to run Nmap, Nessus, Nexpose and doing Vulnerability assessment report, and some sort of Wifi hacking, that it nothing more than that not even MSF 😂
@@ -50,6 +52,7 @@ After completing my 2 months lab with a one week gap I scheduled my exam on 7th 
 so on the 6th Dec I wake up around 3:00 pm and started preparing myself for the next day and decided to sleep early around 2 am, now the irony is because of my old habit to wake up till late and because of the exam excitement I couldn't sleep,So I have to take my whole exam without sleep. At 12:30 I started scanning the ports for all machines and done the BOF machine within 3 hours and now I have 25 marks in my pocket, move to the next big machine I did that in next 3 hours now total of 6 hours and I have 50 marks, then the rest 3 machine comprises of 20-20-10 marks respectively, I completed them in another 9 hours So within 15 hours I rooted all machines and got 100 marks. Now it time to make exam report, now because I have been awake for more than 36 hours so my mind an body is starting rusting, I do not recommend to wake for this long as it can cause you serious health issues but I am used to this and I was so excited for this oscp that's why I can't able to sleep. After spending next 6 hours my lab report was completed and I still have few hours left for the exam to end, So I went to sleep, after waking up in the evening I reviewed the exam report and send that to offsec.
 
 After Spending almost my whole year, without stepping out from my house for months, without meeting any friends, my all the hard work paid off and the final day come I got the email that I cleared OSCP.**Wink**-**Wink**
+![OSCP-logo](https://teckk2.github.io//assets/images/offsec-student-certified-emblem-rgb-oscp.jpeg)
 
 I will miss my OSCP lab, that was the best experience I have experienced so far in my life and learned so much.
 
