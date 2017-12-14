@@ -39,7 +39,7 @@ After completing all the machines in **HTB** I started my OSCP lab on 1st oct an
   * Learn SSH tunnuling/Network Pivoting and port forwarding
     * [Using SSH](http://www.debianadmin.com/howto-use-ssh-local-and-remote-port-forwarding.html)
     * [using sshuttle (My recommendation)](http://blog.trackets.com/2014/05/17/ssh-tunnel-local-and-remote-port-forwarding-explained-with-examples.html)
-    * command:- **sshuttle -r root@192.168.1.101 192.168.1.0/24** 
+      * command:- **sshuttle -r root@192.168.1.101 192.168.1.0/24** 
     * [Networ Pivoting Using MSF](https://www.offensive-security.com/metasploit-unleashed/Pivoting/)
     * [Port forward using MSF](https://www.offensive-security.com/metasploit-unleashed/Portfwd/)
 * You need to focus on one more thing which usually many people don't talk about which is post exploit enumeration, which comes after rooted a target machine, this is the end part of any pnetetsting and really important, in this phase you can find some password or some hint to some other machine which you have not rooted yet and it can give you a direct shell, so always post enumerate the system files and logs after rooting it.
