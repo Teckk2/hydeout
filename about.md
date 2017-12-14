@@ -11,5 +11,7 @@ sidebar_link: true
 I have a keen interest in core pentesting and research, Always curious to learn new things speacially in wifi and system hacking.
 looking forward to increase my knowledge in Binary exploitation/ Exploit Development
 <p class="message">
-  I have CEH and OSCP certification
+  Certifications
 </p>
+* CEH
+* OSCP
