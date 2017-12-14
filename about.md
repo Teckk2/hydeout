@@ -4,8 +4,12 @@ title: About
 sidebar_link: true
 ---
 
-<p class="message">
+<h1 class="message">
   Hey there! Welcome to TECK world
-</p>
+</h1>
 
-Something about me So, I did my CEH in late 2015 and I graduated in 3rd quter of 2016
+I have a keen interest in core pentesting and research, Always curious to learn new things speacially in wifi and system hacking.
+looking forward to increase my knowledge in Binary exploitation/ Exploit Development
+<h1 class="message">
+  I have CEH and OSCP certification
+</h1>
