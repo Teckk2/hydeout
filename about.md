@@ -17,6 +17,7 @@ looking forward to increasing my knowledge in Binary exploitation / Exploit Deve
 * OSCP
 
 ~ Hack the World and Stay Noob
+
 span></span><script src="https://www.hackthebox.eu/badge/966"></script></span><span
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
