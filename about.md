@@ -9,7 +9,7 @@ sidebar_link: true
 </h1>
 
 I have a keen interest in core Pentesting and Research, Always curious to learn new things especially about wifi and system hacking.
-looking forward to increasing my knowledge in Binary exploitation / Exploit Development. Captain of Teck_N00bs (Ctf team). If you are also curious to learn and to get regular updates for my blogs join my Teck_N00bs community on [telegram](https://t.me/Teck_N00bs)
+looking forward to increasing my knowledge in Binary exploitation / Exploit Development. Captain of Teck_N00bs (Ctf team). If you are also curious to learn and to get regular updates for my blogs join my [Teck_N00bs community on telegram](https://t.me/Teck_N00bs)
 <p class="message">
   Certifications
 </p>
