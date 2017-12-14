@@ -16,6 +16,14 @@ So it took me 2 months to figure out where to start because there was no one to 
 After completing all the machines in **HTB** I started my OSCP lab on 1st oct and in the start i was unfamiliar with the environment so it took me few days to get pace, I took the 2 months lab and within 40 days I completed all the machine on all 4 networks, and I would recommend to complete the videos course and lab exrecise before you start carcking lab machines.
 
 **Overview on OSCP lab**
-* In the lab always try to restrict yourself using MSFconsole because it's good to learn the manual way, but there are few machine on which you have to use msf and there is no public eploit availabe and this is because PWK want you to learn not only the manuall way but also the msf way.
+* The first step in penteting 
+* In the lab always try to restrict yourself using Metasploit framwork because it's good to learn the manual way, but there are few machine on which you have to use Metasploit framework and there is no public exploit availabe and this is because PWK want you to learn not only the manuall way but also the Metasploit way.
 * Don't think too much, or above the ground, try the simple default things first before you start some bruteforcing, you need to _**Try Smater**_ before you _**Try Harder**_.
+*Once you get inside the machine the hardest part is to perform privilege escalation or getting root access
+  * [Linux Privilege Escalatio](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
+  * [Windows Privilege Escalation](http://www.fuzzysecurity.com/tutorials/16.html)
+  * [Local exploit Suggester for windows](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
+  * [Windows Pre-compiled Kernal exploits-1](https://github.com/abatchy17/WindowsExploits)
+  * [Windows Pre-compiled Kernal exploits-2](https://github.com/SecWiki/windows-kernel-exploits)
+  
 * You need to focus on one more thing which usually many people don't talk about which is post exploit enumeration, which comes after rooted a target machine, this is the end part of any pnetetsting and really important, in this phase you can find some password or some hint to some other machine which you have not rooted yet and it can give you a direct shell, so always post enumerate the system files and logs after rooting it.
