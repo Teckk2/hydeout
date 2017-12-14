@@ -15,6 +15,7 @@ looking forward to increasing my knowledge in Binary exploitation / Exploit Deve
 </p>
 * CEH
 * OSCP
+
 ~ Hack the World and Stay Noob
 <script src="https://www.hackthebox.eu/badge/966"></script>
 
