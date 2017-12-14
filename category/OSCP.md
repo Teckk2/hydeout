@@ -26,5 +26,14 @@ After completing all the machines in **HTB** I started my OSCP lab on 1st oct an
   * [Local exploit Suggester for windows](https://pentestlab.blog/2017/04/24/windows-kernel-exploits/)
   * [Windows Pre-compiled Kernal exploits-1](https://github.com/abatchy17/WindowsExploits)
   * [Windows Pre-compiled Kernal exploits-2](https://github.com/SecWiki/windows-kernel-exploits)
+  * [Reverse Shell Cheat Sheet](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
+  * [Passing the hash with remote Desktop](https://www.kali.org/penetration-testing/passing-hash-remote-desktop/)
+  * [Learning LFI-RFI -1](https://www.hackersonlineclub.com/lfi-rfi/)
+  * [Learning LFI-RFI -2](https://0xzoidberg.wordpress.com/category/security/lfi-rfi/)
+  * [SQL Injection Cheat-sheet -1](http://resources.infosecinstitute.com/backdoor-sql-injection/)
+  * [SQL Injection Cheat-sheet -2](http://resources.infosecinstitute.com/backdoor-sql-injection/)
+  * [Online hash-cracking tool -1](https://crackstation.net)
+  * [Online hash-cracking tool -2](https://hashkiller.co.uk)
+  * [Online NTLM hashcracking tool](http://md5decrypt.net/en/Ntlm/)
   
 * You need to focus on one more thing which usually many people don't talk about which is post exploit enumeration, which comes after rooted a target machine, this is the end part of any pnetetsting and really important, in this phase you can find some password or some hint to some other machine which you have not rooted yet and it can give you a direct shell, so always post enumerate the system files and logs after rooting it.
