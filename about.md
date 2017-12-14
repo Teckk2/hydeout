@@ -13,5 +13,5 @@ looking forward to increase my knowledge in Binary exploitation/ Exploit Develop
 <p class="message">
   Certifications
 </p>
-* CEH
-* OSCP
+**CEH**
+**OSCP**
