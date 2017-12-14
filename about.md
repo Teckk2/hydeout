@@ -15,3 +15,5 @@ looking forward to increasing my knowledge in Binary exploitation / Exploit Deve
 </p>
 * CEH
 * OSCP
+
+[Twitter](https://twitter.com/Teck__K2) [Hack The Box](https://www.hackthebox.eu/profile/966)
