@@ -55,7 +55,8 @@ After Spending almost my whole year, without stepping out from my house for mont
 
 I will miss my OSCP lab,Thanx to the _**offensive security**_, **OSCP** was the best experience I have experienced so far in my life and learned so much.
 
-* Thanks to my _**Family**_ for supporting me throughout this journey,
+* Thanks to my _**Family**_ for supporting me throughout this journey.
+* Thanks to my mentor _**KNX**_ for guiding me on the right path.
 * Thanks to my Best Friend _**Nyks**_ for supporting and encouraging me always and standing by my side when there was no one.
 
 ~ Fuck The Best Play With The Rest
