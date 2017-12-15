@@ -19,7 +19,6 @@ After completing all the machines in **HTB** I started my OSCP lab on 1st oct an
 
 **OSCP lab Overview**
 * In any pentesting the first step is to scan for open ports where we cannot afford to be wrong, because by default Nmap only scan top-1000 port and sometime vulnerability lies in the top ports, so first scan for default 1000 ports and start working on it and then scan for full port scan in the background for the backup.
-* Some usefull Tools and command from my [list](https://teckk2.github.io/2017/12/12/OSCP-Tools-and-commands.html)
 * In the lab always try to restrict yourself using Metasploit framework because it's good to learn the manual way, but there are few machine on which you have to use Metasploit framework and there is no public exploit available and this is because PWK want you to learn not only the manual way but also the Metasploit way.
 * Don't think too much, or above the ground, try the simple default things first before you start some bruteforcing, you need to _**Try Smarter**_ before you _**Try Harder**_.
 
