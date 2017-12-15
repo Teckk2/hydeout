@@ -58,3 +58,9 @@ I will miss my OSCP lab,Thanx to the _**offensive security**_, **OSCP** was the 
 * Thanks to my _**Family**_ for supporting me throughout this journey,
 * Thanks to my Best Friend _**Nyks**_ for supporting and encouraging me always and standing by my side when there was no one.
 
+~ Fuck The Best Play With The Rest
+
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"></script>
