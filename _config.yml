@@ -1,6 +1,9 @@
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge
+kramdown:
+  input: GFM
+  hard_wrap: false
 
 # Setup
 title:            Teck_k2
