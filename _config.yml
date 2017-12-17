@@ -1,9 +1,7 @@
 # Dependencies
 markdown:         kramdown
-#highlighter:      rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
+highlighter:      rouge
+
 
 # Setup
 title:            Teck_k2
