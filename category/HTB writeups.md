@@ -4,4 +4,4 @@ title: Hack The Box (HTB)
 ---
 ![HTB logo](https://teckk2.github.io/assets/images/htb.JPG)
 
-This section of blog will be up soon.
+1) [Lame](https://teckk2.github.io/writeup/2017/12/17/Lame.html)
