@@ -61,7 +61,6 @@ I will miss my OSCP labs,Thanx to the _**offensive security**_, **OSCP** was the
 <p Class="message">
 ~ Fuck The Best Play With The Rest
 </p>
-![OSCP Song](https://youtu.be/a-KRgwXts5E)
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
 [Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
