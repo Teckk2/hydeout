@@ -1,0 +1,49 @@
+---
+layout: post
+title: Devel(HTB)
+categories:
+  - Writeup
+---
+
+<br>OS Windows
+<br>IP: 10.10.10.5
+<br>Machine Author: ch4p
+
+**Nmap**:-
+<font size="1">
+<div style="height:400px;width:800px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap -sS -A 10.10.10.5
+
+<br>Starting Nmap 7.50 ( https://nmap.org ) at 2017-12-18 15:47 EST
+<br>Nmap scan report for 10.10.10.5
+<br>Host is up (0.22s latency).
+<br>Not shown: 998 filtered ports
+<br>PORT   STATE SERVICE VERSION
+<br><font color="BB69EC">21/tcp</font> open  ftp     Microsoft ftpd
+<br>| ftp-anon: <font color="53E100">Anonymous FTP login allowed</font> (FTP code 230)
+<br>| 03-18-17  01:06AM       <DIR>          aspnet_client
+<br>| 03-17-17  04:37PM                  689 iisstart.htm
+<br>|_03-17-17  04:37PM               184946 welcome.png
+<br><font color="BB69EC">80/tcp</font> open  http    Microsoft IIS httpd 7.5
+<br>| http-methods: 
+<br>|_  Potentially risky methods: TRACE
+<br>|_http-server-header: Microsoft-IIS/7.5
+<br>|_http-title: IIS7
+<br>Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+<br>Device type: general purpose|phone|specialized
+<br>Running (JUST GUESSING): Microsoft Windows 8|Phone|2008|8.1|7|Vista|2012 (92%)
+<br>OS CPE: cpe:/o:microsoft:windows_8 cpe:/o:microsoft:windows cpe:/o:microsoft:windows_server_2008:r2 cpe:/o:microsoft:windows_8.1 cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_vista::- cpe:/o:microsoft:windows_vista::sp1 cpe:/o:microsoft:windows_server_2012
+<br>Aggressive OS guesses: Microsoft Windows 8.1 Update 1 (92%), Microsoft Windows Phone 7.5 or 8.0 (92%), Microsoft Windows Server 2008 R2 (91%), Microsoft Windows Server 2008 R2 or Windows 8.1 (91%), Microsoft Windows Server 2008 R2 SP1 or Windows 8 (91%), Microsoft Windows 7 (91%), Microsoft Windows 7 SP1 or Windows Server 2008 R2 (91%), Microsoft Windows 7 SP1 or Windows Server 2008 SP2 or 2008 R2 SP1 (91%), Microsoft Windows Vista SP0 or SP1, Windows Server 2008 SP1, or Windows 7 (91%), Microsoft Windows Embedded Standard 7 (91%)
+<br>No exact OS matches for host (test conditions non-ideal).
+<br>Network Distance: 2 hops
+<br>Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+<br>TRACEROUTE (using port 21/tcp)
+<br>HOP RTT       ADDRESS
+<br>1   283.76 ms 10.10.14.1
+<br>2   283.90 ms 10.10.10.5
+
+<br>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+<br>Nmap done: 1 IP address (1 host up) scanned in 55.06 seconds</p>
+</div>
+</font>
