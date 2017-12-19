@@ -10,3 +10,4 @@ Writeups
 <br>2) [Legacy](https://teckk2.github.io/writeup/2017/12/18/Legacy.html)
 <br>3) [Devel](https://teckk2.github.io/writeup/2017/12/19/Devel.html)
 <br>4) [Popcorn](https://teckk2.github.io/writeup/2017/12/19/Popcorn.html)
+<br>5) [Optimum](https://teckk2.github.io/writeup/2017/12/20/Optimum.html)
