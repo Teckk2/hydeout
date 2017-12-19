@@ -8,3 +8,5 @@ Writeups
 </h1>
 <br>1) [Lame](https://teckk2.github.io/writeup/2017/12/17/Lame.html)
 <br>2) [Legacy](https://teckk2.github.io/writeup/2017/12/18/Legacy.html)
+<br>3) [Devel](https://teckk2.github.io/writeup/2017/12/19/Devel.html)
+<br>4) [Popcorn](https://teckk2.github.io/writeup/2017/12/19/Popcorn.html)
