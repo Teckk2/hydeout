@@ -35,6 +35,7 @@ categories:
   <font color="Black">Question 3</font> – Difference between OWASP Top 10 2013 and 2017 ?
 </p>
 <br>**Ans**:- [owasp](https://teckk2.github.io/assets/images/owasp%20top%2010.PNG)
+  
   * The Vulnerability A4 (Insecure Direct Object Reference) and A7 (Missing Function Level Access Control) in the 2013 list have been merged into single vulnerability A5 (Broken Access Control) of 2017. 
   * The vulnerability A10 (Unvalidated Redirects and Forwards) from 2013, has been dropped out in the new list of 2017.
   * The Three new vulnerabilities which has been added in the new list are :- 
