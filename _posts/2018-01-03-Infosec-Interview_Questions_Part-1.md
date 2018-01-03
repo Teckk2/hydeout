@@ -19,13 +19,13 @@ categories:
 </p>
 <br>**Ans**:- The OWASP Top 10 is a powerful awareness document for web application security. It represents a broad consensus about the most critical security risks to web applications. Project members include a variety of security experts from around the world who have shared their expertise to produce this list.
 <p>The current OWASP top is 2017 version which includes :-
-  •	A1:2017-Injection
-  •	A2:2017-Broken Authentication
-  •	A3:2017-Sensitive Data Exposure
-  •	A4:2017-XML External Entities (XXE) [NEW]
-  •	A5:2017-Broken Access Control [Merged]
-  •	A6:2017-Security Misconfiguration
-  •	A7:2017-Cross-Site Scripting (XSS)
-  •	A8:2017-Insecure Deserialization [NEW, Community]
-  •	A9:2017-Using Components with Known Vulnerabilities
-  •	A10:2017-Insufficient_Logging&Monitoring [NEW, Community]
+  *	A1:2017-Injection
+  *	A2:2017-Broken Authentication
+  *	A3:2017-Sensitive Data Exposure
+  *	A4:2017-XML External Entities (XXE) [NEW]
+  *	A5:2017-Broken Access Control [Merged]
+  *	A6:2017-Security Misconfiguration
+  *	A7:2017-Cross-Site Scripting (XSS)
+  *	A8:2017-Insecure Deserialization [NEW, Community]
+  *	A9:2017-Using Components with Known Vulnerabilities
+  *	A10:2017-Insufficient_Logging&Monitoring [NEW, Community]
