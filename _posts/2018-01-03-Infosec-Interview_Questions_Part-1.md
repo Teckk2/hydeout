@@ -19,7 +19,7 @@ categories:
 </p>
 <br>**Ans**:- The OWASP Top 10 is a powerful awareness document for web application security. It represents a broad consensus about the most critical security risks to web applications. Project members include a variety of security experts from around the world who have shared their expertise to produce this list.
 
-<br>*The current OWASP top is 2017 version which includes :-
+<br>The current OWASP top is 2017 version which includes :-
   *	A1:2017-Injection
   *	A2:2017-Broken Authentication
   *	A3:2017-Sensitive Data Exposure
