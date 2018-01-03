@@ -64,11 +64,11 @@ categories:
   <font color="Black">Question 6</font> – How SQLi can lead to Remote Code Execution ?
 </p>
 <br>**Ans**:- Well SQL has a built in function to write a file for example:- in mysql using which You can save SQL results into an output of your choosing. So, lets say, 1 quote union select 2, and then we are going to type in a php string which we want to write into a file, using the output file mysql function, which we can then hopefully have the apache/php server execute for us. Lets just write this to /tmp/teck.php for now.
-<p>/blog.php?id=1' UNION select 2, "&lt;?php system($_REQUEST['cmd']); ?>" INTO OUTFILE '/tmp/teck.php</p>
+<p><font color="ffff00">/blog.php?id=1' UNION select 2, "&lt;?php system($_REQUEST['cmd']); ?>" INTO OUTFILE '/tmp/teck.php</font></p>
 <br>As you can see down here, the mysql server happily executed our command. Lets just quickly take a look at the file. Okay, so what about if we had an uploads directory on our blog to allow users to upload pictures or something. Maybe we do not have the most secure permissions because we do not know any better. Lets create an uploads directory under /var/www/html/ and make it world writable. So, lets try and write our php file using the SQL injection vulnerability into /var/www/html/uploads/.
-<p>/blog.php?id=1' UNION select 2, "&lt;?php system($_REQUEST['cmd']); ?>" INTO OUTFILE '/var/www/html/uploads/teck.php</p>
+<p><font color="ffff00">/blog.php?id=1' UNION select 2, "&lt;?php system($_REQUEST['cmd']); ?>" INTO OUTFILE '/var/www/html/uploads/teck.php</font></p>
 <br>Looks like it worked! Our SQL statement, took the php code we provided, and wrote it into a file. Lets head over to the uploads directory and have a look. Our files exists and works. Lets try and run a couple commands, like ls -l / for example, or what about the id command, as you can see we are running commands as the apache user now.
-<p>http://localhost:8080/uploads/c.php?cmd=ls -l /</p>
+<p><font color="ffff00">http://localhost:8080/uploads/c.php?cmd=ls -l /</font></p>
 
 <p Class="message">
   <font color="Black">Question 7</font> – What kind of result you will get while pen-testing if you found a SSL Suites Weak Ciphers vulnerability ?
