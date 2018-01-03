@@ -9,7 +9,7 @@ categories:
 <br>Speacial Thanx to my friend [Ajay](https://twitter.com/ajaysingri) for hellping me find these question.
 
 <p Class="message">
-  <br>**Q 1** – What is CSRF?
+  Q 1 – What is CSRF?
 </p>
 <br>**Ans**:- Cross site request forgery (CSRF), also known as XSRF, Sea Surf or Session Riding, is an attack vector that tricks a web browser into executing an unwanted action in an application to which a user is logged in.
 <br>A successful CSRF attack can be devastating for both the business and user. It can result in damaged client relationships, unauthorized fund transfers, changed passwords and data theft—including stolen session cookies.
@@ -18,7 +18,7 @@ categories:
   Q 2 – what is OWASP TOP 10 ?
 </p>
 <br>**Ans**:- The OWASP Top 10 is a powerful awareness document for web application security. It represents a broad consensus about the most critical security risks to web applications. Project members include a variety of security experts from around the world who have shared their expertise to produce this list.
-<p>The current OWASP top is 2017 version which includes :-
+<br>The current OWASP top is 2017 version which includes :-
   *	A1:2017-Injection
   *	A2:2017-Broken Authentication
   *	A3:2017-Sensitive Data Exposure
