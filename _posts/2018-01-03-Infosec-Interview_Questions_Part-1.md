@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Info-Sec Interview Questions (Part-1)
+title: InfoSec Interview Questions (Part-1)
 categories:
   - Misc
 ---
