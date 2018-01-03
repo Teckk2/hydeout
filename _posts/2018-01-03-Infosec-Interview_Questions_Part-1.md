@@ -9,13 +9,13 @@ categories:
 <br>Speacial Thanx to my friend [Ajay](https://twitter.com/ajaysingri) for hellping me find these question.
 
 <p Class="message">
-  <font color="Black">Q 1</font> – What is CSRF?
+  <font color="Black">Question 1</font> – What is CSRF ?
 </p>
-<p>**Ans**:- Cross site request forgery (CSRF), also known as XSRF, Sea Surf or Session Riding, is an attack vector that tricks a web browser into executing an unwanted action in an application to which a user is logged in.
-<br>A successful CSRF attack can be devastating for both the business and user. It can result in damaged client relationships, unauthorized fund transfers, changed passwords and data theft—including stolen session cookies.</p>
+<br>**Ans**:- Cross site request forgery (CSRF), also known as XSRF, Sea Surf or Session Riding, is an attack vector that tricks a web browser into executing an unwanted action in an application to which a user is logged in.
+<br>A successful CSRF attack can be devastating for both the business and user. It can result in damaged client relationships, unauthorized fund transfers, changed passwords and data theft—including stolen session cookies.
 
 <p Class="message">
-  <font color="RoyalBlue">Q 2</font> – what is OWASP TOP 10 ?
+  <font color="Black">Question 2</font> – what is OWASP TOP 10 ?
 </p>
 <br>**Ans**:- The OWASP Top 10 is a powerful awareness document for web application security. It represents a broad consensus about the most critical security risks to web applications. Project members include a variety of security experts from around the world who have shared their expertise to produce this list.
 
@@ -30,3 +30,14 @@ categories:
   *	A8:2017-Insecure Deserialization [NEW, Community]
   *	A9:2017-Using Components with Known Vulnerabilities
   *	A10:2017-Insufficient_Logging&Monitoring [NEW, Community]
+  
+<p Class="message">
+  <font color="Black">Question 3</font> – Difference between OWASP Top 10 2013 and 2017 ?
+</p>
+<br>**Ans**:- [owasp](https://teckk2.github.io/assets/images/owasp%20top%2010.PNG)
+  * The Vulnerability A4 (Insecure Direct Object Reference) and A7 (Missing Function Level Access Control) in the 2013 list have been merged into single vulnerability A5 (Broken Access Control) of 2017. 
+  * The vulnerability A10 (Unvalidated Redirects and Forwards) from 2013, has been dropped out in the new list of 2017.
+  * The Three new vulnerabilities which has been added in the new list are :- 
+    * A4 (XML External Entities {XXE})
+    * A8 (Insecure Deserialization)
+    * A10 (Insufficient_Logging&Monitoring) 
