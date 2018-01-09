@@ -134,7 +134,7 @@ categories:
   * Another key thing to realize about obfuscation is that there is a limitation to how obscure the code can become, depending on the content being obscured. If you are obscuring computer code, for example, the limitation is that the result must still be consumable by the computer or else the application will cease to function.
   * **_Examples_**: javascript obfuscator, proguard
 <h1 Class="message">
-  Part-2 Comming Soon!
+  [Part-2](https://teckk2.github.io/misc/2018/01/10/Infosec-Interview_Questions_Part-2.html)
 </h1>
 
 <p class="message">
