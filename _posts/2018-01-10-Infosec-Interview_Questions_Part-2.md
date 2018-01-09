@@ -85,7 +85,7 @@ This Part of the **(InfoSec Interview Questions)** blog has some senario based q
   <font color="Black">Question 3</font> – Answer true or false and explain your answer: Does Web-loggin 2-step verification protect user from session hijacking?
 </p>
 
-<br>**Ans**:- No, because an Attackers can use XSS to get your browser cookie and inject it into their request for that site. Still, if that doesn't happen, malware can do whatever it wants while you are logged in.
+<br>**Ans**:- 2 Factor authentication doesn't protect the site being vulnerable to session hijacking rather the site should be protected from client-side attacks like XSS. This is because session hijacking involves injecting victim's session cookies extracted using attacks like XSS.
 
 <p Class="message">
   <font color="Black">Question 4</font> – what is stream cipher?
