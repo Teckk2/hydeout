@@ -73,13 +73,38 @@ This Part of the **(InfoSec Interview Questions)** blog has some senario based q
   <font color="Black">Question 2</font> – What kind of attack is ARP Spoofing considered and how could you leverage it on a penetration test?
 </p>
 
-<br>**Ans**:- * ARP spoofing considered as (Man-In-The-Middle) attack. In a Penetrations test we can act like an attacker and perform the attack in which a malicious actor sends falsified ARP (Address Resolution Protocol) messages over a local area network.
+<br>**Ans**:- 
+  * ARP spoofing considered as (Man-In-The-Middle) attack. In a Penetrations test we can act like an attacker and perform the attack in which a malicious actor sends falsified ARP (Address Resolution Protocol) messages over a local area network.
   * This results in the linking of an attacker’s MAC address with the IP address of a legitimate computer or server on the network. Once the attacker’s MAC address is connected to an authentic IP address, the attacker will begin receiving any data that is intended for that IP address.
   * ARP spoofing can enable malicious parties to intercept, modify or even stop data in-transit. ARP spoofing attacks can only occur on local area networks that utilize the Address Resolution Protocol.
   
+<p Class="message">
+  <font color="Black">Question 3</font> – Answer true or false and explain your answer: Does Google 2-step verification protect user from session hijacking?
+</p>
+
+<br>**Ans**:- No, because an Attackers can use XSS to get your browser cookie (the one that Google sets) and inject it into their request for Google. Still, if that doesn't happen, malware can do whatever it wants while you are logged in.
+
+<p Class="message">
+  <font color="Black">Question 4</font> – what is stream cipher?
+</p>
+
+<br>**Ans**:- 
+  * A stream cipher is a symmetric key cipher where plaintext digits are combined with a pseudorandom cipher digit stream (keystream).
+  * In a stream cipher, each plaintext digit is encrypted one at a time with the corresponding digit of the keystream, to give a digit of the ciphertext stream. 
+  * Since encryption of each digit is dependent on the current state of the cipher, it is also known as state cipher. In practice, a digit is typically a bit and the combining operation an exclusive-or (XOR)
   
-  
-  
+<h1 Class="message">
+  Part-3 Comming Soon!
+</h1>
+
+<p class="message">
+  ~ Hack the World and Stay Noob
+</p>
+
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
   
     
     
