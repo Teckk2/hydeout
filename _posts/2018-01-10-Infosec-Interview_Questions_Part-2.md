@@ -49,13 +49,10 @@ This Part of the **(InfoSec Interview Questions)** blog has some senario based q
   * <font color="Black">6)	Append Random Data:- </font>
     * Many firewalls are inspecting packets by looking at their size in order to identify a potential port scan. This is because many scanners are sending packets that have specific size.In order to avoid that kind of detection you can use the command –data-length to add additional data and to send packets with different size than the default. 
     * In the below nmap command we have changed the packet size by adding 25 more bytes. By default the packet size is 58 bytes but after adding 25 more bytes the packet size will be 83 bytes.
-    
     <br><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –data-length 25 192.168.1.50
   
   *  <font color="Black">7)	Scan with Random Order:- </font>
-    
     * In this technique you can scan a number of hosts in random order and not sequential.The command that you use to instruct Nmap to scan for host in random order is –randomize-hosts.
-    
     * This technique combined with slow timing options in nmap command can be very effective when you don’t want to alert firewalls.
     <font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –randomize-hosts 192.168.1.50-80
   
