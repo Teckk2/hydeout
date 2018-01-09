@@ -26,9 +26,9 @@ This Part of the **(InfoSec Interview Questions)** blog has some senario based q
   
   * <font color="Black">3)	Use Decoy addresses:-</font>
   In this type of scan you can instruct Nmap to spoof packets from other hosts.In the firewall logs it will be not only our IP address but also and the IP addresses of the decoys so it will be much harder to determine from which system the scan started.There are two options that you can use in this type of scan:-
-    * <br><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap -D RND:10 [target] (Generates a random number of decoys)
-    * <br><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap -D decoy1,decoy2,decoy3 etc. (Manually specify the IP addresses of the decoys)
-    <br><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –D 192.168.1.40,192.168.1.45 192.168.1.50
+    * <font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap -D RND:10 [target] (Generates a random number of decoys)
+    * <font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap -D decoy1,decoy2,decoy3 etc. (Manually specify the IP addresses of the decoys)
+    * <font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –D 192.168.1.40,192.168.1.45 192.168.1.50
     
   * <font color="Black">4)	Idle Zombie Scan:-</font>
     
