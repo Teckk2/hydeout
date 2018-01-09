@@ -52,9 +52,9 @@ This Part of the **(InfoSec Interview Questions)** blog has some senario based q
     <br><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –data-length 25 192.168.1.50
   
   *  <font color="Black">7)	Scan with Random Order:- </font>
-    * In this technique you can scan a number of hosts in random order and not sequential.The command that you use to instruct Nmap to scan for host in random order is –randomize-hosts.
-    * This technique combined with slow timing options in nmap command can be very effective when you don’t want to alert firewalls.
-    <font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –randomize-hosts 192.168.1.50-80
+    <br>In this technique you can scan a number of hosts in random order and not sequential.The command that you use to instruct Nmap to scan for host in random order is –randomize-hosts.
+    <br>This technique combined with slow timing options in nmap command can be very effective when you don’t want to alert firewalls.
+    <br>root@kali:~/Desktop# nmap –randomize-hosts 192.168.1.50-80
   
   * <font color="Black">8)	MAC Address Spoofing:-</font>
     * Another method for bypassing firewall restrictions while doing a port scan is by spoofing the MAC address of your host.This technique can be very effective especially if there is a MAC filtering rule to allow only traffic from certain MAC addresses so you will need to discover which MAC address you need to set in order to obtain results.
