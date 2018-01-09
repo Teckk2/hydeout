@@ -52,11 +52,12 @@ This Part of the **(InfoSec Interview Questions)** blog has some senario based q
     
     <br><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –data-length 25 192.168.1.50
   
-  *  <font color="Black">7)	Scan with Random Order:-</font>
-    * In this technique you can scan a number of hosts in random order and not sequential.The command that you use to instruct Nmap to scan for host in random order is –randomize-hosts.
-    * This technique combined with slow timing options in nmap command can be very effective when you don’t want to alert firewalls.
+  *  <font color="Black">7)	Scan with Random Order:- </font>
     
-    <br><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –randomize-hosts 192.168.1.50-80
+    * In this technique you can scan a number of hosts in random order and not sequential.The command that you use to instruct Nmap to scan for host in random order is –randomize-hosts.
+    
+    * This technique combined with slow timing options in nmap command can be very effective when you don’t want to alert firewalls.
+    <font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># nmap –randomize-hosts 192.168.1.50-80
   
   * <font color="Black">8)	MAC Address Spoofing:-</font>
     * Another method for bypassing firewall restrictions while doing a port scan is by spoofing the MAC address of your host.This technique can be very effective especially if there is a MAC filtering rule to allow only traffic from certain MAC addresses so you will need to discover which MAC address you need to set in order to obtain results.
@@ -84,10 +85,10 @@ This Part of the **(InfoSec Interview Questions)** blog has some senario based q
   * ARP spoofing can enable malicious parties to intercept, modify or even stop data in-transit. ARP spoofing attacks can only occur on local area networks that utilize the Address Resolution Protocol.
   
 <p Class="message">
-  <font color="Black">Question 3</font> – Answer true or false and explain your answer: Does Google 2-step verification protect user from session hijacking?
+  <font color="Black">Question 3</font> – Answer true or false and explain your answer: Does Web-loggin 2-step verification protect user from session hijacking?
 </p>
 
-<br>**Ans**:- No, because an Attackers can use XSS to get your browser cookie (the one that Google sets) and inject it into their request for Google. Still, if that doesn't happen, malware can do whatever it wants while you are logged in.
+<br>**Ans**:- No, because an Attackers can use XSS to get your browser cookie and inject it into their request for that site. Still, if that doesn't happen, malware can do whatever it wants while you are logged in.
 
 <p Class="message">
   <font color="Black">Question 4</font> – what is stream cipher?
