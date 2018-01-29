@@ -15,6 +15,11 @@ The attacker’s hostile data can trick the interpreter into executing unintende
 
 * There are many types of injection vulnerabilities, some of the most common include:
   * SQL Injection
+    * Error based SQLi
+    * Blind SQLi
+    * String SQLi
+    * Blind Numeric SQLi
+    * Blind String SQLi
   * Code injection
   * OS Commanding
   * LDAP Injection
