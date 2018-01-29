@@ -20,3 +20,23 @@ categories:
   *	Stored XSS – An attacker is able to plant a persistent Script in the target Website which will execute when anyone visits it.
   *	Dom Based XSS – No HTTP request is required, the script is injected as a result of modifying the DOM of the target site in the client side code in the victim’s browser and is then executed.
 * Approximately 17% of all applications tested are vulnerable to XSS.
+
+<p Class="message">
+  <font color="Black">Question 2</font> – What are the Risk of (XSS) ?
+</p>
+<br>**Ans**:- 
+
+* Compromise or take over the Victim’s user account in the application.
+* Retrieval of data from the target web application.
+* Modification of content on the target page.
+* Redirection victim’s to another malicious or spoof site.
+* Platform to install other malware on the victim’s system.
+
+<p Class="message">
+  <font color="Black">Question 3</font> – How to prevent yourself from (XSS) ?
+</p>
+<br>**Ans**:- Many different strategies can be used to protect an application against (XXS).
+  *	Use Vetted Library or Framework
+  * Output Encoding
+  * Use HTTP Only attribute
+  * Input Validation
