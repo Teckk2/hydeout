@@ -24,7 +24,9 @@ categories:
 <br>**Ans**:- Create a map within your CODE that maps objects that could be referenced internally to aliased terms which are exposed to the user.
 <br>**For example:-** An array of primary keys to a particular table might be mapped to a random sequence of integers. When the value is Submitted by the user, the number is matched to the real value. This prevents disclosure of the actual value & also limits what the user can alter.
 <br>**Example:**
-&nbsp; &nbsp; &nbsp; &nbsp;‘default’		=> 	‘index.html’
-&nbsp; &nbsp; &nbsp; &nbsp;‘account_summary’	=>	‘account_summary.html’
-&nbsp; &nbsp; &nbsp; &nbsp;‘user_profile’		=>	‘user_profile.html’
+
+<br>&nbsp; &nbsp; &nbsp; &nbsp;‘default’		=> 	‘index.html’
+<br>&nbsp; &nbsp; &nbsp; &nbsp;‘account_summary’	=>	‘account_summary.html’
+<br>&nbsp; &nbsp; &nbsp; &nbsp;‘user_profile’		=>	‘user_profile.html’
+
 * Values supplied by the user should be vetted through an access control function to verify that they do in fact have access.
