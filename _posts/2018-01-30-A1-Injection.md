@@ -55,7 +55,7 @@ The attacker’s hostile data can trick the interpreter into executing unintende
 * Input Validation/Sanitization, white list only allowed characters.
 
 <h1 Class="message">
-  DEMO
+  DEMO - Comming Soon!
 </h1>
 
 <p class="message">
