@@ -36,7 +36,21 @@ categories:
   <font color="Black">Question 3</font> – How to prevent yourself from (XSS) ?
 </p>
 <br>**Ans**:- Many different strategies can be used to protect an application against (XXS).
+
   *	Use Vetted Library or Framework
   * Output Encoding
   * Use HTTP Only attribute
   * Input Validation
+
+<h1 Class="message">
+  DEMO - Comming Soon!
+</h1>
+
+<p class="message">
+  ~ Hack the World and Stay Noob
+</p>
+
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
