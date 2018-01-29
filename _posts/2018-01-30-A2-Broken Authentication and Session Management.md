@@ -40,6 +40,7 @@ categories:
 * Session Value does not timeout or does not get validated after logout.
 * User authentication Credentials are not protected when stored.
 * Session IDs are used in the URL.
+
 <br>Example:- Unencrypted Connections.
 * Reason for Vulnerability:
   <br>All information that you are Sending/Receiving between yourself & the web application can be intercepted without your knowledge.
