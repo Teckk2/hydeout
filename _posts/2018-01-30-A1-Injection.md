@@ -12,7 +12,8 @@ The attacker’s hostile data can trick the interpreter into executing unintende
   <font color="Black">Question 1</font> – What is Injection?
 </p>
 <br>**Ans**:- 
-<br>There are many types of injection vulnerabilities, some of the most common include:
+
+* There are many types of injection vulnerabilities, some of the most common include:
   * SQL Injection
   * Code injection
   * OS Commanding
