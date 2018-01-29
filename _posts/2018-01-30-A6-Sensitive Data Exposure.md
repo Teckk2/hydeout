@@ -5,7 +5,7 @@ categories:
   - Web-Pentesting
 ---
 
-<p>Using this vulnerabilty and attacker can gain access to your sensitive data and any backups of that data. This includes the data at rest, in transit, and even in your customers’ browsers. Include both external and internal threats. 
+<p>Using this vulnerabilty an attacker can gain access to your sensitive data and any backups of that data. This includes the data at rest, in transit, and even in your customers’ browsers. Include both external and internal threats. 
 Attackers typically don’t break crypto directly. They break something else, such as steal keys, do man-in-the-middle attacks, or steal clear text data off the server, while in transit, or from the user’s browser.</p>
 <br>The most common flaw is simply not encrypting sensitive data. When crypto is employed, weak key generation and management, and weak algorithm usage is common, particularly weak password hashing techniques. Browser weaknesses are very common and easy to detect, but hard to exploit on a large scale. External attackers have difficulty detecting server side flaws due to limited access and they are also usually hard to exploit.
 
