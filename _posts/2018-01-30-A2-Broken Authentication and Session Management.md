@@ -29,3 +29,22 @@ categories:
 * This information is submitted to the application & a session ID is generated which is liked to the Credentials.
 
   <br>( e.g Sessionid = lnKXXeiqJacQlUGvPsgqi0EanMZviPZrPwd7DP2b71 )
+
+<p Class="message">
+  <font color="Black">Question 3</font> – What are the ways a web application can fail to protect the Username, Password & Session ID Values?
+</p>
+<br>**Ans**:- 
+
+* Unencrypted Connections.
+* Predictable Login Credentials.
+* Session Value does not timeout or does not get validated after logout.
+* User authentication Credentials are not protected when stored.
+* Session IDs are used in the URL.
+<br>Example:- Unencrypted Connections.
+* Reason for Vulnerability:
+  <br>All information that you are Sending/Receiving between yourself & the web application can be intercepted without your knowledge.
+* Fails to protect:
+  <br>Username, Password & Session ID values.
+* Preventing this weakness:
+  <br>Enable encryption on requests that contain sensitive information.
+
