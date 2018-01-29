@@ -31,3 +31,14 @@ The attacker’s hostile data can trick the interpreter into executing unintende
   
 * All involve allowing untrusted or manipulated request, Commands, or queries to be executed by a web application.
 * SQL injection alone continues to be the most common breach paradigm in 2013.
+
+<p Class="message">
+  <font color="Black">Question 2</font> – What are the Risk of Inejection?
+</p>
+<br>**Ans**:- Injection vulnerability also present some of the most significant risk when effectively exploited. Some of these risk include:
+
+* Data loss or corruption.
+* Data could be stolen.
+* Unauthorized access.
+* Denial of access.
+* Complete host System takeover.
