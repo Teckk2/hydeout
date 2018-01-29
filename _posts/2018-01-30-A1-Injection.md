@@ -53,3 +53,16 @@ The attacker’s hostile data can trick the interpreter into executing unintende
 * Run the application with minimum privileges.
 * Escape all special characters used by an interpreter.
 * Input Validation/Sanitization, white list only allowed characters.
+
+<h1 Class="message">
+  DEMO
+</h1>
+
+<p class="message">
+  ~ Hack the World and Stay Noob
+</p>
+
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
