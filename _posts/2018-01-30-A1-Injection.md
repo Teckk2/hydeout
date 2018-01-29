@@ -66,3 +66,4 @@ The attacker’s hostile data can trick the interpreter into executing unintende
 [Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
 
 <script src="https://www.hackthebox.eu/badge/966"> </script>
+<script src="https://www.hackthebox.eu/badge/966"></script>
