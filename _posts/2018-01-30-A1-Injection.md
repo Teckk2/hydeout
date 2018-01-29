@@ -42,3 +42,14 @@ The attacker’s hostile data can trick the interpreter into executing unintende
 * Unauthorized access.
 * Denial of access.
 * Complete host System takeover.
+
+<p Class="message">
+  <font color="Black">Question 3</font> – How to prevent yourself from this vulnerability?
+</p>
+<br>**Ans**:- 
+
+* Use a Vetted Library or Framework.
+* Use an API which avoids the use of an interpreter (parameterized).
+* Run the application with minimum privileges.
+* Escape all special characters used by an interpreter.
+* Input Validation/Sanitization, white list only allowed characters.
