@@ -6,6 +6,7 @@ categories:
 ---
 
 <br>Here we can search for the movies
+
 ![50](https://teckk2.github.io/assets/images/Web%20Pentest/A1/50.png)
 ![51](https://teckk2.github.io/assets/images/Web%20Pentest/A1/51.png)
 <br>Let’s check for slqi with single quote (‘)
