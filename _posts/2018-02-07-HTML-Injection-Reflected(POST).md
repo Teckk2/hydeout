@@ -7,14 +7,14 @@ categories:
 <br>In this also we can use the same techniques as we used in Reflected (Get) HTML injection
 
 ![6.2](https://teckk2.github.io/assets/images/Web%20Pentest/A1/6.2.png)
-![7](https://teckk2.github.io/assets/images/Web%20Pentest/A1/7.png)
+![7.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/7.1.png)
 <br>Or we can do it like this also by capturing the request and inject the html <h1> tag and in the response it will show us the edited content.
-![8](https://teckk2.github.io/assets/images/Web%20Pentest/A1/8.png)
+![8.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/8.1.png)
 <br>Put some random name or word in the name field and capture the post request in burp.
-![9](https://teckk2.github.io/assets/images/Web%20Pentest/A1/9.png)
+![9.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/9.1.png)
 <br>Now inject the html tag in name fields and forward the request.
-![10](https://teckk2.github.io/assets/images/Web%20Pentest/A1/10.png)
-![11](https://teckk2.github.io/assets/images/Web%20Pentest/A1/11.png)
+![10.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/10.1.png)
+![11.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/11.1.png)
 <br>We have successfully change the first name in the post request and also injected a redirect link, using this we can trick any user to click on that link and they will be redirect to that specific page of our choice.
 
 <p class="message">
