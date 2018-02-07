@@ -55,8 +55,34 @@ The attacker’s hostile data can trick the interpreter into executing unintende
 * Input Validation/Sanitization, white list only allowed characters.
 
 <h1 Class="message">
-  DEMO - Comming Soon!
+  DEMO
 </h1>
+  * [HTML Injection -Reflected (GET)](https://teckk2.github.io/web-pentesting/2018/02/07/HTML-Injection-Reflected(GET).html)
+  * [HTML Injection -Reflected (POST)](https://teckk2.github.io/web-pentesting/2018/02/07/HTML-Injection-Reflected(POST).html)
+  * [HTML Injection -Reflected (URL)](https://teckk2.github.io/web-pentesting/2018/02/07/HTML-Injection-Reflected(URL).html)
+  * [HTML Injection -Stored (Blog)](https://teckk2.github.io/web-pentesting/2018/02/07/HTML-Injection-Stored(Blog).html)
+  * [iFrame Injection](https://teckk2.github.io/web-pentesting/2018/02/07/iFrame-Injection.html)
+  * [OS Command Injection](https://teckk2.github.io/web-pentesting/2018/02/07/OS-Command-Injection.html)
+  * [OS Command Injection –Blind](https://teckk2.github.io/web-pentesting/2018/02/07/OS-Command-Injection-Blind.html)
+  * [PHP Code Injection](https://teckk2.github.io/web-pentesting/2018/02/07/PHP-Code-Injection.html)
+  * [Server-Side Includes (SSI) Injection](https://teckk2.github.io/web-pentesting/2018/02/07/Server-Side-Includes-(SSI)-Injection.html)
+  * [SQL Injection (Search/GET)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-(Search-GET).html)
+  * [SQL Injection (Select/GET)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection(Select-GET).html)
+  * [SQL Injection (Search/POST)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection(Search-POST).html)
+  * [SQL Injection (POST/Select)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-(POST-Select).html)
+  * [SQL Injection (AJAX/JSON/jQuery)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection(AJAX-JSON-jQuery).html)
+  * [SQL Injection (CAPTCHA)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection(CAPTCHA).html)
+  * [SQL Injection (Login Form/Hero)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-(Login-Form-Hero).html)
+  * [SQL Injection (Login Form/User)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-(Login-Form-User).html)
+  * [SQL Injection (SQLite)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-(SQLite).html)
+  * [SQL Injection (Drupal)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-(Drupal).html)
+  * [SQL Injection -Stored (Blog)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-Stored-(Blog).html)
+  * [SQL Injection -Stored (SQLite)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-Stored-(SQLite).html)
+  * [SQL Injection -Stored (User-Agent)](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-Stored-(User-Agent).html)
+  * [SQL Injection -Blind -Boolean-Based](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-Blind-Boolean-Based.html)
+  * [SQL Injection -Blind -Time-Based](https://teckk2.github.io/web-pentesting/2018/02/07/SQL-Injection-Blind-Time-Based.html)
+  * [XML/XPath Injection (Login Form)](https://teckk2.github.io/web-pentesting/2018/02/07/XML-XPath-Injection-(Login-Form).html)
+  * [XML/XPath Injection (Search)](https://teckk2.github.io/web-pentesting/2018/02/07/XML-XPath-Injection-(Search).html)
 
 <p class="message">
   ~ Hack the World and Stay Noob
