@@ -19,7 +19,7 @@ categories:
 ![21](https://teckk2.github.io/assets/images/Web%20Pentest/A1/21.png)
 <br>It’s working, so using this we can trick the user to login to the web page and meanwhile we will capture the credential of that user.
 ![22](https://teckk2.github.io/assets/images/Web%20Pentest/A1/22.png)
-<br>[Payload](https://github.com/Teckk2/Teck_k2/blob/master/HTML%20Injection%20-Stored%20(Blog))
+<br>[Payload (Github)](https://github.com/Teckk2/Teck_k2/blob/master/HTML%20Injection%20-Stored%20(Blog))
 <br>Now as soon you will submit, the web page will show session expired and login page
 ![23](https://teckk2.github.io/assets/images/Web%20Pentest/A1/23.png)
 <br>Now refresh the nc and start listening again, and next time any user will login, we will be able to see the credentials.
