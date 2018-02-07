@@ -19,7 +19,7 @@ categories:
 ![140](https://teckk2.github.io/assets/images/Web%20Pentest/A1/140.png)
 <br>And we got the password hash for mysql root.
 ![141](https://teckk2.github.io/assets/images/Web%20Pentest/A1/141.png)
-<br>And the password is {bug}
+<br>And the password is **{bug}**
 
 <p class="message">
   ~ Hack the World and Stay Noob
