@@ -6,7 +6,7 @@ categories:
 ---
 <br>In this also we can use the same techniques as we used in Reflected (Get) HTML injection
 
-![6.1](https://teckk2.github.io/assets/images/Web%20Pentest/A1/6.1.png)
+![6.2](https://teckk2.github.io/assets/images/Web%20Pentest/A1/6.2.png)
 ![7](https://teckk2.github.io/assets/images/Web%20Pentest/A1/7.png)
 <br>Or we can do it like this also by capturing the request and inject the html <h1> tag and in the response it will show us the edited content.
 ![8](https://teckk2.github.io/assets/images/Web%20Pentest/A1/8.png)
