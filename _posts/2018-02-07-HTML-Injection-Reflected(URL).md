@@ -5,7 +5,7 @@ categories:
   - Web-Pentesting
 ---
 
-<br>As you can see our current URL is http://192.168.140.138/bWAPP/htmli_current_url.php
+<br>As you can see our current URL is <font color="Black">http://192.168.140.138/bWAPP/htmli_current_url.php</font>
 
 ![12](https://teckk2.github.io/assets/images/Web%20Pentest/A1/12.png)
 <br>Now capture the request in burp
