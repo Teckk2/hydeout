@@ -14,7 +14,8 @@ categories:
 <br>Now if you focus the name we put is now showing in the URL
 ![3](https://teckk2.github.io/assets/images/Web%20Pentest/A1/3.png)
 <br>Because this application is vulnerable to HTML injection we can inject  HTML <h1> tag which will reflect our name. and if we want we can even inject any URL, by clicking the user will be redirected to that site.
-![4]()
+![4](https://teckk2.github.io/assets/images/Web%20Pentest/A1/4a.png)
+<br> <font color="ffff00"><h1><a href="https://google.com">teck</a></h1>&lastname=<h1>k2</h1> </font>
 <br>Now if the user will click on teck then he will be redirect to google.com .
 <br>You can also inject the HTML tags like this
 ![5](https://teckk2.github.io/assets/images/Web%20Pentest/A1/5.png)
