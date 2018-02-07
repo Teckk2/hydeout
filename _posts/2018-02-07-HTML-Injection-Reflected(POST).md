@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HTML Injection-Reflected (GET)
+title: HTML Injection-Reflected (POST)
 categories:
   - Web-Pentesting
 ---
