@@ -5,6 +5,7 @@ categories:
   - Web-Pentesting
 ---
 <br>In this vulnerability we can manipulate and redirect the site to show the user what we want to show them. 
+
 ![26](https://teckk2.github.io/assets/images/Web%20Pentest/A1/26.png)
 <br>As you can see in the URL the site is accessing the robots.txt, but if put any site URL it will start showing the content of that site in this web page.
 ![27](https://teckk2.github.io/assets/images/Web%20Pentest/A1/27.png)
