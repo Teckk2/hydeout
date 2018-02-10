@@ -10,7 +10,7 @@ categories:
   
   * Querying XML is done with XPath, a type of simple descriptive statement that allows the XML query to locate a piece of information. Like SQL, you can specify certain attributes to find, and patterns to match. When using XML for a web site it is common to accept some form of input on the query string to identify the content to locate and display on the page. This input must be sanitized to verify that it doesn't mess up the XPath query and return the wrong data.
   
-  *XPath is a standard language; its notation/syntax is always implementation independent, which means the attack may be automated. There are no different dialects as it takes place in requests to the SQL databases. Because there is no level access control it's possible to get the entire document. We won't encounter any limitations as we may know from SQL injection attacks.
+  * XPath is a standard language; its notation/syntax is always implementation independent, which means the attack may be automated. There are no different dialects as it takes place in requests to the SQL databases. Because there is no level access control it's possible to get the entire document. We won't encounter any limitations as we may know from SQL injection attacks.
 
 ![176](https://teckk2.github.io/assets/images/Web%20Pentest/A1/176.png)
 ![177](https://teckk2.github.io/assets/images/Web%20Pentest/A1/177.png)
