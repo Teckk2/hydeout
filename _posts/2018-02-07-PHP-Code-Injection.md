@@ -5,6 +5,7 @@ categories:
   - Web-Pentesting
 ---
 
+<br>PHP code injection is a vulnerability that allows an attacker to inject custom code into the server side scripting engine. This vulnerability occurs when an attacker can control all or part of an input string that is fed into an eval() function call. Eval will execute the argument as code.
 <br>As you can see the message is showing in the URL, we can manipulate it
 
 ![37](https://teckk2.github.io/assets/images/Web%20Pentest/A1/37.png)
