@@ -5,7 +5,9 @@ categories:
   - Web-Pentesting
 ---
 
-<br>For this first put some name in the field
+<p>SSIs are directives present on Web applications used to feed an HTML page with dynamic contents. They are similar to CGIs, except that SSIs are used to execute some actions before the current page is loaded or while the page is being visualized. In order to do so, the web server analyzes SSI before supplying the page to the user.</p>
+<br>The Server-Side Includes attack allows the exploitation of a web application by injecting scripts in HTML pages or executing arbitrary codes remotely. It can be exploited through manipulation of SSI in use in the application or force its use through user input fields.
+<br>To check first put some name in the field
 
 ![43](https://teckk2.github.io/assets/images/Web%20Pentest/A1/43.png)
 ![44](https://teckk2.github.io/assets/images/Web%20Pentest/A1/44.png)
