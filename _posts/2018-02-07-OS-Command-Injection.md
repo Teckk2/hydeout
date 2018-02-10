@@ -5,6 +5,7 @@ categories:
   - Web-Pentesting
 ---
 
+<p>OS command injection is a technique used via a web interface in order to execute OS commands on a web server. The user supplies operating system commands through a web interface in order to execute OS commands. Any web interface that is not properly sanitized is subject to this exploit. With the ability to execute OS commands, the user can upload malicious programs or even obtain passwords. OS command injection is preventable when security is emphasized during the design and development of applications.</p>
 <br>As you can see this is DNS lookup but, it has OS Command injection vulnerability using which we can execute system command.
 
 ![28.2](https://teckk2.github.io/assets/images/Web%20Pentest/A1/28.2.png)
