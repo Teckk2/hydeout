@@ -15,6 +15,7 @@ Writeups
 <br>7) [Bastard](https://teckk2.github.io/writeup/2017/12/21/Bastard.html)
 <br>8) [Tenten](https://teckk2.github.io/writeup/2017/12/27/Tenten.html) **Comming Soon!**
 <br>9) [Arctic](https://teckk2.github.io/writeup/2017/12/27/Arctic.html)
+<br>10) [Cronos](https://teckk2.github.io/writeup/2018/02/22/Cronos.html)
 <br>....
 <br>24) [Jail](https://teckk2.github.io/writeup/2018/02/21/Jail.html)
 
