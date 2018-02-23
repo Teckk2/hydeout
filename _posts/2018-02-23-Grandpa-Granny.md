@@ -228,7 +228,7 @@ categories:
 </div>
 </font>
 
-<br>In Suggestion we got couple of exploits which we can use, lets'first try with the **ms14_058_track_popup_menu**
+<br>In Suggestion we got couple of exploits which we can use, lets try with the **ms14_058_track_popup_menu**
 
 <font size="1">
 <div style="height:300px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
