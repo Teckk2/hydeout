@@ -296,6 +296,7 @@ categories:
 </div>
 </font>
 
+<script src="https://www.hackthebox.eu/badge/966"> </script>
 <p class="message">
   ~ Hack the World and Stay Noob
 </p>
@@ -304,4 +305,4 @@ categories:
 [Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
 
 
-<script src="https://www.hackthebox.eu/badge/966"> </script>
+
