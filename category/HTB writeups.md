@@ -17,6 +17,7 @@ Writeups
 <br>9) [Arctic](https://teckk2.github.io/writeup/2017/12/27/Arctic.html)
 <br>10) [Cronos](https://teckk2.github.io/writeup/2018/02/22/Cronos.html)
 <br>11/12) [Grandpa/Granny](https://teckk2.github.io/writeup/2018/02/23/Grandpa-Granny.html)
+<br>13) [October](https://teckk2.github.io/writeup/2018/02/23/October.html)
 <br>....
 <br>24) [Jail](https://teckk2.github.io/writeup/2018/02/21/Jail.html)
 
