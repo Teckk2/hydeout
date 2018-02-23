@@ -95,11 +95,11 @@ categories:
 <br>+ OSVDB-3233: /_vti_inf.html: FrontPage/SharePoint is installed and reveals its version number (check HTML source for more information).
 <br>+ OSVDB-3300: /_vti_bin/: shtml.exe/shtml.dll is available remotely. Some versions of the Front Page ISAPI filter are vulnerable to a DOS (not attempted).
 <br>+ OSVDB-3500: /_vti_bin/fpcount.exe: Frontpage counter CGI has been found. FP Server version 97 allows remote users to execute arbitrary system commands, though a vulnerability in this version could not be confirmed. http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-1999-1376. http://www.securityfocus.com/bid/2252.
-<br>+ OSVDB-67: /_vti_bin/shtml.dll/_vti_rpc: The anonymous FrontPage user is revealed through a crafted POST
+<br>+ OSVDB-67: /_vti_bin/shtml.dll/_vti_rpc: The anonymous FrontPage user is revealed through a crafted POST</p>
 </div>
 </font>
 
-<br>If you goole about IIS 6.0 webdav you can find a BOF [exploit](https://www.exploit-db.com/exploits/41738/), and there is a msf module also available for this similar exploit which we are going to use.
+<br>If you google about IIS 6.0 webdav you can find a BOF [exploit](https://www.exploit-db.com/exploits/41738/), and there is a msf module also available for this similar exploit which we are going to use.
 
 <font size="1">
 <div style="height:300px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
