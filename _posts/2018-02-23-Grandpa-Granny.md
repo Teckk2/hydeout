@@ -73,7 +73,7 @@ categories:
 <br>+ No CGI Directories found (use '-C all' to force check all possible dirs)
 <br>+ OSVDB-397: HTTP method <font color="ffff00">'PUT'</font> allows clients to save files on the web server.
 <br>+ OSVDB-5646: HTTP method 'DELETE' allows clients to delete files on the web server.
-<br>+ Retrieved dasl header: <font color="ffff00"> <DAV:sql> </font>
+<br>+ Retrieved dasl header: <font color="ffff00"> DAV:sql </font>
 <br>+ Retrieved dav header: 1, 2
 <br>+ Retrieved ms-author-via header: MS-FP/4.0,DAV
 <br>+ Uncommon header 'ms-author-via' found, with contents: MS-FP/4.0,DAV
