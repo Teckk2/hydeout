@@ -20,6 +20,8 @@ Writeups
 <br>13) [October](https://teckk2.github.io/writeup/2018/02/23/October.html)
 <br>....
 <br>24) [Jail](https://teckk2.github.io/writeup/2018/02/21/Jail.html)
+<br>..
+<br>32) [Mantis](https://teckk2.github.io/writeup/2018/02/24/Mantis.html)
 
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
