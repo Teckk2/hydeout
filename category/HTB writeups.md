@@ -10,7 +10,7 @@ Writeups
 <br>2) [Legacy](https://teckk2.github.io/writeup/2017/12/18/Legacy.html)
 <br>3) [Devel](https://teckk2.github.io/writeup/2017/12/19/Devel.html)
 <br>4) [Popcorn](https://teckk2.github.io/writeup/2017/12/19/Popcorn.html)
-<br>5) [Beep](https://teckk2.github.io/writeup/2017/12/20/Beep.html) **Comming Soon!**
+<br>5) [Beep](https://teckk2.github.io/writeup/2017/12/20/Beep.html)
 <br>6) [Optimum](https://teckk2.github.io/writeup/2017/12/20/Optimum.html)
 <br>7) [Bastard](https://teckk2.github.io/writeup/2017/12/21/Bastard.html)
 <br>8) [Tenten](https://teckk2.github.io/writeup/2017/12/27/Tenten.html) **Comming Soon!**
