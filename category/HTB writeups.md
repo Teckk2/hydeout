@@ -21,6 +21,8 @@ Writeups
 <br>....
 <br>24) [Jail](https://teckk2.github.io/writeup/2018/02/21/Jail.html)
 <br>..
+<br>36) [Node](https://teckk2.github.io/writeup/2018/03/04/Node.html)
+<br>..
 <br>32) [Mantis](https://teckk2.github.io/writeup/2018/02/24/Mantis.html)
 
 
