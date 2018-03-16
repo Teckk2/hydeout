@@ -24,7 +24,7 @@ Writeups
 <br>36) [Node](https://teckk2.github.io/writeup/2018/03/04/Node.html)
 <br>..
 <br>32) [Mantis](https://teckk2.github.io/writeup/2018/02/24/Mantis.html)
-
+<br>33) [Kotarak](https://teckk2.github.io/writeup/2018/03/10/Kotarak.html)
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
 [Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
