@@ -7,15 +7,6 @@ title: OSCP
   A Noobs OSCP Journey
 </h1>
 
-<style>
-#example1 {
-    border: 2px solid black;
-    padding: auto;
-    background: url(https://media.giphy.com/media/smzfl3E7a4iHK/giphy.gif);
-    background-repeat: repeat;
-    background-size: auto;
-}
-</style>
 
 ![OSCP-logo](https://teckk2.github.io/assets/images/offsec-logo.png)
 
