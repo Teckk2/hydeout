@@ -7,6 +7,26 @@ title: OSCP
   A Noobs OSCP Journey
 </h1>
 
+<style type="text/css">
+	* {
+	    margin: 0;
+	    padding: 0;
+	}
+
+	body {
+	    font-family: Calibri, sans-serif;
+	}
+
+	.background-wrap {
+	    position: fixed;
+	    z-index: -1000;
+	    width: 100%;
+	    height: 100%;
+	    overflow: hidden;
+	    top: 0;
+	}
+</style>
+
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
 		<Source src="https://media.giphy.com/media/3oKIPlCroSFHV8uoko/giphy.mp4" type="video/mp4">
