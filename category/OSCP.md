@@ -53,7 +53,6 @@ On 6th Dec I woke up around 3:00 pm and started preparing myself for the next da
 After Spending almost a year, without stepping out from my house for months, without meeting any friends,  all my hard work paid off when that final day come I got the email that I cleared OSCP.**Wink**-**Wink**
 ![OSCP-logo](https://teckk2.github.io//assets/images/offsec-student-certified-emblem-rgb-oscp.jpeg)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <iframe src="https://player.vimeo.com/video/115074667" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 I will miss my OSCP labs,Thanx to the _**offensive security**_, **OSCP** was the best learning experience of my life. It was a wonderful phase which I might renew hopefully with OSCE.
 
