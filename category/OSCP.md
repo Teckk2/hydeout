@@ -7,6 +7,12 @@ title: OSCP
   A Noobs OSCP Journey
 </h1>
 
+<div class="background-wrap">
+	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
+		<Source src="https://media.giphy.com/media/3oKIPlCroSFHV8uoko/giphy.mp4" type="video/mp4">
+	</video>
+</div>
+  
 ![OSCP-logo](https://teckk2.github.io/assets/images/offsec-logo.png)
 
 So it all starts when I graduated last year in 2016 and finding my way to get a job in Infosec domain, before graduation I already have a [**CEH**](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/) certification,But as you know it's so hard to get a job as a fresher in this domain especially in India until you have some skills or have a reference. After getting rejected by almost 15 companies I decided to start to increase my skill, and there is no better way than [**OSCP**](https://www.offensive-security.com/information-security-certifications/oscp-offensive-security-certified-professional/). So on the 31st Dec night I talked to my father that I want to spend 1 year on OSCP, after some discussion he eventually agreed, I took the time limit very seriously.
