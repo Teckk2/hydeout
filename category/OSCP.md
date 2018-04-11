@@ -7,21 +7,6 @@ title: OSCP
   A Noobs OSCP Journey
 </h1>
 
-<style type="text/css">
-.background-wrap {
-    background-image: url('https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4');
-}
-</style>
-
-...
-
-<div class="background-wrap">
-	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
-		<Source src="https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4" type="video/mp4">
-	</video>
-</div>
-
-
   
 ![OSCP-logo](https://teckk2.github.io/assets/images/offsec-logo.png)
 
@@ -75,6 +60,13 @@ I will miss my OSCP labs,Thanx to the _**offensive security**_, **OSCP** was the
 * Thanks to my _**Family**_ for supporting me throughout this journey.
 * Thanks to my mentor _**KNX**_ for guiding me on the right path.
 * Thanks to my Best Friend _**Nyks**_ for supporting and encouraging me always and standing by my side when there was no one.
+
+<div class="background-wrap">
+	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
+		<Source src="https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4" type="video/mp4">
+	</video>
+</div>
+
 <p Class="message">
 ~ Fuck The Best Play With The Rest
 </p>
