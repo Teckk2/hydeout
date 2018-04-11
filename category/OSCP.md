@@ -8,22 +8,20 @@ title: OSCP
 </h1>
 
 <style type="text/css">
-.bgimg {
+.background-wrap {
     background-image: url('https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4');
 }
 </style>
 
 ...
 
-<div class="bgimg">
-    div with background
-</div>
-
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
 		<Source src="https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4" type="video/mp4">
 	</video>
 </div>
+
+
   
 ![OSCP-logo](https://teckk2.github.io/assets/images/offsec-logo.png)
 
