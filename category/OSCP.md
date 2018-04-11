@@ -6,7 +6,7 @@ title: OSCP
 <h1 Class="message">
   A Noobs OSCP Journey
 </h1>
-
+<html>
 <head>
 <style>
 body { 
@@ -14,7 +14,7 @@ body {
 }
 </style>
 </head>
-
+<body>
 ![OSCP-logo](https://teckk2.github.io/assets/images/offsec-logo.png)
 
 So it all starts when I graduated last year in 2016 and finding my way to get a job in Infosec domain, before graduation I already have a [**CEH**](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/) certification,But as you know it's so hard to get a job as a fresher in this domain especially in India until you have some skills or have a reference. After getting rejected by almost 15 companies I decided to start to increase my skill, and there is no better way than [**OSCP**](https://www.offensive-security.com/information-security-certifications/oscp-offensive-security-certified-professional/). So on the 31st Dec night I talked to my father that I want to spend 1 year on OSCP, after some discussion he eventually agreed, I took the time limit very seriously.
@@ -77,3 +77,5 @@ I will miss my OSCP labs,Thanx to the _**offensive security**_, **OSCP** was the
 <script 
 src="https://www.hackthebox.eu/badge/966">
 </script>
+</body>
+</html>
