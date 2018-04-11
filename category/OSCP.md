@@ -7,7 +7,17 @@ title: OSCP
   A Noobs OSCP Journey
 </h1>
 
-<div style="background-image: url(https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4); height: 200px; width: 400px; border: 0px solid black;"> </div>
+<style type="text/css">
+.bgimg {
+    background-image: url('https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4');
+}
+</style>
+
+...
+
+<div class="bgimg">
+    div with background
+</div>
 
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
