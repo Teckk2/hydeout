@@ -15,7 +15,11 @@ looking forward to increasing my knowledge in Binary exploitation / Exploit Deve
 </p>
 * CEH
 * OSCP
-
+<div class="background-wrap">
+	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
+		<Source src="https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4" type="video/mp4">
+	</video>
+</div>
 ~ Hack the World and Stay Noob
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
