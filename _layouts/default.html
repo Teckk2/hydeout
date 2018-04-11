@@ -3,17 +3,8 @@
 
   {% include head.html %}
 
-  html, body {
-    height: 100%;
-    margin: 0;
-}
-
-.gif-container {
-  background: url("https://media.giphy.com/media/smzfl3E7a4iHK/giphy.gif") center;
-  background-size: cover;
-
-  height: 100%;
-}
+  <body class="{{ page.layout }}{% if page.url == '/' %} home{% endif %}">
+    
     {% include sidebar.html %}
 
     <main class="container">
