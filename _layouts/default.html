@@ -3,10 +3,16 @@
 
   {% include head.html %}
 
-  body{
-background-image:url('https://media.giphy.com/media/smzfl3E7a4iHK/giphy.gif');
-background-position: center;
-background-size: cover;
+  html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.gif-container {
+  background: url("https://media.giphy.com/media/smzfl3E7a4iHK/giphy.gif") center;
+  background-size: cover;
+
+  height: 100%;
 }
     {% include sidebar.html %}
 
