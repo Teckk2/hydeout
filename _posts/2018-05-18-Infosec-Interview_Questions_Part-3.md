@@ -19,6 +19,7 @@ categories:
 <br>**Ans**:- 
 <br>{_**Small and simple answer**_} 
   * Nmap works on Two layers Network (Layer 3) and Transport (Layer 4)
+
 <br>{_**If they ask for more In-depth answer**_} 
   * Nmap Use Network layer to send packets , and for detecting whether the host is Up or not.
   * Transport Layer is used for SYN scan and also to detect which ports are open/closed.
