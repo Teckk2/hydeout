@@ -51,7 +51,7 @@ categories:
 
 <br>4) **Information Analysis and Planning** – If we found any service which is running we will search for the public exploit if available or try to find it manually if it’s running any web server for which further enumeration of the web service we can use Nikto, gobuster, etc..
 
-div class="background-wrap">
+<div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
 		<Source src="https://media.giphy.com/media/BHNVC6suWIKs/giphy.mp4" type="video/mp4">
 	</video>
@@ -68,7 +68,7 @@ div class="background-wrap">
 
 <br>8) **Clean-Up** – This is the last and important part in which we need to clean the footprint before we go out, remove the logs of your system from the server, delete the file you download for enumeration or testing.
 
-div class="background-wrap">
+<div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
 		<Source src="https://media.giphy.com/media/3oKIPCSX4UHmuS41TG/giphy.mp4" type="video/mp4">
 	</video>
