@@ -37,7 +37,9 @@ categories:
 ![Pentesting-life-Cycle](https://teckk2.github.io/assets/images/pentestingLifeCycle-4.jpeg)
 
 <br>
+	
 	* __Scope__ - In this we need to find how many IP’s are available in the network, or provided by the client to scan.
+	
 	* __Reconnaissance__ - this is the first interaction with the target machine in which we will enumerate to find the open ports for which we will use Nmap based on that result we will move to the next step.
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
