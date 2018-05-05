@@ -5,7 +5,7 @@ categories:
   - Misc
 ---
 
-<p>This Part is Short but it has very Important 2 questions which I encounter On almost every Interview, The way I Answer it maybe many people will not like it but who cares.😂😂 </p>
+<p>This Part is Short but it has two very Important questions which I encounter On almost every Interview, The way I Answer it maybe many people will not like it but who cares.😂😂 </p>
 
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
@@ -13,6 +13,7 @@ categories:
 	</video>
 </div>
   
+
 <p Class="message">
   <font color="Black">Question 1</font> – On which layer Nmap works?
 </p>
