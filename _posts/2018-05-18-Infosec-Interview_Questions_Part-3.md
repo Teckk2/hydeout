@@ -25,3 +25,10 @@ categories:
   * Nmap Use Network layer to send packets , and for detecting whether the host is Up or not.
   * Transport Layer is used for SYN scan and also to detect which ports are open/closed.
   * Sequence number detection also happens in Transport Layer which is used to detect the OS of the target.
+
+<p Class="message">
+  <font color="Black">Question 1</font> – Explain Pen testing lifecycle in Detail.
+</p>
+
+<br>This is question can vary either they can ask you to explain this in a telephonic interview or in an online written interview, So you need to manage accrodingly.
+
