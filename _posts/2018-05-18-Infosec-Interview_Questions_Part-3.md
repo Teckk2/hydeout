@@ -9,7 +9,7 @@ categories:
 
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
-		<Source src="https://media.giphy.com/media/xUNd9L1VpqjRxXEw5W/giphy.mp4" type="video/mp4">
+		<Source src="https://media.giphy.com/media/RBYBWi1IT8vDy/giphy.mp4" type="video/mp4">
 	</video>
 </div>
   
