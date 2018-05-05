@@ -30,7 +30,7 @@ categories:
   <font color="Black">Question 2</font> – Explain Pen testing lifecycle in Detail.
 </p>
 
-<br>**Ans**:- This is question can vary either they can ask you to explain this in a telephonic interview or in an online written interview, So you need to manage accrodingly.
+<br>**Ans**:- This question can vary either they can ask you to explain this in a telephonic interview or in an online written interview, So you need to manage accrodingly.
 
 <br> This is the Cycle I usually follow while doing Pentesting.
 
