@@ -48,6 +48,7 @@ categories:
 </div>	
 
 <br> **Note**: {The Target is given by the Client So I am not going to explain Passive Reconnaissance as it is simple to understand I guess you guys already know about it.}
+	
 	* __Vulnerability Detection__ -  Based on the Nmap result we need to find on which port the service is running and which version is installed. 
 	* __Information Analysis and Planning__ – If we found any service which is running we will search for the public exploit if available or try to find it manually if it’s running any web server for which further enumeration of the web service we can use Nikto, gobuster, etc..
 	* __Penetration Testing__ - If the service we found is vulnerable to some sort of vulnerability 
