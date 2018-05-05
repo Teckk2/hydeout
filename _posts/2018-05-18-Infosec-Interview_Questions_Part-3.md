@@ -76,7 +76,7 @@ div class="background-wrap">
 	
 	
 <p class="message">
-  ~ Hack the World and Stay Noob
+  ~ Don't fall for girls, Instead fall for knowledge atleast it will Love you back in the end!
 </p>
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
