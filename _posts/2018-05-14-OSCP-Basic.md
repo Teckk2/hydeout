@@ -14,7 +14,7 @@ categories:
 </div>
 
 <br>
-<br>**Level 1.1** - The first Step should be to learn and understand Bash follow this Youtube ![Link](https://www.youtube.com/watch?v=oxuRxtrO2Ag)
+<br>**Level 1.1** - The first Step should be to learn and understand Bash follow this Youtube [Link](https://www.youtube.com/watch?v=oxuRxtrO2Ag)
 <br>But I hope if you are thinking of doing OSCP you must have knowledge of Bash, if not then you can look up the [link](https://www.youtube.com/watch?v=oxuRxtrO2Ag).
 <br>
 <br>**Level 1.2** – Now after learning Some bash commands you must be wondering and have doubt for what command we used and why? To understand all this, you can follow this site, just enter the command you want to know about and it will explain you the working nature of that command. [Explainshell](https://www.explainshell.com)
