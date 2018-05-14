@@ -12,7 +12,7 @@ title: OSCP Guide
 [OSCP Preparation Guide Basic Level-1](https://teckk2.github.io/oscp%20guide/2018/05/14/OSCP-Basic.html)
 
 <p class="message">
- keep calm and Love Little Prince!
+ keep calm and Love The Little Prince!
 </p>
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
