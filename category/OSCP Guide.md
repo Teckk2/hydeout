@@ -7,4 +7,4 @@ title: OSCP Guide
  OSCP Preparation Guide from Basic to Advance
 </h1>
 
-![Basic Level-1]()
+![Basic Level-1](https://teckk2.github.io/oscp%20guide/2018/05/14/OSCP-Basic.html)
