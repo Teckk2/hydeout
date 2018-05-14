@@ -1,6 +1,6 @@
 ---
 layout: category
-title: OSCP Prep. Guide
+title: OSCP Guide
 ---
 
 <h1 Class="message">
