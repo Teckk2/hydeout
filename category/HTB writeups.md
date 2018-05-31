@@ -6,25 +6,25 @@ title: Hack The Box (HTB)
 <h1 Class="message">
 Writeups
 </h1>
-<br>1) [Lame](https://teckk2.github.io/writeup/2017/12/17/Lame.html)
-<br>2) [Legacy](https://teckk2.github.io/writeup/2017/12/18/Legacy.html)
-<br>3) [Devel](https://teckk2.github.io/writeup/2017/12/19/Devel.html)
-<br>4) [Popcorn](https://teckk2.github.io/writeup/2017/12/19/Popcorn.html)
-<br>5) [Beep](https://teckk2.github.io/writeup/2017/12/20/Beep.html)
-<br>6) [Optimum](https://teckk2.github.io/writeup/2017/12/20/Optimum.html)
-<br>7) [Bastard](https://teckk2.github.io/writeup/2017/12/21/Bastard.html)
-<br>8) [Tenten](https://teckk2.github.io/writeup/2017/12/27/Tenten.html) **Comming Soon!**
-<br>9) [Arctic](https://teckk2.github.io/writeup/2017/12/27/Arctic.html)
-<br>10) [Cronos](https://teckk2.github.io/writeup/2018/02/22/Cronos.html)
-<br>11/12) [Grandpa/Granny](https://teckk2.github.io/writeup/2018/02/23/Grandpa-Granny.html)
-<br>13) [October](https://teckk2.github.io/writeup/2018/02/23/October.html)
+<br>_**1)**_ **[Lame](https://teckk2.github.io/writeup/2017/12/17/Lame.html)**
+<br>_**2)**_ **[Legacy](https://teckk2.github.io/writeup/2017/12/18/Legacy.html)**
+<br>_**3)**_ **[Devel](https://teckk2.github.io/writeup/2017/12/19/Devel.html)**
+<br>_**4)**_ **[Popcorn](https://teckk2.github.io/writeup/2017/12/19/Popcorn.html)**
+<br>_**5)**_ **[Beep](https://teckk2.github.io/writeup/2017/12/20/Beep.html)**
+<br>_**6)**_ **[Optimum](https://teckk2.github.io/writeup/2017/12/20/Optimum.html)**
+<br>_**7)**_ **[Bastard](https://teckk2.github.io/writeup/2017/12/21/Bastard.html)**
+<br>_**8)**_ **[Tenten](https://teckk2.github.io/writeup/2017/12/27/Tenten.html)** **Comming Soon!**
+<br>_**9)**_ **[Arctic](https://teckk2.github.io/writeup/2017/12/27/Arctic.html)**
+<br>_**10)**_ **[Cronos](https://teckk2.github.io/writeup/2018/02/22/Cronos.html)**
+<br>_**11/12)**_ **[Grandpa/Granny](https://teckk2.github.io/writeup/2018/02/23/Grandpa-Granny.html)**
+<br>_**13)**_ **[October](https://teckk2.github.io/writeup/2018/02/23/October.html)**
 <br>....
-<br>24) [Jail](https://teckk2.github.io/writeup/2018/02/21/Jail.html)
+<br>_**24)**_ **[Jail](https://teckk2.github.io/writeup/2018/02/21/Jail.html)**
 <br>..
-<br>36) [Node](https://teckk2.github.io/writeup/2018/03/04/Node.html)
+<br>_**36)**_ **[Node](https://teckk2.github.io/writeup/2018/03/04/Node.html)**
 <br>..
-<br>32) [Mantis](https://teckk2.github.io/writeup/2018/02/24/Mantis.html)
-<br>33) [Kotarak](https://teckk2.github.io/writeup/2018/03/10/Kotarak.html)
+<br>_**32)**_ **[Mantis](https://teckk2.github.io/writeup/2018/02/24/Mantis.html)**
+<br>_**33)**_ **[Kotarak](https://teckk2.github.io/writeup/2018/03/10/Kotarak.html)**
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
 [Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
