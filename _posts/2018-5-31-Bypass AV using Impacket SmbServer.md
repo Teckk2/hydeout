@@ -15,7 +15,8 @@ categories:
 
 <br>**Poc**
 <br>if you have not Done the [Arctic](https://teckk2.github.io/writeup/2017/12/27/Arctic.html) machine, I recomend first follow the steps and reach the step where we have RCE on the web,
-<br>first generate the Payload
+
+<br>First generate the Payload
 
 <font size="1">
 <div style="height:100px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
