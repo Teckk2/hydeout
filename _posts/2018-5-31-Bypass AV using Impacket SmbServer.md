@@ -108,4 +108,16 @@ categories:
 </div>
 </font>
 
+<br>As you can see we successfully executed our meterpreter payload in the memory and bypass the AV and get shell.
+<br>I learned This method from my mentor [KNX](https://twitter.com/ddarix), you can check the Orignal Video.
+<iframe src="https://www.youtube.com/watch?v=BLBFKp20idE&t=125s" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<p class="message">
+  ~ Hack the World and keep Loving Little Prince.
+</p>
+
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
 
