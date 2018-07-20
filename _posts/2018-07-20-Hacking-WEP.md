@@ -59,7 +59,7 @@ categories:
 <br>&nbsp;&nbsp;(mac80211 station mode vif disabled for [phy0]wlan0)</p>
 
 <p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># iwconfig 
-<br>wlan0mon&nbsp;&nbsp;IEEE 802.11&nbsp;&nbsp;<font color="ffff00">Mode:Monitor</font>&nbsp;&nbsp;Frequency:2.457 GHz&nbsp;&nbsp;Tx-Power=20 dBm   
+<br><font color="53E100">wlan0mon</font>&nbsp;&nbsp;IEEE 802.11&nbsp;&nbsp;<font color="ffff00">Mode:Monitor</font>&nbsp;&nbsp;Frequency:2.457 GHz&nbsp;&nbsp;Tx-Power=20 dBm   
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retry short limit:7&nbsp;&nbsp;&nbsp;RTS thr:off&nbsp;&nbsp;&nbsp;Fragment thr:off
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Power Management:off</p>
           
