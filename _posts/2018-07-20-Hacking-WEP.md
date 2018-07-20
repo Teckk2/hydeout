@@ -18,6 +18,31 @@ categories:
 ![WEP-1](https://teckk2.github.io/assets/images/Wifi/WEP-1.1.png)
 ![WEP-2](https://teckk2.github.io/assets/images/Wifi/WEP-2.png)
 <br>There you will see two options one to create encryption keys with **40 / 64-bit (10 hex digits)** and one with **104 / 128-bit (26 hex digits)** this is the security feature which they added before WPA was formally adopted in 2003. This option is not available in many routers/old.
+
+<font size="1">
+<div style="height:300px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font>#iwconfig 
+<br>wlan0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IEEE 802.11  ESSID:off/any  
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="ffff00">Mode:Managed</font>&nbsp;&nbsp;Access&nbsp;Point:&nbsp;Not-Associated&nbsp;&nbsp;&nbsp;Tx-Power=20 dBm   
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retry short limit:7&nbsp;&nbsp;&nbsp;RTS thr:off&nbsp;&nbsp;&nbsp;Fragment thr:off
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Encryption key:off
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Power Management:off</p>
+          
+<p>lo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no wireless extensions.</p>
+
+<p>eth0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no wireless extensions.</p>
+
+<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font>#
+</div>
+</font>
+
+<br>As you can see in our wifi adapter which is **Wlan0** the mode is showing: Managed and to dump the data from the envirement and for packet injection or to do other stuff we need **Monitor** Mode and to do that we can use a beautiful set of tool airmon-ng which will set out wifi adpater to monitor mode.
+
+
+
+
+
+
 <p class="message">
   ~ Hack the World and Stay Noob
 </p>
