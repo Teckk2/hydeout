@@ -71,6 +71,29 @@ categories:
 </div>
 </font>
 
+<br>Now as you can see the Mode has been chnaged to Monitor and the adapter name is also changed from wlan0 to wlan0mon, Now to proceed further we need to kill some process which may cause problem while we scan for availbale network or dump the data. to do that we just need to use **airmon-ng check kill** and it will kill the process which may cause problemin our way.
+
+<font size="1">
+<div style="height:150px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airmon-ng check kill</p>
+
+<p>Killing these processes:</p>
+
+<p>&nbsp;&nbsp;PID Name
+<br>&nbsp;&nbsp;741 wpa_supplicant
+<br>&nbsp;4814 dhclient</p>
+
+<p>root@kali:~/Desktop#</p>
+</div>
+</font>
+
+
+
+
+
+
+
+
 
 
 
