@@ -89,11 +89,15 @@ categories:
 
 <br>Now type **<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airodump-ng wlan0mon** and we will start seeing Wifi APs which is available in our nearby surrounding. 
 ![3](https://teckk2.github.io/assets/images/Wifi/3.PNG)
-<br>As we can see airodump is giving some usefull information for now let's only focus on our test setup as our ESSID which is Teck_k2 which I set up for this blog and it's BSSID(48:F8:B3:76:E6:E4) which is the mac address of the AP, and it is running on channel 5. It will be interesting if you can learn about Wlan Channels and learn about on which frquency which channel run like 2412Mhz in channel one, then after the gave of 5 on 2417mhz it's channle 2, and so on.. And also learn on which country which channle is ban.
+<br>As we can see airodump is giving some usefull information for now let's only focus on our test setup as our ESSID which is **Teck_k2** which I set up for this blog and it's **BSSID(48:F8:B3:76:E6:E4)** which is the mac address of the AP, and it is running on channel 5. It will be interesting if you can learn about Wlan Channels and learn about on which frquency which channel run like **2412Mhz** in channel one, then after the gave of 5 on **2417Mhz** it's channle 2, and so on.. from [Wiki](https://en.wikipedia.org/wiki/List_of_WLAN_channels) And also learn on which country which channle is ban.
 
 <br>Now as we know the required information we can now check and analyse the traffic of our perticular AP and check how many machines are connected to it using Wifi.
 
 <br>**<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airodump-ng --bssid 48:F8:B3:76:E6:E4 --essid Teck_k2 -c 5 wlan0mon**
+
+![4](https://teckk2.github.io/assets/images/Wifi/4.PNG)
+<br>As you can see with our target AP I have connected my another Laptop for testing
+<br>So now we need to capture the connection which is between the client and the AP, and for that we will create a deauth attack and when the client will try to reconnect to it's it will do a 4-way handshake and that's what we need and later we can crack it, to understand this handshake process you can refer to [wiki](https://en.wikipedia.org/wiki/IEEE_802.11i-2004).
 
 
 
