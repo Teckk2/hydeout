@@ -15,7 +15,8 @@ categories:
 <br>Let's now setup our lab and for which I am going to use a Linksys08362 or you can use any wifi router which offers WEP/WPA/WPA2/WPA2-Enterprise and we need a Kali, and a Wifi adapter which should have Packet injection capability, And for that I am using TP-Link TL-WN722N.</p>
 
 <br> Go to your Wifi router setting and configure it to WEP,
-
+![https://teckk2.github.io/assets/images/Wifi/WEP-1.1.png]
+<br>There you will see two options one to create encryption keys with **40 / 64-bit (10 hex digits)** and one with **104 / 128-bit (26 hex digits)**
 <p class="message">
   ~ Hack the World and Stay Noob
 </p>
