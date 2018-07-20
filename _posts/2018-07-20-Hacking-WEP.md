@@ -39,7 +39,7 @@ categories:
 <br>As you can see in our wifi adapter which is **Wlan0** the mode is showing: Managed and to dump the data from the envirement and for packet injection or to do other stuff we need **Monitor** Mode and to do that we can use a beautiful set of tool airmon-ng which will set out wifi adpater to monitor mode.
 
 <font size="1">
-<div style="height:150px;width:400px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<div style="height:150px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
 <p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airmon-ng start wlan0</p>
 
 <p>Found 3 processes that could cause trouble.
@@ -67,7 +67,7 @@ categories:
 
 <p>eth0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;no wireless extensions.</p>
 
-<p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font>#
+<p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># </p>
 </div>
 </font>
 
