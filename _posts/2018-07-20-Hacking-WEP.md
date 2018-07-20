@@ -39,7 +39,7 @@ categories:
 <br>As you can see in our wifi adapter which is **Wlan0** the mode is showing: Managed and to dump the data from the envirement and for packet injection or to do other stuff we need **Monitor** Mode and to do that we can use a beautiful set of tool airmon-ng which will set out wifi adpater to monitor mode.
 
 <font size="1">
-<div style="height:150px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<div style="height:300px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
 <p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airmon-ng start wlan0</p>
 
 <p>Found 3 processes that could cause trouble.
@@ -74,7 +74,7 @@ categories:
 <br>Now as you can see the Mode has been chnaged to Monitor and the adapter name is also changed from wlan0 to wlan0mon, Now to proceed further we need to kill some process which may cause problem while we scan for availbale network or dump the data. to do that we just need to use **airmon-ng check kill** and it will kill the process which may cause problemin our way.
 
 <font size="1">
-<div style="height:150px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
+<div style="height:180px;width:600px;overflow:auto;background-color:#262626;color:White;scrollbar-base-color:gold;font-family:monospace;padding:10px;">
 <p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airmon-ng check kill</p>
 
 <p>Killing these processes:</p>
@@ -83,11 +83,17 @@ categories:
 <br>&nbsp;&nbsp;741 wpa_supplicant
 <br>&nbsp;4814 dhclient</p>
 
-<p>root@kali:~/Desktop#</p>
+<p><font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font>#</p>
 </div>
 </font>
 
+<br>Now type **<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airodump-ng wlan0mon** and we will start seeing Wifi APs which is available in our nearby surrounding. 
+![3](https://teckk2.github.io/assets/images/Wifi/3.PNG)
+<br>As we can see airodump is giving some usefull information for now let's only focus on our test setup as our ESSID which is Teck_k2 which I set up for this blog and it's BSSID(48:F8:B3:76:E6:E4) which is the mac address of the AP, and it is running on channel 5. It will be interesting if you can learn about Wlan Channels and learn about on which frquency which channel run like 2412Mhz in channel one, then after the gave of 5 on 2417mhz it's channle 2, and so on.. And also learn on which country which channle is ban.
 
+<br>Now as we know the required information we can now check and analyse the traffic of our perticular AP and check how many machines are connected to it using Wifi.
+
+<br>**<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airodump-ng --bssid 48:F8:B3:76:E6:E4 --essid Teck_k2 -c 5 wlan0mon**
 
 
 
