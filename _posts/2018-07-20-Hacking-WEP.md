@@ -8,7 +8,7 @@ categories:
 
 <p>Before we start attacknig WEP let's learn about it's history a bit. (WEP) stands for Wired Equivalent Privacy, which is a security protocol, specified in the IEEE Wireless Fidelity (Wi-Fi) standard, 802.11b, that is designed to provide a wireless local area network (WLAN) with a level of security and privacy comparable to what is usually expected of a wired LAN.</p>
 
-<br>*WEP* Uses RC4 stream cipher and 64-or 128-bit keys. Static master key must be manually entered into each device.
+<br>**WEP** Uses RC4 stream cipher and 64-or 128-bit keys. Static master key must be manually entered into each device.
 <br>WEP was introduced in 1999. Within a few years, several security researchers discovered flaws in its design. The "24 additional bits of system-generated data" mentioned above is technically known as the Initialization Vector and proved to be the most critical protocol flaw. With simple and readily available tools, a hacker can determine the WEP key and use it to break into an active Wi-Fi network within a matter of minutes.
 
 <p>Vendor-specific enhancements to WEP like WEP+ and Dynamic WEP were implemented in attempts to patch some of the shortcomings of WEP, but these technologies are also not viable today.</p>
