@@ -16,7 +16,8 @@ categories:
 
 <br> Go to your Wifi router setting and configure it to WEP,
 ![WEP-1](https://teckk2.github.io/assets/images/Wifi/WEP-1.1.png)
-<br>There you will see two options one to create encryption keys with **40 / 64-bit (10 hex digits)** and one with **104 / 128-bit (26 hex digits)**
+![WEP-2](https://teckk2.github.io/assets/images/Wifi/WEP-2.png)
+<br>There you will see two options one to create encryption keys with **40 / 64-bit (10 hex digits)** and one with **104 / 128-bit (26 hex digits)** this is the security feature which they added before WPA was formally adopted in 2003. This option is not available in many routers/old.
 <p class="message">
   ~ Hack the World and Stay Noob
 </p>
