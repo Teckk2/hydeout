@@ -97,7 +97,15 @@ categories:
 
 ![4](https://teckk2.github.io/assets/images/Wifi/4.PNG)
 <br>As you can see with our target AP I have connected my another Laptop for testing
-<br>So now we need to capture the connection which is between the client and the AP, and for that we will create a deauth attack and when the client will try to reconnect to it's it will do a 4-way handshake and that's what we need and later we can crack it, to understand this handshake process you can refer to [wiki](https://en.wikipedia.org/wiki/IEEE_802.11i-2004).
+<br>So now we need to capture the connection which is between the client and the AP, and for that we will create a deauth attack and when the client will try to reconnect to it's it will do a 4-way handshake and collect the IVs and that's what we need and later we can crack it, to understand this handshake process you can refer to [wiki](https://en.wikipedia.org/wiki/IEEE_802.11i-2004).
+<br>Now we can do deauth attack on our target AP using **aireplay-ng**
+<br>**<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># aireplay-ng -0 0 -a 48:F8:B3:76:E6:E4 -e Teck_k2 -h 98:22:EF:F0:90:79 wlan0mon**
+
+<br>Where -a we used for BSSID, E is for SSID and -h is for station/client mac address, if we don't specify a client then it will deauth all the connected clients of the target IP and -0 0 is for deauth untill we stop it manually or we can also set the limit like 100 after -0 100 to send limited number of deauth.
+
+<br>before starting the deauth we need to capture the traffic using airodump and write into a file with (-w) flag
+<br>**<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airodump-ng --bssid 48:F8:B3:76:E6:E4 --essid Teck_k2 -c 5 wlan0mon -w WEPCrack**
+
 
 
 
