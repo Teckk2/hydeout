@@ -34,4 +34,4 @@ categories:
 <br> * DHCP server IP
 <br> * Default gateway
 <br> * MAC Address of VoIP phone, etc
-![1](https://teckk2.github.io/assets/images/Cisco/1.png)
+<br>![1](https://teckk2.github.io/assets/images/Cisco/1.png)
