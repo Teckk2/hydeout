@@ -50,7 +50,7 @@ categories:
 <br>
 <br>**Mitigations to reduce the effectiveness of a Cisco ISE(NAC) bypass.**
 <p>My first step towards gaining access to the network was to gather information from the VoIP phone lying around. Users normally do not need access to such information. Hence access to the network configuration on VoIP phones should be locked down. Also, by default, there is a web service running that gives unauthenticated access to the Cisco VoIP phones’ network configuration. This too should not be available.
-<br>What if an attacker still manages to get access to the network by spoofing the MAC address of a printer? The best practice is to segregate Voice VLAN and Server VLAN. In my case, your organization failed to restrict traffic internally between the two VLANS hence I was able to reach the Server VLAN. The network was completely flat. It stresses the importance of having a firewall in the core layer of the network so as to segregate and restrict traffic going from one VLAN to another.</p>
+<br>What if an attacker still manages to get access to the network by spoofing the MAC address of a printer? The best practice is to segregate Voice VLAN and Server VLAN. In my case, the organization failed to restrict traffic internally between the two VLANS hence I was able to reach the Server VLAN. The network was completely flat. It stresses the importance of having a firewall in the core layer of the network so as to segregate and restrict traffic going from one VLAN to another.</p>
 <br>Vendors could possibly ping the newly connected device on the network. The TTL response could be a good indicator of the host and operating system.
 <br>
 <br>**In short, the following mitigations are recommended:**
