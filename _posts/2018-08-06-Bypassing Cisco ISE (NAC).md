@@ -52,6 +52,7 @@ categories:
 <p>My first step towards gaining access to the network was to gather information from the VoIP phone lying around. Users normally do not need access to such information. Hence access to the network configuration on VoIP phones should be locked down. Also, by default, there is a web service running that gives unauthenticated access to the Cisco VoIP phones’ network configuration. This too should not be available.
 <br>What if an attacker still manages to get access to the network by spoofing the MAC address of a printer? The best practice is to segregate Voice VLAN and Server VLAN. In my case, your organization failed to restrict traffic internally between the two VLANS hence I was able to reach the Server VLAN. The network was completely flat. It stresses the importance of having a firewall in the core layer of the network so as to segregate and restrict traffic going from one VLAN to another.</p>
 <br>Vendors could possibly ping the newly connected device on the network. The TTL response could be a good indicator of the host and operating system.
+<br>
 <br>**In short, the following mitigations are recommended:**
 <br>  * Lock down access to view network configuration on VoIP phones.
 <br>  * In case an attacker manages to bypass the NAC; a core firewall in the network will help that restricts traffic from Voice VLAN to Data VLAN. Not all traffic should be trusted from Voice VLAN.
@@ -59,7 +60,7 @@ categories:
 <br>  * There should be a mechanism by the NAC vendors that pings the devices to determine the kind of host that is connected (this technique may be around but may not be known to the NAC administrators).
 
 <p>Cisco also has enhanced their profiling capability citing MAC spoof issue. The details can be found on the below link:
-<br>[https://www.cisco.com/c/en/us/support/docs/security/](https://www.cisco.com/c/en/us/support/docs/security/identity-services-engine-22/200973-configure-anomalous-endpoint-detection-a.html)
+<br>[https://www.cisco.com/c/en/us/support/docs/security/](https://www.cisco.com/c/en/us/support/docs/security/identity-services-engine-22/200973-configure-anomalous-endpoint-detection-a.html)</p>
 
 
 <p class="message">
