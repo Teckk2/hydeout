@@ -30,10 +30,10 @@ categories:
 
 <br>As you know it was a Gray box Pentesting I have only physical access to the target organization and had no prior knowledge of the network/infrastructure or subnet ranges nor had my device whitelisted on the network.
 <br>As every penetration test starts, my first step begins with information gathering. I had nothing but a VoIP phone next to me of an employee who was on leave. I started to look at the settings, and I got the following details:
-<br> * Call Manager TFTP server IP address
-<br> * DHCP server IP
-<br> * Default gateway
-<br> * MAC Address of VoIP phone, etc
+<br>  * **Call Manager TFTP server IP address**
+<br>  * **DHCP server IP**
+<br>  * **Default gateway**
+<br>  * **MAC Address of VoIP phone, etc**
 <br>![1](https://teckk2.github.io/assets/images/Cisco/1.png)
 <br>![2](https://teckk2.github.io/assets/images/Cisco/2.PNG.png)
 
@@ -42,4 +42,31 @@ categories:
 <br>**Dot1x** is a part of the IEEE 802.1 group of protocols. It provides an authentication mechanism to devices wishing to attach to LAN or WAN. IEEE 802.1X defines the encapsulation of the Extensible Authentication Protocol (EAP) over IEEE 802, which is known as “EAP over LAN” or EAPOL.
 
 <p>Getting back to action, I spoofed the MAC address of the VoIP phone on my Windows system to see if my theory worked and found that I was correct. I could access the Voice VLAN IPs and also was able to reach the Server VLAN subnet ranges. This was one of the best NAC solutions around, and I was surprised it could not detect my device as a Windows system.</p>
+<br>![3](https://teckk2.github.io/assets/images/Cisco/3.PNG)
+<br>**Boom** I am in the network, I got the IP address from DHCP Server and able to ping available machines in the network and also able to scan ports and do other nasty things.
+<br>![4](https://teckk2.github.io/assets/images/Cisco/4.PNG)
+<br>![5](https://teckk2.github.io/assets/images/Cisco/5.PNG)
+<br>If you remember I found the TFTP domain name earlier in the settings of VoIP phone, I extracted the IP and found, The network was straightly connecting me to their main office network without any restriction, and there I enumerated other subdomain and some interesting Servers.
+<br>
+<br>**Mitigations to reduce the effectiveness of a Cisco ISE(NAC) bypass.**
+<p>My first step towards gaining access to the network was to gather information from the VoIP phone lying around. Users normally do not need access to such information. Hence access to the network configuration on VoIP phones should be locked down. Also, by default, there is a web service running that gives unauthenticated access to the Cisco VoIP phones’ network configuration. This too should not be available.
+<br>What if an attacker still manages to get access to the network by spoofing the MAC address of a printer? The best practice is to segregate Voice VLAN and Server VLAN. In my case, your organization failed to restrict traffic internally between the two VLANS hence I was able to reach the Server VLAN. The network was completely flat. It stresses the importance of having a firewall in the core layer of the network so as to segregate and restrict traffic going from one VLAN to another.</p>
+<br>Vendors could possibly ping the newly connected device on the network. The TTL response could be a good indicator of the host and operating system.
+<br>**In short, the following mitigations are recommended:**
+<br>  * Lock down access to view network configuration on VoIP phones.
+<br>  * In case an attacker manages to bypass the NAC; a core firewall in the network will help that restricts traffic from Voice VLAN to Data VLAN. Not all traffic should be trusted from Voice VLAN.
+<br>  * Disable the web service on VoIP phones to further restrict users to view network configuration.
+<br>  * There should be a mechanism by the NAC vendors that pings the devices to determine the kind of host that is connected (this technique may be around but may not be known to the NAC administrators).
 
+<p>Cisco also has enhanced their profiling capability citing MAC spoof issue. The details can be found on the below link:
+<br>[https://www.cisco.com/c/en/us/support/docs/security/](https://www.cisco.com/c/en/us/support/docs/security/identity-services-engine-22/200973-configure-anomalous-endpoint-detection-a.html)
+
+
+<p class="message">
+  ~ Hack the World and keep Loving Little Prince.
+</p>
+
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
