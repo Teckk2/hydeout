@@ -4,7 +4,7 @@ title: Bypassing CISCO ISE(NAC)
 categories:
   - Exploits
 ---
-
+<br>Last week I was assigned a project for a Very Big Organization to do a Internal PT, and it was a gray box pentesting, The main objective was to bypass their newly installed Cisco ISE, So I decided to share my experience with you. Let's start from scratch.
 <br>**What is CISCO ISE?**
 <p>Cisco (ISE) – Cisco Identity Services Engine (Cisco ISE) is a next generation identity and access control policy platform that enables enterprises to enforce compliance, enhance infrastructure security, and streamline their service operation.</p>
 
@@ -28,5 +28,9 @@ categories:
 
 <br>**The scenario of the attack and how I bypassed NAC**
 
-<br>I conducted a Gray box Pentesting having only physical access to the target organization and had no prior knowledge of the network/infrastructure or subnet ranges nor had my device whitelisted on the network.
-<br>
+<br>As you know it was a Gray box Pentesting I have only physical access to the target organization and had no prior knowledge of the network/infrastructure or subnet ranges nor had my device whitelisted on the network.
+<br>As every penetration test starts, my first step begins with information gathering. I had nothing but a VoIP phone next to me of an employee who was on leave. I started to look at the settings, and I got the following details:
+ <br> * Call Manager TFTP server IP address
+ <br> * DHCP server IP
+ <br> * Default gateway
+ <br> * MAC Address of VoIP phone, etc
