@@ -30,7 +30,7 @@ categories:
 
 <br>As you know it was a Gray box Pentesting I have only physical access to the target organization and had no prior knowledge of the network/infrastructure or subnet ranges nor had my device whitelisted on the network.
 <br>As every penetration test starts, my first step begins with information gathering. I had nothing but a VoIP phone next to me of an employee who was on leave. I started to look at the settings, and I got the following details:
- <br> * Call Manager TFTP server IP address
- <br> * DHCP server IP
- <br> * Default gateway
- <br> * MAC Address of VoIP phone, etc
+<br> * Call Manager TFTP server IP address
+<br> * DHCP server IP
+<br> * Default gateway
+<br> * MAC Address of VoIP phone, etc
