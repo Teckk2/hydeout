@@ -35,3 +35,11 @@ categories:
 <br> * Default gateway
 <br> * MAC Address of VoIP phone, etc
 <br>![1](https://teckk2.github.io/assets/images/Cisco/1.png)
+<br>![2](https://teckk2.github.io/assets/images/Cisco/2.PNG.png)
+
+<p>I thought to myself, based on what do VoIP phones or network printers get connected on the network. Since VoIP phones and network printers are non dot1x authentication capable devices, they, therefore, cannot have an updated AV signature list and so on. They will definitely need to be whitelisted based on MAC as there is no mechanism for the NAC to assess these kinds of devices. If I spoofed the MAC address, then I should be seen as that VoIP phone by the NAC.</p>
+
+<br>**Dot1x** is a part of the IEEE 802.1 group of protocols. It provides an authentication mechanism to devices wishing to attach to LAN or WAN. IEEE 802.1X defines the encapsulation of the Extensible Authentication Protocol (EAP) over IEEE 802, which is known as “EAP over LAN” or EAPOL.
+
+<p>Getting back to action, I spoofed the MAC address of the VoIP phone on my Windows system to see if my theory worked and found that I was correct. I could access the Voice VLAN IPs and also was able to reach the Server VLAN subnet ranges. This was one of the best NAC solutions around, and I was surprised it could not detect my device as a Windows system.</p>
+
