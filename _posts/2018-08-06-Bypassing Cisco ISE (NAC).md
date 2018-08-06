@@ -59,8 +59,8 @@ categories:
 <br>  * Disable the web service on VoIP phones to further restrict users to view network configuration.
 <br>  * There should be a mechanism by the NAC vendors that pings the devices to determine the kind of host that is connected (this technique may be around but may not be known to the NAC administrators).
 
-<p>Cisco also has enhanced their profiling capability citing MAC spoof issue. The details can be found on the below link:
-<br>[https://www.cisco.com/c/en/us/support/docs/security/](https://www.cisco.com/c/en/us/support/docs/security/identity-services-engine-22/200973-configure-anomalous-endpoint-detection-a.html)</p>
+<p>Cisco also has enhanced their profiling capability citing MAC spoof issue. The details can be found on the below link:</p>
+<br>[https://www.cisco.com/c/en/us/support/docs/security/](https://www.cisco.com/c/en/us/support/docs/security/identity-services-engine-22/200973-configure-anomalous-endpoint-detection-a.html)
 
 
 <p class="message">
