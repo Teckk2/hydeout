@@ -86,31 +86,12 @@ categories:
 </div>
 </font>
 
-<br>Now type **<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airodump-ng wlan0mon** and we will start seeing Wifi APs which is available in our nearby surrounding. 
+<br>Now we can use Wifite, which will automate a lot of stuff for us, using airodump-ng, aireplay-ng and aircrack-ng in the background and will give us our desired result.
+![2](https://teckk2.github.io/assets/images/Wifi/2.PNG)
+<br>Now as we start this tool with **--wep** which we used to search only **WEP** enables devices and **--mac** to randomize our Wlan mac.
 ![3](https://teckk2.github.io/assets/images/Wifi/3.PNG)
-<br>As we can see airodump is giving some usefull information for now let's only focus on our test setup as our ESSID which is **Teck_k2** which I set up for this blog and it's **BSSID(48:F8:B3:76:E6:E4)** which is the mac address of the AP, and it is running on **Channel 5**. It will be interesting if you can learn about Wlan Channels and learn about on which frquency which channel run like **2412Mhz** in channel one, then after the gave of 5 on **2417Mhz** it's channle 2, and so on.. from [Wiki](https://en.wikipedia.org/wiki/List_of_WLAN_channels) And also learn on which country which channle is ban.
-
-<br>Now as we know the required information we can now check and analyse the traffic of our perticular AP and check how many machines are connected to it using Wifi.
-
-<br>**<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airodump-ng --bssid 48:F8:B3:76:E6:E4 --essid Teck_k2 -c 5 wlan0mon**
-
-![4](https://teckk2.github.io/assets/images/Wifi/4.PNG)
-<br>As you can see with our target AP I have connected my another Laptop for testing
-<br>So now we need to capture the connection which is between the client and the AP, and for that we will create a deauth attack and when the client will try to reconnect to it's it will do a 4-way handshake and collect the IVs and that's what we need and later we can crack it, to understand this handshake process you can refer to [wiki](https://en.wikipedia.org/wiki/IEEE_802.11i-2004).
-<br>Now we can do deauth attack on our target AP using **aireplay-ng**
-<br>**<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># aireplay-ng -0 0 -a 48:F8:B3:76:E6:E4 -e Teck_k2 -h 98:22:EF:F0:90:79 wlan0mon**
-
-<br>Where -a we used for BSSID, E is for SSID and -h is for station/client mac address, if we don't specify a client then it will deauth all the connected clients of the target IP and -0 0 is for deauth untill we stop it manually or we can also set the limit like 100 after -0 100 to send limited number of deauth.
-
-<br>before starting the deauth we need to capture the traffic using airodump and write into a file with (-w) flag
-<br>**<font color="red">root@kali</font>:<font color="RoyalBlue">~/Desktop</font># airodump-ng --bssid 48:F8:B3:76:E6:E4 --essid Teck_k2 -c 5 wlan0mon -w WEPCrack**
-
-
-
-
-
-
-
+<br>As soon you see your target **SSID** press ctrl+c and it will ask you for option which target you wanna select and attack based on serial no. and then it will start attacking the target by first capturing the handshake and once the handshake is done, it will start the cracking the password, as you all know WEP algorithm is not that secure, it cracked the Key within 40-Sec.
+<br>**Key-**2627F68597
 
 
 
