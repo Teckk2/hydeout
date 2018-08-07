@@ -12,11 +12,10 @@ categories:
 <br>WEP was introduced in 1999. Within a few years, several security researchers discovered flaws in its design. The "24 additional bits of system-generated data" mentioned above is technically known as the Initialization Vector and proved to be the most critical protocol flaw. With simple and readily available tools, a hacker can determine the WEP key and use it to break into an active Wi-Fi network within a matter of minutes.
 
 <p>Vendor-specific enhancements to WEP like WEP+ and Dynamic WEP were implemented in attempts to patch some of the shortcomings of WEP, but these technologies are also not viable today.</p>
-<br>Let's now setup our lab and for which I am going to use a Linksys08362 or you can use any wifi router which offers WEP/WPA/WPA2/WPA2-Enterprise and we need a Kali, and a Wifi adapter which should have Packet injection capability, And for that I am using TP-Link TL-WN722N.
+<br>Let's now setup our lab and for which I am going to use a Linksys08362 and Linksys47370 or you can use any wifi router which offers WEP/WPA/WPA2/WPA2-Enterprise and we need a Kali, and a Wifi adapter which should have Packet injection capability, And for that I am using TP-Link TL-WN722N.
 
 <br> Go to your Wifi router setting and configure it to WEP,
-![WEP-1](https://teckk2.github.io/assets/images/Wifi/WEP-1.1.png)
-![WEP-2](https://teckk2.github.io/assets/images/Wifi/WEP-2.png)
+![WEP-1](https://teckk2.github.io/assets/images/Wifi/1.1.PNG)
 <br>There you will see two options one to create encryption keys with **40 / 64-bit (10 hex digits)** and one with **104 / 128-bit (26 hex digits)** this is the security feature which they added before WPA was formally adopted in 2003. This option is not available in many routers/old.
 
 <font size="1">
