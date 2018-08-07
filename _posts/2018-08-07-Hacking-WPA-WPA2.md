@@ -20,7 +20,36 @@ categories:
 <p>Currently, the primary security vulnerability to the actual WPA2 system is an obscure one (and requires the attacker to already have access to the secured Wi-Fi network in order to gain access to certain keys and then perpetuate an attack against other devices on the network). As such, the security implications of the known WPA2 vulnerabilities are limited almost entirely to enterprise level networks and deserve little to no practical consideration in regard to home network security.</p>
 
 <p>Unfortunately, the same vulnerability that is the biggest hole in the WPA armor—the attack vector through the Wi-Fi Protected Setup (WPS)—remains in modern WPA2-capable access points. Although breaking into a WPA/WPA2 secured network using this vulnerability requires anywhere from 2-14 hours of sustained effort with a modern computer, it is still a legitimate security concern. WPS should be disabled and, if possible, the firmware of the access point should be flashed to a distribution that doesn’t even support WPS so the attack vector is entirely removed.</p>
-  
- 
-  
-  
+
+<br>Now set-up the lab
+<br>![1](https://teckk2.github.io/assets/images/Wifi/9.PNG)
+<br>Just type **airodump-ng -i wlan0mon**
+<br>And it will start shwoing all the available APs in the evironment across all the channels.
+<br>![2](https://teckk2.github.io/assets/images/Wifi/18.PNG)
+<br>Select your target IP
+<br>![3](https://teckk2.github.io/assets/images/Wifi/11.png)
+<br>Where **-c** is to specify the channel, **--bssid** is to specify the bssid/MAC of the AP, and **-w** is to name the file on which we need to write the captured file.
+<br>![4](https://teckk2.github.io/assets/images/Wifi/12.PNG)
+<br>Under station we can see the connected clients to that AP, in this case that is my Phone.
+<br>Now we will perform a death attack and try to capture the file.
+<br>![5](https://teckk2.github.io/assets/images/Wifi/13.PNG)
+<br>Make sure you send enough deauth packets until we capture the handshake
+<br>![6](https://teckk2.github.io/assets/images/Wifi/14.PNG)
+<br>As you can see we successfully captured the handshake now we can try to crack it using **aircrack-ng**
+<br>![7](https://teckk2.github.io/assets/images/Wifi/15.PNG)
+<br>![8](https://teckk2.github.io/assets/images/Wifi/16.PNG)
+<br>As password was in the list already it was easy to crack, but what if we don't have that password in the dictionary file?
+<br>We can generate our own file and pipe it to aircrack-ng without thinking for storing TB's of password in our machine.
+<br>![9](https://teckk2.github.io/assets/images/Wifi/17.PNG)
+<br>This method of cracking is really time consuming and it depends based on your hardware capability.
+
+
+
+<p class="message">
+  ~ Hack the World and Stay Noob
+</p>
+
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
