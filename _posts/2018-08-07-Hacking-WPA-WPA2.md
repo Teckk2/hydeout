@@ -31,7 +31,7 @@ categories:
 <br>Where **-c** is to specify the channel, **--bssid** is to specify the bssid/MAC of the AP, and **-w** is to name the file on which we need to write the captured file.
 <br>![4](https://teckk2.github.io/assets/images/Wifi/12.PNG)
 <br>Under station we can see the connected clients to that AP, in this case that is my Phone.
-<br>Now we will perform a death attack and try to capture the file.
+<br>Now we will perform a de-auth attack and try to capture the file.
 <br>![5](https://teckk2.github.io/assets/images/Wifi/13.PNG)
 <br>Make sure you send enough deauth packets until we capture the handshake
 <br>![6](https://teckk2.github.io/assets/images/Wifi/14.PNG)
