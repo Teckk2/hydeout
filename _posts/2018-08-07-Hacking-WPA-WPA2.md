@@ -39,7 +39,7 @@ categories:
 <br>![7](https://teckk2.github.io/assets/images/Wifi/15.PNG)
 <br>![8](https://teckk2.github.io/assets/images/Wifi/16.PNG)
 <br>As password was in the list already it was easy to crack, but what if we don't have that password in the dictionary file?
-<br>We can generate our own file and pipe it to aircrack-ng without thinking for storing TB's of password in our machine.
+<br>We can generate our own Password-list and pipe it to aircrack-ng without thinking for storing TB's of password in our machine.
 <br>![9](https://teckk2.github.io/assets/images/Wifi/17.PNG)
 <br>This method of cracking is really time consuming and it depends based on your hardware capability.
 
