@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understand and Creacking WPA/WPA2(Enterprise)
+title: Understand and Cracking WPA/WPA2(Enterprise)
 categories:
   - Wifi Pentesting
 ---
