@@ -5,7 +5,7 @@ categories:
   - Wifi Pentesting
 ---
 
-<br>Hidding your **SSID** will come in best practice but it's not a full prove security measure, an attacker can easily send a de-auth packet and analyse the traffic, and capture the 4 way handshake header, and it will eventually reveal the SSID of the AP.
+<br>Hidding your **SSID** will come in best practice but it's not a full prove security measure, an attacker can easily send a de-auth packet and Identify the hidden SSID of the AP.
 <br>
 <br>Setting up the environment
 <br>![1](https://teckk2.github.io/assets/images/Wifi/4.PNG)
