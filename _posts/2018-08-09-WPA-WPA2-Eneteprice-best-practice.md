@@ -119,6 +119,7 @@ Performance monitoring, and security monitoring.
 <p Class="message">
   
 <br>**Some Key Things to Know while Installing WPA2 Enterprise**
+
 </p>
 
 <br>1) **WPA2-Enterprise deployment** includes installing a RADIUS server (or establishing an outsourced service), configuring access points with the encryption and RADIUS server information, configuring your operating system with the encryption and IEEE 802.1x settings, and then connecting to your secure wireless enterprise.
