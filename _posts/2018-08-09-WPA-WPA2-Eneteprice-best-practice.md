@@ -74,6 +74,39 @@ attacks.
 
 <br>12)	**Manage the APs Out-of-band if possible**: – Access Point should be managed by using out-of-band or a separate VLAN, which could further protect the management interface from attack. 
 
+<br>13)	**Construction of SSID**: - While creating the SSID for the WLAN network there is some key things to know: 
+<br>•	We should not use the name of the company, the address, phone number in the SSID.
+<br>•	We should stick to the things what will not giveaway excess information about whose WLAN the SSID is from. Like “Room 212” is a reasonable SSID as it is not giving too much information.
+<br>•	SSID should not be like “Account Department” as this is not a good choice as it’s telling anyone in the range that exactly what network it is connecting to.
+<br>•	Also avoid using the name of the individuals as this information could lead to a social engineering attack.
+<br>•	Not broadcasting the SSID is not a full proof security measure because an attacker can still obtain the SSID easily using toll like Airodum-ng, etc...
+<br>•	So it is good to keep the SSID something that you do not mind the attacker to know.
+
+<br>14)	**Do no broadcast the SSID**: - Not broadcasting the SSID is not a full proof measure, but cut down the risk on availability of the information. It is a good idea to not broadcast your SSID information and simply configure your corporate clients with the correct information in their profile.
+
+<br>15)	**Monitoring and Logging**: -  
+<br>•	Most of the enterprise level network have mechanism in place for both remote logging and for monitoring of the network device already. 
+<br>•	These may be the same tool, as with a SNMP manager or it may be separate solutions for logging to a syslog server and monitoring health with a SNMP manager
+<br>•	In regards to WLAN, some sort of answer for both requirement is important.
+<br>•	Monitoring health of WLAN in real time can alert you to the problems that is happening.
+<br>•	But being able to refer to logs of past events is often needed to diagnose issues such as persistent authentication failures.
+
+<br>16)	**Wireless (IDS/IPS)**: - There are few Enterprise network which are working without an IDS/IPS for security monitoring. On the other hand, many organizations have deployed some form of IDS(WIDS) or IPS(WIPS) solution to ensure the safety of RF environment for their enterprise class WLAN environment.
+We can deploy WIDS solution in two methods:
+
+<br>•	The Overlay network- Dedicated WIDS sensors needs to deploy that should be separate from the wireless LAN. These sensors will send alert back message to a central manager for event de-duplication and alerting.
+<br>•	The Integrated Solution- The integrated solution uses the AP’s
+themselves as sensors, this saves the cost of a separate sensor network
+deployment and generally uses the same management interface as the
+WLAN management application to monitor security. 
+<br>  * There are a whole range of variable features within these deployment options. 
+<br>  * These include IPS capabilities, Policy based station/AP suppression,
+Performance monitoring, and security monitoring.
+<br>  * Each deployment mode has its own strengths and weaknesses, all of which need to be given careful consideration as part of the evaluation process to ensure the system you select most fully meets your needs.
+
+<br>17)	**Institute a Session timeout**: - We need to set a reasonable session timeout, to help and mitigate the risk of abandoned authenticated session being hijacked.
+
+<br>18)	**Isolation of Wireless Clients**: - Wireless client isolation should be enable, until unless there is a valid business reason to allow wireless station to communicate directly to one another.
 
 
 
