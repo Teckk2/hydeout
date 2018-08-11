@@ -108,6 +108,69 @@ Performance monitoring, and security monitoring.
 
 <br>18)	**Isolation of Wireless Clients**: - Wireless client isolation should be enable, until unless there is a valid business reason to allow wireless station to communicate directly to one another.
 
+<br>19)	**Radius Server Security**: - If your organization authentication infrastructure includes a radius server then there are some security concerns which we need to keep in mind:
+
+<br>•	Use a strong Radius shared secret at least 16-character long.
+<br>•	 Don’t use the same Radius secret for all the devices on the network, either you should set the shared secret as per devices or at minimum per group of devices.
+<br>•	Ensure only the authentication type(s) being used is enabled on the Radius server to help mitigate man-in-the-middle attack.
+
+<br>20)	**Regular security assessment for WLAN**: - We need to make sure a regular security assessment is being performed which should include regular audits of the configurations and security mechanism in WLAN. Make sure to keep up in development of WLAN authentication schemes, and replace schemes that become broken
+
+<p Class="message">
+Some Key Things to Know while Installing WPA2 Enterprise 
+</p>
+
+<br>1) **WPA2-Enterprise deployment** includes installing a RADIUS server (or establishing an outsourced service), configuring access points with the encryption and RADIUS server information, configuring your operating system with the encryption and IEEE 802.1x settings, and then connecting to your secure wireless enterprise.
+
+<br>2) **RADIUS Server Options**: - Once you decide on which of the following RADIUS server options to use, you will set it up in the corresponding EAP, AP, and user settings.
+<br>a) Windows Server - If you have a Windows Server set up, you can use either the Internet Authentication Service (IAS) or the Network Policy Server (NPS).
+<br>b) FreeRADIUS - This server is a free open source project and the preferred choice of advanced IT personnel. It is available for the Linux, Mac OS X, and Windows platforms.
+<br>c) Outsourced Services - If you have multiple offices or lack technical IT expertise, a hosting service is a good option. Many services provide more than just RADIUS server hosting. They can also help with the setup process, do user on-boarding, and provide real-time reporting functionality. In addition, many companies offer mobile applications that make configuring mobile devices quick and painless for Apple iOS, Android, and Kindle Fire users. 
+
+<br>3) **Enterprise Authentication and Communication**: The RADIUS Server and EAP
+The standard for passing EAP over a network is IEEE 802.1x. In this authentication framework, the user who wants to be authenticated is the supplicant. The RADIUS (remote authentication dial-in user service) server doing the authentication is the authentication server, and the device at the AP, such as a laptop or smartphone, is the authenticator.
+<br>**EAP Options**:
+<br>Your EAP choice depends on the level of security you need and your server/client specs. Although there are more than ten EAP types, these three are the most popular:
+<br>a) **PEAP (Protected EAP)** - This protocol authenticates users through the usernames and passwords they enter when connecting to the network. It is one of the easiest EAP types to implement.
+<br>b) **TLS (Transport Layer Security)** - Although this EAP type requires more time to implement and maintain, TLS is very secure because both client and server validation is done with SSL (secure socket layer) certificates. Instead of connecting to the network with usernames and passwords, end-user devices or computers must have an SSL certificate file. You control the certificate authority and distribute the client certificates.
+<br>c) **TTLS (Tunneled TLS)** - This version of TLS doesn't require security certificates and reduces network management time. However, because TTLS doesn't have native support in Microsoft Windows, it requires a third-party client.
+
+<br>The steps for configuring the APs with the encryption and RADIUS server information - and for configuring your operating system with the IEEE 802.1x setting - depend on your server and client specs.
+
+<br>4) **Create a certificate authority (CA)**, so you can issue and install a digital certificate onto the RADIUS server, which may be done as a part of the RADIUS server installation and configuration. Alternatively, you could purchase a digital certificate from a public CA, such as GoDaddy or Verisign, so you don’t have to install the server certificate on all the clients. If using EAP-TLS, you’d also create digital certificates for each end-user.
+
+<br>5)	On the server, populate the RADIUS client database with the IP address and shared secret for each AP.
+
+<br>6)	On the server, populate user data with usernames and passwords for each end-user.
+
+<br>7)	On each AP, configure the security for WPA/WPA2-Enterprise and input the RADIUS server IP address and the shared secret you created for that particular AP.
+
+<br>8)	On each Wi-Fi computer and device, configure the security for WPA/WPA2-Enterprise and set the 802.1X authentication settings.
+
+<p Class="message">
+WPA2-Enterprise Challenges
+</p>
+
+<p>The average WPA2-Enterprise network suffers from some combination of these 4 problems:</p>
+
+<br>1) **DEVICE VARIATION**: - When IEEE created the 802.1X protocol in 2001, there were not a lot of devices that networks had to deal with in regards to wireless access. Since then, the number of device manufacturers has exploded with the rise of mobile computing. To put it in perspective, there are more flavors of Android today than there were entire operating systems in 2001.
+Support for 802.1X is inconsistent across devices, even of the same OS. And each device has unique characteristics that can make them behave unpredictably. This problem is made worse by drivers and software installed on the device.
+
+<br>2) **MITM AND DELIVERING CERTIFICATES**: - While WPA2 sets up a very secure connection, you also have to be sure that the users will only connect to the official network. A secure connection is meaningless if it’s to a honeypot or imposter signal. Institutions often sweep for and detect rogue access points, including Man-in-the-Middle attacks, but users can still be vulnerable off-site. A person with a laptop can quietly gather user credentials at a bus stop, coffee shop, or anywhere devices might pass through and try to auto-connnect.
+<br>Even if the server has a certificate properly configured, there’s no guarantee that users won’t connect to a rouge SSID and accept any certificates presented to them. The best practice is to actually install the public key on the user’s device to automatically verify the certificates presented by the server.
+
+<br>3) **THE PASSWORD CHANGE PROBLEM**: - Networks that have set up passwords to expire on a regular basis face additional burden with WPA2-Enterprise. Each device will lose connectivity until reconfigured. This was less of a burden in eras when each user was only issued one device, but in today’s modern BYOD setting, users have multiple devices which all will want to connect to the internet. Depending on how the password changes are rolled out or the users’ abilities to manage passwords, this can be a burden on some helpdesks.
+<br>It’s even worse on networks that have unexpected password changes due to data breaches or security vulnerabilities. In addition to having to roll out new credentials site-wide, IT has to deal with the influx of help desk tickets related to Wi-Fi.
+
+<br>4) **CHANGING USER EXPECTATION**: - The hardest part about WPA2-Enterprise, by far, is training the users. Users today have incredibly high expectations for ease of use. They also have more options than ever before to work around official access. If the network is too hard to use, they’ll use data. If the certificate is bad, they will ignore it. If they can’t access something they want, they will use a proxy.
+<br>For WPA2-Enterprise to work, you need to make it as easy to use as everything else users out there are used to, without sacrificing security.
 
 
+<p class="message">
+  ~ Hack the World and Stay Noob
+</p>
 
+[Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
+[Teck_N00bs Community Telegram](https://t.me/Teck_N00bs)
+
+<script src="https://www.hackthebox.eu/badge/966"> </script>
