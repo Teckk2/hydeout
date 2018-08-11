@@ -117,7 +117,8 @@ Performance monitoring, and security monitoring.
 <br>20)	**Regular security assessment for WLAN**: - We need to make sure a regular security assessment is being performed which should include regular audits of the configurations and security mechanism in WLAN. Make sure to keep up in development of WLAN authentication schemes, and replace schemes that become broken
 
 <p Class="message">
-Some Key Things to Know while Installing WPA2 Enterprise 
+  
+<br>**Some Key Things to Know while Installing WPA2 Enterprise**
 </p>
 
 <br>1) **WPA2-Enterprise deployment** includes installing a RADIUS server (or establishing an outsourced service), configuring access points with the encryption and RADIUS server information, configuring your operating system with the encryption and IEEE 802.1x settings, and then connecting to your secure wireless enterprise.
@@ -148,7 +149,8 @@ The standard for passing EAP over a network is IEEE 802.1x. In this authenticati
 <br>8)	On each Wi-Fi computer and device, configure the security for WPA/WPA2-Enterprise and set the 802.1X authentication settings.
 
 <p Class="message">
-WPA2-Enterprise Challenges
+  
+<br>**WPA2-Enterprise Challenges**
 </p>
 
 <p>The average WPA2-Enterprise network suffers from some combination of these 4 problems:</p>
