@@ -5,7 +5,8 @@ categories:
   - Wifi Pentesting
 ---
 
-<br>1)	**Policy**: – Before we start designing our network or create our corporate policy we need to make sure some key things in mind: -
+<br>1)	**Policy**: – Before we start designing our network or create our corporate policy we need to make sure some key things in mind: 
+
 <br>•	**Policies on using WLAN**: - First we need to outline appropriate and inappropriate use of WLAN environment and possible outcome for noncompliance. We also need to have an End-User agreement which user should sign and agree upon all the policies for wireless use. And we have to create and mention all the policies like what services a user is permitted to do, Policies on (VPN) and Hot-spot use of the internet access.
 <br>•	**Authorized WLAN installation from different Source**: - In the Policy we need to mention that which part of the organization is authorized to provide WLAN service in the vicinity.
 <br>This will help organization from rouge access point, For Example:  Take a scenario The organization is spread in 3 building blocks A, B and C in which A, B is well connected to the WLAN network, but C is not connected to WLAN access because of some restriction, so if one user of A or B have some work in building C of the organization, and as there is no WLAN access, he may try to host a rouge WLAN access pointing towards C by creating a Hot-Spot and use the same WLAN access in building C also bypassing all the restriction. 
@@ -117,9 +118,7 @@ Performance monitoring, and security monitoring.
 <br>20)	**Regular security assessment for WLAN**: - We need to make sure a regular security assessment is being performed which should include regular audits of the configurations and security mechanism in WLAN. Make sure to keep up in development of WLAN authentication schemes, and replace schemes that become broken
 
 <p Class="message">
-  
-<br>**Some Key Things to Know while Installing WPA2 Enterprise**
-
+Some Key Things to Know while Installing WPA2 Enterprise
 </p>
 
 <br>1) **WPA2-Enterprise deployment** includes installing a RADIUS server (or establishing an outsourced service), configuring access points with the encryption and RADIUS server information, configuring your operating system with the encryption and IEEE 802.1x settings, and then connecting to your secure wireless enterprise.
@@ -150,8 +149,7 @@ The standard for passing EAP over a network is IEEE 802.1x. In this authenticati
 <br>8)	On each Wi-Fi computer and device, configure the security for WPA/WPA2-Enterprise and set the 802.1X authentication settings.
 
 <p Class="message">
-  
-<br>**WPA2-Enterprise Challenges**
+WPA2-Enterprise Challenges
 </p>
 
 <p>The average WPA2-Enterprise network suffers from some combination of these 4 problems:</p>
