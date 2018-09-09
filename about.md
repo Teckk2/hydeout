@@ -9,12 +9,19 @@ sidebar_link: true
 </h1>
 
 I have a keen interest in core Pentesting and Research, Always curious to learn new things especially about wifi and system hacking.
-looking forward to increasing my knowledge in Binary exploitation / Exploit Development. Captain of Teck_N00bs (Ctf team). If you are also curious to learn and to get regular updates for my blogs join my [Teck_N00bs community on telegram](https://t.me/Teck_N00bs)
+looking forward to increasing my knowledge in Binary exploitation / Exploit Development. If you are also curious to learn and to get regular updates for my blogs join my [Teck_N00bs community on telegram](https://t.me/Teck_N00bs)
 <p class="message">
   Certifications
 </p>
 * CEH
 * OSCP
+<p class="message">
+  Teams
+</p>
+* Team Leader of Teck_N00bs (Ctf Team)
+* Reasercher @[Synack Red-Team](https://twitter.com/SynackRedTeam)
+* Team Member @[SnadoTeam](https://twitter.com/SnadoTeam)
+* Team Member @[Rev3rseSecurity](https://twitter.com/rev3rsesecurity)
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
 		<Source src="https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4" type="video/mp4">
