@@ -18,7 +18,7 @@ looking forward to increasing my knowledge in Binary exploitation / Exploit Deve
 <p class="message">
   Teams
 </p>
-* Team Leader of Teck_N00bs (Ctf Team)
+* Team Leader @[Teck_N00bs (Ctf Team)]
 * Reasercher @[Synack Red-Team](https://twitter.com/SynackRedTeam)
 * Team Member @[SnadoTeam](https://twitter.com/SnadoTeam)
 * Team Member @[Rev3rseSecurity](https://twitter.com/rev3rsesecurity)
