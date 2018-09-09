@@ -18,10 +18,13 @@ looking forward to increasing my knowledge in Binary exploitation / Exploit Deve
 <p class="message">
   Teams
 </p>
-* Team Leader @[Teck_N00bs (Ctf Team)]
+* Team Leader @Teck_N00bs (Ctf Team)
 * Reasercher @[Synack Red-Team](https://twitter.com/SynackRedTeam)
+<br> ![Synack](https://teckk2.github.io/assets/images/About/Synack.PNG)
 * Team Member @[SnadoTeam](https://twitter.com/SnadoTeam)
+<br> ![Snado](https://teckk2.github.io/assets/images/About/Snado.PNG)
 * Team Member @[Rev3rseSecurity](https://twitter.com/rev3rsesecurity)
+<br> ![Rev3rse](https://teckk2.github.io/assets/images/About/Rev3rse.PNG)
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
 		<Source src="https://media.giphy.com/media/l4FGF4DVYSeS5oIx2/giphy.mp4" type="video/mp4">
