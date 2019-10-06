@@ -11,14 +11,14 @@ title: Red Teaming
 <br>Now comes the responsibility of a Consultant to Inform and Suggest their clients what Kind of attack can be perforemed in a Proper Red Teaming activity, Now here comes another Interesting Twist, In the Pentesting Community you will find two kind of Interesting Peoples:
 
   * One who are really Passionate about Security and Chose their Passion as a career and earning from that now.
-  * Second who just want to Join Security or Pentesting related work in search of a well paid job, you will find these kind of guys all over the community, it's not that they don't know anything, it's just that they Value Experience over Knowldge and they will be happy to get a 9-5 VAPT job for rest of their life. And if they found someone smaller in age with a good sense of knowledge, they will start pressuring him in multiple ways. This is the Harsh Trusth of our Community and if don't believe this it's your problem bro, It's not my fucking job to make you believe, Just wanted to share my experience :).
+  * Second who just want to Join Security or Pentesting related work in search of a well paid job, you will find these kind of guys all over the community, it's not that they don't know anything, it's just that they Value Experience over Knowldge and they will be happy to get a 9-5 VAPT job for rest of their life. And if they found someone smaller in age with a good sense of knowledge, they will start pressuring him in multiple ways. This is the Harsh Trusth of our Community and if don't believe this then it's your problem bro, It's not my fucking job to make you believe, and whenver I find peoples like this, I don't lose that situation to argue with that and teach them a perfect lesson, I don't fucking care if you are a Manager or ISO or CISO, if you are wrong and not that technically strong just accept that, and if I am wrong I will accept that,No offense Just wanted to share my experience :).
   
 <br>Now Move to our Main topic (**Red Teaming**) in this I will Like to Share the concepts and Staregies we can follow in the activity and Will also like to share Some of my Experience.
 
 <br>Let's start with my personal favourite and most interesting part in a Red Teaming Activity :
 
 
-<br> _**1)**_ **[Physical Breach]**
+<br> _**1)**_ **[Physical Breach](https://teckk2.github.io/red%20teaming/2019/10/06/Physical-Breach.html)**
 
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
