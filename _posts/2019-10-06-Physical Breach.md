@@ -25,7 +25,29 @@ categories:
 
 <br>Now I was sitting on a Desk and I found one employee card and the desk belogs to the same person, I wear that employee ID and turned it to back side so no one can see the picture on the card to identify, Now I have access to any RFID door in the office, I later found that card belogs to the finacce head of the company LoL.
 
-<br>Now time to get inside the network, I removed the cable from the VOIP phone on my desk and connected and after enumerating for some time, I realise that have a NAC, and to bypass I follwed my old method **[Bypassing NAC](https://teckk2.github.io/red%20teaming/2019/10/06/Physical-Breach.html)**, but this time the situation was a bit different, the VOIP phone was totally segrgated on different Vlan, but I found one Printer brodcasting the wifi, and using airmon-ng I got the mac address of that printer, and luckily that printer was part of that network, and I bypassed the NAC and scanned their whole network.
+<br>Now time to get inside the network, I removed the cable from the VOIP phone on my desk and connected and after enumerating for some time, I realise that have a NAC, and to bypass I follwed my old method **[Bypassing NAC](https://teckk2.github.io/red%20teaming/2019/10/06/Physical-Breach.html)**, but this time the situation was a bit different, the VOIP phone was totally segrgated on different Vlan, but I found one Printer brodcasting the wifi, and using airmon-ng I got the mac address of that printer, and luckily that printer was part of that network, and I bypassed the NAC and scanned their whole network and once I scanned everything collected my documments and screenshot, the activty got over and I went out of the office without detecting.
+
+
+<br>Now time for the **Second Client**, as I mentioned earlier it is a holding company so they manage a lot of showrooms in multiple locations and Malls, So the scenario is I need to perform physical breach on their 5 different showrooms in 2 Big Malls in a single day.
+So this time there was no chance of doing enumeration or anything, What all I had was just 1 shot, either I will suceed or fail and they could hand me over to the police, but for that I had a agreement with my client, and they already gave me a immunity papers, in case something goes wrong.
+
+<br>Now before 2 days when I was about to perform the activity I designed and created a New Employe Card which doesn't look similar to the real Employee card, and I Mention my name on that and added the designation of Network Department from their Perental IT Department,
+and put the Perental Company logo in Top front, and Top Back and office address and Phone no. on the Back. 
+
+<br>Everything was ready and I put on my suit again to fool some more people 😜.
+
+<br>**1)** I reached my **First** Target showroom and was successfully able to breach the physical security by showing my fake ID And the reason I mention to visit that office was, Our IT team is facing some issue connecting from there office to HO, But there was one guy in the IT Department there, who connected me on call with IT head before giving me the entry to the office where he asked me for the legitimate email, and I was able to convince him that he will get a Mail shortly from head of IT Secuirty, but within some time he already arranged a person to assist me and gave me network access **Wink-Wink**.
+
+<br>Now I was sitting inside their IT department with full access to their network and without any mail sent to the IT Department, in this activity no malicious payload was executed, I only connected to the network and checked the IP address in order to provide a POC.
+
+Within 5 Min I finish my job and went out and after 10 min I got the call from IT head of that Showroom that he still didn’t receive any Mail from HO IT Department, This shows the Loophole where an attacker can get the access to the network easily without even sending a Valid email to the IT Department.
+
+
+<br>**2** Now move to the **Second** Showroom, I went inside the showroom, on the main entry I noticed one sales computer, and a lady was standing near that, I asked the lady that I am from From HO IT department (showed the ID card form a distance) and want to access this machine, and without doing any more effort the lady got convinced and handed over me the machine, I then tried to plugin a USB device but the USB access was blocked, then I tried to access Internet but there was proxy login enabled.
+
+<br>Once that done, I went ahead and reached the last corner of the showroom, where there was one unattended sales computer was there, I has full access to that machine, but that machine was not connected to the network, but there was one VOIP Phone in the same Desk, I removed the cable and connected to my own laptop to check the connectivity, and shockingly there was one sales guy attending a Customer and walked just in front of me but didn’t ask a single question, and couple of security guys were also standing in a distance where they were able to see me, and didn’t ask a Single question.This is because of Human Phycology, which judge you based on your cloths, if you are wearing a Suite that means you are a Good person. That is what I used it to make this test execute more effectively.
+
+
 
 
 
