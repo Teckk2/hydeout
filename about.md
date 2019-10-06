@@ -14,10 +14,10 @@ looking forward to increasing my knowledge in Binary exploitation / Exploit Deve
 <p class="message">
   Certifications
 </p>
-* CEH
-* OSCP
-* CRTP
-* OSCE
+* CEH (Nov2015-Expired)
+* OSCP (Dec-2017)
+* CRTP (Aug-2019)
+* OSCE (Aug-2019)
 <p class="message">
   Teams
 </p>
