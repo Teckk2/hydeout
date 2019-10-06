@@ -16,6 +16,8 @@ looking forward to increasing my knowledge in Binary exploitation / Exploit Deve
 </p>
 * CEH
 * OSCP
+* CRTP
+* OSCE
 <p class="message">
   Teams
 </p>
