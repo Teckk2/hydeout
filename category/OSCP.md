@@ -77,4 +77,3 @@ I will miss my OSCP labs,Thanx to the _**offensive security**_, **OSCP** was the
   src="https://www.hackthebox.eu/badge/966">
 </script>
 
-<script>alert(123);</script>
