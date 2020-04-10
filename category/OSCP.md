@@ -59,7 +59,6 @@ I will miss my OSCP labs,Thanx to the _**offensive security**_, **OSCP** was the
 
 * Thanks to my _**Family**_ for supporting me throughout this journey.
 * Thanks to my mentor _**KNX**_ for guiding me on the right path.
-* Thanks to my Best Friend _**Nyks**_ for supporting and encouraging me always and standing by my side when there was no one.
 
 <div class="background-wrap">
 	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
