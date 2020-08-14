@@ -24,7 +24,7 @@ So while solving [DIVA](https://github.com/payatu/diva-android) application, I e
 <br>  11) [Access Control Issues – Part 3]()
 <br>  12) [Hardcoding Issues – Part 2]()
 <br>  13) [Input Validation Issues – Part 3]()
-<br>  14) [Binary From Hell]()
+<br>  14) [Binary From Hell 😈]()
 
 <p class="message">
   ~ Hack the World and Stay Noob
