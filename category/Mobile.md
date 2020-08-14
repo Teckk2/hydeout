@@ -11,21 +11,21 @@ title: Mobile
 
 So while solving [DIVA](https://github.com/payatu/diva-android) application, I encouter a serious challange in the last part of the application which is BOF, which KNX named it as a Binary from hell 😂, for more details follow the blog below 😂.
 <br>  0) [Environment setup]()
-<br>  1)[Insecure Logging]()
-<br>  2 [Hardcoding Issues – Part 1]()
-<br>  2) [Insecure Data Storage – Part 1]()
-<br>  3) [Insecure Data Storage – Part 2]()
-<br>  4) [Insecure Data Storage – Part 3]()
-<br>  5) [Insecure Data Storage – Part 4]()
-<br>  6) [Input Validation Issues – Part 1]()
-<br>  7) [Input Validation Issues – Part 2]()
-<br>  8) []()
-<br>  9) []()
-<br>  10) []()
-<br>  11) []()
-<br>  12) []()
-<br>  13) []()
-<br>  14) []()
+<br>  1) [Insecure Logging]()
+<br>  2) [Hardcoding Issues – Part 1]()
+<br>  3) [Insecure Data Storage – Part 1]()
+<br>  4) [Insecure Data Storage – Part 2]()
+<br>  5) [Insecure Data Storage – Part 3]()
+<br>  6) [Insecure Data Storage – Part 4]()
+<br>  7) [Input Validation Issues – Part 1]()
+<br>  8) [Input Validation Issues – Part 2]()
+<br>  9) [Access Control Issues – Part 1]()
+<br>  10) [Access Control Issues – Part 2]()
+<br>  11) [Access Control Issues – Part 3]()
+<br>  12) [Hardcoding Issues – Part 2]()
+<br>  13) [Input Validation Issues – Part 3]()
+<br>  14) [Binary From Hell]()
+
 <p class="message">
   ~ Hack the World and Stay Noob
 </p>
