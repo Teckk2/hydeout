@@ -28,7 +28,7 @@ categories:
 <br>If you remember few steps above we found that the content provider can we queried without any permission, let’s try to open it from adb shell
 <br>[**adb shell content query --uri content://jakhar.aseem.diva.provider.notesprovider/notes**]
 <br>![11-9](https://teckk2.github.io/assets/images/DIVA/11-9.png)
-<br>As you can see we can view all the private notes from the application without providing any pin.
+<br>As you can see we can view all the private notes from the application without providing any pin. 
 
 <p class="message">
   ~ Hack the World and Stay Noob
