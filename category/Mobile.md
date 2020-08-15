@@ -21,7 +21,7 @@ So while solving [DIVA](https://github.com/payatu/diva-android) application, I e
 <br>  8) [Input Validation Issues – Part 2](https://teckk2.github.io/mobile/2020/08/15/DIVA-Input-Validation-Issues-2.html)
 <br>  9) [Access Control Issues – Part 1](https://teckk2.github.io/mobile/2020/08/15/DIVA-Access-Control-Issues-1.html)
 <br>  10) [Access Control Issues – Part 2](https://teckk2.github.io/mobile/2020/08/15/DIVA-Access-Control-Issues-2.html)
-<br>  11) [Access Control Issues – Part 3]()
+<br>  11) [Access Control Issues – Part 3](https://teckk2.github.io/mobile/2020/08/15/DIVA-Access-Control-Issues-3.html)
 <br>  12) [Hardcoding Issues – Part 2]()
 <br>  13) [Input Validation Issues – Part 3]()
 <br>  14) [Binary From Hell 😈]()
