@@ -10,8 +10,8 @@ title: Mobile
 </h1>
 
 So while solving [DIVA](https://github.com/payatu/diva-android) application, I encouter a serious challange in the last part of the application which is BOF, which KNX named it as a Binary from hell 😂, for more details follow the blog below 😂.
-<br>  0) [Environment setup]()
-<br>  1) [Insecure Logging]()
+<br>  0) [Environment setup](https://teckk2.github.io/mobile/2020/08/15/DIVA-Setup.html)
+<br>  1) [Insecure Logging](https://teckk2.github.io/mobile/2020/08/15/DIVA-Insecure_Logging.html)
 <br>  2) [Hardcoding Issues – Part 1]()
 <br>  3) [Insecure Data Storage – Part 1]()
 <br>  4) [Insecure Data Storage – Part 2]()
