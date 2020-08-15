@@ -21,7 +21,7 @@ categories:
 <br>![6-6](https://teckk2.github.io/assets/images/DIVA/6-6.png)
 <br>In /sdcard folder we can see .uinfo.txt as mention in the sourcecode
 <br>![6-7](https://teckk2.github.io/assets/images/DIVA/6-7.png)
-<br>And here is our credential in clear text
+<br>And here is our credential in clear text.
 
 
 <p class="message">
