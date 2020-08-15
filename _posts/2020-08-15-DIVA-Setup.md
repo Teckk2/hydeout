@@ -36,6 +36,14 @@ categories:
 <br>Now download and install the following tools which we could require for latter debugging
 ![0-14](https://teckk2.github.io/assets/images/DIVA/0-14.png)
 
+<br>* apt-get install dex2jar
+<br>* apt-get install jd-gui
+<br>* apt-get install apktool
+<br>* apt-get install abd
+<br>* apt-get install sqlite3
+
+<br> We are done with all the setup now, let's start some action now.
+
 <p class="message">
   ~ Hack the World and Stay Noob
 </p>
