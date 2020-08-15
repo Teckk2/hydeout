@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DIVA - Insecure Logging
+title: DIVA - Hardcoding Issues
 categories:
   - Mobile
 ---
