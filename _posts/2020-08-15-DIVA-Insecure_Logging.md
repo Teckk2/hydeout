@@ -9,7 +9,7 @@ categories:
 <br>![1-1](https://teckk2.github.io/assets/images/DIVA/1-1.png)
 <br>![1-2](https://teckk2.github.io/assets/images/DIVA/1-2.png)
 <br>Now to analyze our logs we will open logcat on the android studio
-<br>[1-3](https://teckk2.github.io/assets/images/DIVA/1-3.png)
+<br>![1-3](https://teckk2.github.io/assets/images/DIVA/1-3.png)
 <br>If we open this we can see the logs the application is feeding with its stack trace when it generates any errors.
 <br>![1-4](https://teckk2.github.io/assets/images/DIVA/1-4.png)
 <br>Let’s feed the application with any random number to create an error
