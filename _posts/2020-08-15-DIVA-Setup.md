@@ -43,7 +43,12 @@ categories:
 <br>• **apt-get install sqlite3**
 
 
-<br> We are done with all the setup, let's do some action now.
+<br> We are done with all the setup, time to do some action now.
+<div class="background-wrap">
+	<video id="video-bg-elem" preload="auto" autoplay="true" loop="loop" muted="muted">
+		<Source src="https://media.giphy.com/media/XgSuqXMnL9x9ZOKnTh/giphy.mp4">
+	</video>
+</div>
 
 <p class="message">
   ~ Hack the World and Stay Noob
