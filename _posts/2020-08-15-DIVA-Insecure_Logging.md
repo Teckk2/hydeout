@@ -38,8 +38,6 @@ categories:
 <br>Toast.makeText(this, "An error occured. Please try again later", 0).show();
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-</div>
-
 <p class="message">
   ~ Hack the World and Stay Noob
 </p>
