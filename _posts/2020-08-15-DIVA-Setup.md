@@ -12,29 +12,29 @@ categories:
 <br>Click on profile or debug APK
 <br>![0-2](https://teckk2.github.io/assets/images/DIVA/0-2.png)
 <br>When you open your APK make sure it install SDK or if doesn’t do itself, just close the project and reopen again, or find a manual way to do it
-![0-3](https://teckk2.github.io/assets/images/DIVA/0-3.png)
+<br>![0-3](https://teckk2.github.io/assets/images/DIVA/0-3.png)
 <br>Now click on No Device and click on Open AVD Manager
-![0-4](https://teckk2.github.io/assets/images/DIVA/0-4.png)
+<br>![0-4](https://teckk2.github.io/assets/images/DIVA/0-4.png)
 <br>Click on Create Virtual Device
-![0-5](https://teckk2.github.io/assets/images/DIVA/0-5.png)
+<br>![0-5](https://teckk2.github.io/assets/images/DIVA/0-5.png)
 <br>Pick the device you want as a virtual device but make sure to select a device without playstore because if you select the device with playstore it won’t allow you to access as root with adb-shell
-![0-6](https://teckk2.github.io/assets/images/DIVA/0-6.png)
+<br>![0-6](https://teckk2.github.io/assets/images/DIVA/0-6.png)
 <br>Click the image which you want to install, in our case we will go with Nougat for stability
 <br>Once the OS is downloaded click the image and proceed to next step
-![0-7](https://teckk2.github.io/assets/images/DIVA/0-7.png)
-![0-8](https://teckk2.github.io/assets/images/DIVA/0-8.png)
+<br>![0-7](https://teckk2.github.io/assets/images/DIVA/0-7.png)
+<br>![0-8](https://teckk2.github.io/assets/images/DIVA/0-8.png)
 <br>Change the name of the Device as per your wish and proceed to finish
-![0-9](https://teckk2.github.io/assets/images/DIVA/0-9.png)
+<br>![0-9](https://teckk2.github.io/assets/images/DIVA/0-9.png)
 <br>Now click launch
 <br>Once we setup the emulator we can see the device showing in our project to be launched
-![0-10](https://teckk2.github.io/assets/images/DIVA/0-10.png)
-![0-11](https://teckk2.github.io/assets/images/DIVA/0-11.png)
+<br>![0-10](https://teckk2.github.io/assets/images/DIVA/0-10.png)
+<br>![0-11](https://teckk2.github.io/assets/images/DIVA/0-11.png)
 <br>And we got the emulator up and running
 <br>If it couldn’t see the DIVA application then you must have missed some steps, try doing it again.
-![0-12](https://teckk2.github.io/assets/images/DIVA/0-12.png)
-![0-13](https://teckk2.github.io/assets/images/DIVA/0-13.png)
+<br>![0-12](https://teckk2.github.io/assets/images/DIVA/0-12.png)
+<br>![0-13](https://teckk2.github.io/assets/images/DIVA/0-13.png)
 <br>Now download and install the following tools which we could require for latter debugging
-![0-14](https://teckk2.github.io/assets/images/DIVA/0-14.png)
+<br>![0-14](https://teckk2.github.io/assets/images/DIVA/0-14.png)
 
 <br>* apt-get install dex2jar
 <br>* apt-get install jd-gui
