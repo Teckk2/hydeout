@@ -22,7 +22,7 @@ categories:
 <br>Now, let’s have a look in the source code which is the reason behind this vulnerability.
 <br>![7-7](https://teckk2.github.io/assets/images/DIVA/7-7.png)
 <br>![7-8](https://teckk2.github.io/assets/images/DIVA/7-8.png)
-<br>This line of code allow the user to retrieve the data from sql query
+<br>This line of code allow the user to retrieve the data from sql query.
 
 
 <p class="message">
