@@ -28,8 +28,11 @@ categories:
 <br>![1-11](https://teckk2.github.io/assets/images/DIVA/1-11.png)
 <br>Again we need to breakdown the file into normal readable text but this time we will use a different toll (jad)
 <br>I guess in new kali 2020 they removed the jad from the repo
-
-
+<br>You can download it from gitlab-[jad](https://gitlab.com/kalilinux/packages/jad)
+<br>![1-12](https://teckk2.github.io/assets/images/DIVA/1-12.png)
+<br>![1-13](https://teckk2.github.io/assets/images/DIVA/1-13.png)
+<br>![1-14](https://teckk2.github.io/assets/images/DIVA/1-14.png)
+<br>This is the piece of code which logs the data of credit card no. from the application in Logcat. 
 
 
 
