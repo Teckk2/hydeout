@@ -16,7 +16,7 @@ categories:
 <br>Now click on No Device and click on Open AVD Manager
 ![0-4](https://teckk2.github.io/assets/images/DIVA/0-4.png)
 <br>Click on Create Virtual Device
-![0-5])(https://teckk2.github.io/assets/images/DIVA/0-5.png)
+![0-5](https://teckk2.github.io/assets/images/DIVA/0-5.png)
 <br>Pick the device you want as a virtual device but make sure to select a device without playstore because if you select the device with playstore it won’t allow you to access as root with adb-shell
 ![0-6](https://teckk2.github.io/assets/images/DIVA/0-6.png)
 <br>Click the image which you want to install, in our case we will go with Nougat for stability
