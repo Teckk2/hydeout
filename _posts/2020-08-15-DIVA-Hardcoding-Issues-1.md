@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DIVA - Hardcoding Issues Part-1
+title: DIVA - Hardcoding Issues - Part 1
 categories:
   - Mobile
 ---
