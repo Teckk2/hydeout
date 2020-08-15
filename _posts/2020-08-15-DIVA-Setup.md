@@ -43,7 +43,7 @@ categories:
 <br>• **apt-get install sqlite3**
 
 
-<br> We are done with all the setup now, let's start some action now.
+<br> We are done with all the setup, let's do some action now.
 
 <p class="message">
   ~ Hack the World and Stay Noob
