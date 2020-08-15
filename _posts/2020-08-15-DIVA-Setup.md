@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DIVA Environment setup
+title: DIVA - Environment setup
 categories:
   - Mobile
 ---
