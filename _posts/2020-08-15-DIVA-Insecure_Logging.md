@@ -32,13 +32,11 @@ categories:
 <br>![1-12](https://teckk2.github.io/assets/images/DIVA/1-12.png)
 <br>![1-13](https://teckk2.github.io/assets/images/DIVA/1-13.png)
 <br>![1-14](https://teckk2.github.io/assets/images/DIVA/1-14.png)
-<br>This is the piece of code which logs the data of credit card no. from the application in Logcat. 
-
-
-
-
-
-
+<br>As you can see this is the piece of code which logs the data of credit card no. from the application in Logcat. 
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Log.e("diva-log", (new StringBuilder()).append("Error while processing transaction with credit card: ").append(edittext.getText().toString()).toString());
+<br>Toast.makeText(this, "An error occured. Please try again later", 0).show();
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 </div>
 
