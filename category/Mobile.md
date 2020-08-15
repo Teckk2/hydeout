@@ -15,7 +15,7 @@ So while solving [DIVA](https://github.com/payatu/diva-android) application, I e
 <br>  2) [Hardcoding Issues – Part 1](https://teckk2.github.io/mobile/2020/08/15/DIVA-Hardcoding-Issues-1.html)
 <br>  3) [Insecure Data Storage – Part 1](https://teckk2.github.io/mobile/2020/08/15/DIVA-Insecure-Data-Storage-1.html)
 <br>  4) [Insecure Data Storage – Part 2](https://teckk2.github.io/mobile/2020/08/15/DIVA-Insecure-Data-Storage-2.html)
-<br>  5) [Insecure Data Storage – Part 3]()
+<br>  5) [Insecure Data Storage – Part 3](https://teckk2.github.io/mobile/2020/08/15/DIVA-Insecure-Data-Storage-3.html)
 <br>  6) [Insecure Data Storage – Part 4]()
 <br>  7) [Input Validation Issues – Part 1]()
 <br>  8) [Input Validation Issues – Part 2]()
