@@ -16,7 +16,7 @@ categories:
 <br>As you can see inside the code we can see the key, let’s try it inside application
 <br>https://teckk2.github.io/assets/images/DIVA/2-4.png
 <br>
-<br>***mükemmel*** As you can see the key worked perfectly and the access has been granted to us.
+<br>***Mükemmel*** As you can see the key worked perfectly and the access has been granted to us.
 
 <p class="message">
   ~ Hack the World and Stay Noob
