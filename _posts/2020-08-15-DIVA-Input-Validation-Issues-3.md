@@ -19,7 +19,7 @@ categories:
 <br>And you will notice the application crashed successfully, basically the challenge finished at this stage, but I decided to go ahead and take a reverse shell, which turn out to be the worst decision for me 😂, as expected Android binary exploitation should similar what you expirience in a normal linux machine, untill unless you are using a ARM based architecture which is slightly different, but that was my mistake to think like that, becasue the application was coustom build and have lot of restriction which I had never experienced, and later as usual my mentor [**KNX**](https://twitter.com/KNX69144506?s=09) came to rescue me from this hell 😂. I have shared my overall experience in the next Blog [Binary from Hell]()
 
 <p class="message">
-  ~ Hack the World and Stay Noob
+  ~ tavşanı sever
 </p>
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
