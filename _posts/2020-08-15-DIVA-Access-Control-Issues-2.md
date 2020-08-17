@@ -29,7 +29,7 @@ categories:
 <br>And it works like a charm, this time it didn’t ask for any PIN and landed us directly to the view credentials.
 
 <p class="message">
-  ~ Hack the World and Stay Noob
+  ~ tavşanı sever
 </p>
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
