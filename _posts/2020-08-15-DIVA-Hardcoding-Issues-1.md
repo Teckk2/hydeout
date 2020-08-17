@@ -14,7 +14,7 @@ categories:
 <br>![2-3](https://teckk2.github.io/assets/images/DIVA/2-3.png)
 <br>_**KEY=**_ "vendorsecretkey"
 <br>As you can see inside the code we can see the key, let’s try it inside application
-<br>https://teckk2.github.io/assets/images/DIVA/2-4.png
+<br>![2-4](https://teckk2.github.io/assets/images/DIVA/2-4.png)
 <br>
 <br>***Mükemmel*** As you can see the key worked perfectly and the access has been granted to us.
 
