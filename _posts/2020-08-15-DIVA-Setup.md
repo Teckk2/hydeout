@@ -51,7 +51,7 @@ categories:
 </div>
 
 <p class="message">
-  ~ Hack the World and Stay Noob
+  ~ tavşanı sever
 </p>
 
 [Twitter](https://twitter.com/Teck__K2) / [Hack The Box](https://www.hackthebox.eu/profile/966) / [CTF Team](https://ctftime.org/team/20102) /
