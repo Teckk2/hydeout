@@ -256,6 +256,34 @@ tuvwxyz{|}~
 <br>&nbsp;&nbsp;}
 <br>});
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>![14-51](https://teckk2.github.io/assets/images/DIVA/14-51.png)
+<br>Now we gave the native address 
+<br>Now I need to find exported functions. I used IDA for this task
+<br>![14-52](https://teckk2.github.io/assets/images/DIVA/14-52.png)
+<br>Select the file
+<br>Then select the correct function
+<br>![14-53](https://teckk2.github.io/assets/images/DIVA/14-53.png)
+<br>![14-54](https://teckk2.github.io/assets/images/DIVA/14-54.png)
+<br>Now we will hook the **Java_jakhar_aseem_diva_DivaJni_initiateLaunchSequence** function
+<br>First of all KNX wrote a script to understand how to interact with the native external library and print the address where it is loaded in memory.
+<br>![14-55](https://teckk2.github.io/assets/images/DIVA/14-55.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {
+<br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var libnative_addr = Module.findBaseAddress("libdivajni.so")
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("libdivajni address is: " + libnative_addr)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;if (libnative_addr) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var string_with_jni_addr = Module.findExportByName("libdivajni.so","Java_jakhar_aseem_diva_DivaJni_initiateLaunchSequence")
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("DivaJni_initiateLaunchSequence address is: " + string_with_jni_addr)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>And it worked perfectly
+<br>Then he created a script that allocates space in memory where to write our string in bytes to trigger the buffer overflow and replace the return value of the function with the pointer to our bytes array just created.
 <br>
 <br>
 <br>
@@ -264,7 +292,6 @@ tuvwxyz{|}~
 <br>
 <br>
 <br>
-<br> 
 <br>
 <br>
 <br>
@@ -272,7 +299,26 @@ tuvwxyz{|}~
 <br>
 <br>
 <br>
-<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <p class="message">
   ~ tavşanı sever
