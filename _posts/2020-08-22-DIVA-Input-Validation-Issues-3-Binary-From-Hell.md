@@ -1064,6 +1064,8 @@ tuvwxyz{|}~
 <br>
 <br>So we are well aware that we didn't really exploit a vulnerability in the application in a native way, but we induced the app to take an input that normally would never have accepted.
 <br>
+<br>You can Follow my mentor KNX blog [**KNXSecurity**](http://knx.404.mn/docs/) and his [**Youtube channel**](https://www.youtube.com/c/DarixDeros/videos) for amazing new methods, tools and techniques.
+<br>
 
 <p class="message">
   ~ tavşanı sever
