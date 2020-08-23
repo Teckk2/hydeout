@@ -3,7 +3,7 @@ layout: category
 title: Mobile
 ---
 
-<p>My recent interest arise in Mobile hacking, specially in mobile binary exploitation which usually people don't talk about, or naybe because of the limitation of application or developers who don't prefer to write the application on C, in this new sectoin of blog I will focus on Android/IOS based application and binary exploitation. </p>
+<p>My recent interest arise in Mobile hacking, specially in mobile binary exploitation which usually people don't talk about, or maybe because of the limitation of application or developers who don't prefer to write the application on C, in this new sectoin of blog I will focus on Android/IOS based application and binary exploitation. </p>
 
 <h1 Class="message">
   Android
