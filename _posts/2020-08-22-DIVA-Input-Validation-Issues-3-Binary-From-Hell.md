@@ -625,8 +625,10 @@ tuvwxyz{|}~
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>In this case we created 2 memory areas, one for our buffer overflow trigger (A*32 + RET) and other for shellcode.
 <br>Yes, we also make executable the shellcode area, and Yes all math operation is right, but it doesn’t work.
+<br>
 <br>Why? Because when we replace our input with our bof trigger, the function GetStringUtfChars exit, and immediately call ReleaseGetStringUtfChars that free the shellcode memory area. The result is when EIP try to jump to shellcode, it lead to a junk memory area.
 <br>We tried a second way, we put shellcode immediately after RET in my buffer trigger string, but unfortunately the buffer is too small.
+<br>
 <br>Now put shellcode in a static memory area
 <br>Finally we choose to overwrite an already exists memory area instead use heap.
 <br>Two possible candidates are:
@@ -711,8 +713,10 @@ tuvwxyz{|}~
 <br>Dump shellcode again, adjust exploit and test it again.
 <br>Ok this is first problem, the second is that if we overwrite binary, when It needs to call libc functions, it doesnt find plt table.
 <br>Third problem is that the shellcode is full of nullbytes.
+<br>
 <br>**Now let’s solve memory area problem**
 <br>As we already told, when function GetStringUTFChars ret, it frees malloc and this cause Jump to bad (corrupted) address, plus the GetStringUTFChars functions are called multilple times, not only for take my input, and everytime it is called, new malloc with shellcode is created.
+<br>
 <br>To solve this problem we changed the logic of program, and create malloc at the beginnig of hook.
 <br>![14-75](https://teckk2.github.io/assets/images/DIVA/14-75.png)
 <br>+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -900,6 +904,7 @@ tuvwxyz{|}~
 <br>Maybe is it the issue?
 <br>Let’s preserve memory area
 <br>Just I done in chapter, instead using malloc memory I overwritten a small section of binary.
+<br>![14-82](https://teckk2.github.io/assets/images/DIVA/14-82.png)
 <br>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
 <br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
@@ -1006,7 +1011,7 @@ tuvwxyz{|}~
 <br>00000063&nbsp;&nbsp;0A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db&nbsp;&nbsp;0x0a
 </p>
 <br>And the final Frida exploit script is
-<br>![14-82](https://teckk2.github.io/assets/images/DIVA/14-82.png)
+<br>![14-83](https://teckk2.github.io/assets/images/DIVA/14-83.png)
 <br>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 <br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
 <br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
@@ -1049,24 +1054,16 @@ tuvwxyz{|}~
 <br>&nbsp;&nbsp;}
 <br>});
 <br>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>![14-84](https://teckk2.github.io/assets/images/DIVA/14-84.png)
+<br>**Conclusion**
 <br>
+<br>We are aware that we cheated!!!!
+<br>There is no way to exploit BOF in Diva input validation part 3 because the function GetStringUtf8Chars calls the function ConvertUtf16ToModifiedUtf8.
 <br>
+<br>Anyway, for the sole purpose of playing and learning how to use Frida, and to pick up some shellcoding and test how a buffer overflow behaves in an android environment, we used the hook "trick" through Frida to replace our input and then simulate our Buffer Overflow.
 <br>
+<br>So we are well aware that we didn't really exploit a vulnerability in the application in a native way, but we induced the app to take an input that normally would never have accepted.
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
 
 <p class="message">
   ~ tavşanı sever
